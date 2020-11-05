@@ -58,7 +58,10 @@ table {
     margin: 10px 0;
 }
 .navmenu li{
-    padding-left:20px
+    margin-bottom: 3px;
+}
+.navmenu.li li{
+    margin-left: 10px;
 }
 .box-sizing::after{
     box-sizing: border-box;
@@ -76,7 +79,7 @@ a{
 /*endsidebar-------*/
 .footer-custome{
     background-color: deeppink;
-    height: 150px;
+    height: 226px;
     color: white;
     padding-top: 32px;
 }

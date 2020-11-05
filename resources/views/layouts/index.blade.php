@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>Mầm non vũ trụ xanh </title>
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -14,11 +14,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="#">
-    <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="keywords"
+          content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
     <link rel="icon" href="..\files\assets\images\favicon.ico" type="image/x-icon">
-    <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\bootstrap\css\bootstrap.min.css">
     <!-- owl carousel css -->
@@ -40,14 +42,14 @@
 </head>
 <body>
 <section class="header-fixed" style="background-color:deeppink;color: white">
-    <div class="container" >
+    <div class="container">
         <div class="navheader" style="clear: both">
             <div class="col-auto">
                 <img src="..\images\logo\logo.png" style="height: 40px;width: 40px">
             </div>
             <div class="col-auto">
                 <nav>
-                    <ul class="navmenu">
+                    <ul class="navmenu li">
                         <li><a href="/">Trang chủ</a></li>
                         <li><a href="{{route('registration.nhaphoc.index')}}">
                                 Đăng ký nhập học
@@ -61,20 +63,27 @@
     </div>
 </section>
 <div class="main-body" style="background-color: white">
-        @yield('index')
+    @yield('index')
 </div>
 <div class="footer-custome" style="">
-    <div class="container-fluid" >
-        <div class="container" style="display:flex;justify-content: space-between">
-            <div>FOOTER CONTENT
-                Here you can use rows and columns here to organize your footer content</div>
-            <div >
-                <ul class="navmenu" style="margin: 0 0">
-                    <li>link1</li>
-                    <li>link1</li>
-                    <li>link1</li>
-                    <li>link1</li>
-                </ul>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-7">
+                    <H4 class="sub-title" style="color: white;margin-bottom: 10px">Đăng ký tham quan</H4>
+                    Hãy để con bạn đến thăm và trải nghiệm miễn phí môi trường giáo dục hữu cơ để phát triển tốt nhất tại Vũ trụ
+                    <br>
+                    <button class="btn btn-success btn-round" style="margin-top: 33px">Đăng ký ngay</button>
+                </div>
+                <div class="col-5">
+                    <H4 class="sub-title" style="color: white;margin-bottom: 10px">Thông tin trường mầm non vũ trụ</H4>
+                    <ul class="navmenu flex-column" style="margin: 0 0px;">
+                        <li>SĐT:02854263673</li>
+                        <li>Địa chỉ: 123 Âu cơ P.Tây thạnh Q. Tân phú</li>
+                        <li>Email:Mamnonvutru@gmail.com</li>
+                        <li>Fax:022364787</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -99,7 +108,8 @@
 <!-- i18next.min.js -->
 <script type="text/javascript" src="..\files\bower_components\i18next\js\i18next.min.js"></script>
 <script type="text/javascript" src="..\files\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js"></script>
-<script type="text/javascript" src="..\files\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js"></script>
+<script type="text/javascript"
+        src="..\files\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js"></script>
 <script type="text/javascript" src="..\files\bower_components\jquery-i18next\js\jquery-i18next.min.js"></script>
 <script src="..\files\assets\js\pcoded.min.js"></script>
 <script src="..\files\assets\js\vartical-layout.min.js"></script>
@@ -121,6 +131,8 @@
 </script>
 @stack('script')
 <footer>
-    <div class="container-fluid text-center" style="background-color: black;color: white;padding: 20px 0">Copyright Mầm non thiên hà</div>
+    <div class="container-fluid text-center" style="background-color: black;color: white;padding: 20px 0">Copyright Mầm
+        non thiên hà
+    </div>
 </footer>
 </html>
