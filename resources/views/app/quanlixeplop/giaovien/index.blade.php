@@ -17,7 +17,8 @@
                                 <a href="/"> <i class="feather icon-home"></i> </a>
                             </li>
                             <li class="breadcrumb-item"><a
-                                    href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">Quản lí xếp lớp cho giáo viên</a>
+                                    href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">Quản lí xếp lớp cho
+                                    giáo viên</a>
                             </li>
                         </ul>
                     </div>
@@ -45,11 +46,10 @@
                                     </thead>
                                 </table>
                             </div>
-                            <div class="modal fade" id="update-modal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog"
-                                 aria-hidden="true">
+                            <div class="modal fade" id="update-modal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog modal-xl" role="document">
-                                    <div class="modal-content " id="container-modal">
-                                        @include('app.quanlixeplop.giaovien.update');
+                                    <div class="modal-content" id="container-modal">
+                                        @include('app.quanlixeplop.giaovien.update')
                                     </div>
                                 </div>
                             </div>

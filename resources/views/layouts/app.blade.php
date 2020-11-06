@@ -39,7 +39,7 @@
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="..\files\assets\pages\data-table\extensions\responsive\css\responsive.dataTables.css">
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\datetimepicker\jquery.datetimepicker.css" >
-    <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\samples\css\samples.css" >
+{{--    <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\samples\css\samples.css" >--}}
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" >
 
 {{--    datetimepicker--}}
@@ -342,9 +342,9 @@
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a href="">
-                                        <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                                        <span class="pcoded-mtext">Quản lí hoạt động</span>
+                                    <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
+                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>
                                     </a>
                                 </li>
                             </ul>
