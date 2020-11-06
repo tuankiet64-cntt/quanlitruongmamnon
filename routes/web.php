@@ -191,9 +191,9 @@ Route::group(
     function () {
         Route::resource('baocaohoatdongGV', 'BaocaoController');
         Route::get('baocaohoatdongGV.getdata', 'BaocaoController@getdata');
-//        Route::get('quanlihoatdong.getdatabyid', 'ActiveController@getdatabyid');
+        Route::get('baocaohoatdongGV.getdatabyid', 'BaocaoController@getdatabyid');
 //        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
-//        Route::post('quanlihoatdong.insert', 'ActiveController@insert');
+        Route::post('baocaohoatdongGV.insert', 'BaocaoController@insert');
 //        Route::post('quanlihoatdong.update', 'ActiveController@update');
     }
 );

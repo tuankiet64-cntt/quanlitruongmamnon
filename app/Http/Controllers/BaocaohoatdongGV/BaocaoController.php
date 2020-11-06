@@ -7,6 +7,7 @@ use App\hoatdong;
 use App\Http\Controllers\Controller;
 use App\lichday;
 use App\lophoc;
+use App\report;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -37,6 +38,7 @@ class BaocaoController extends Controller
             ->get()
             ->toArray();
         $data=[];
+//        dd($hoatdong);
         for($i=0;$i<count($hoatdong);$i++){
             $data[$i]='<div class="card">
                 <div class="card-header d-flex justify-content-between">
@@ -46,7 +48,7 @@ class BaocaoController extends Controller
                             <div class="form-radio">
                                 <div class="radio radio-inline">
                                     <label>
-                                        <input type="radio" name="check" data-id="" id="status" value="1">
+                                        <input type="radio" name="'.$hoatdong[$i]['id'].'" data-id="" id="status" value="1">
                                         <i class="helper"></i>
                                         <span>Đã dạy</span>
 
@@ -56,7 +58,7 @@ class BaocaoController extends Controller
                             <div class="form-radio">
                                 <div class="radio radio-inline">
                                     <label>
-                                        <input type="radio" name="check" data-id="" id="status" value="1">
+                                        <input type="radio" name="'.$hoatdong[$i]['id'].'" data-id="" id="status" value="0">
                                         <i class="helper"></i>
                                         <span>Chưa dạy</span>
                                     </label>
@@ -72,13 +74,13 @@ class BaocaoController extends Controller
                 <div class="card-body">
                     <H4 class="sub-title">Nội dung</H4>
                     <form>
-            <textarea name="editor1" class="editor1" rows="10" cols="80">
+            <textarea name="editor1" class="editor1" id="'.$hoatdong[$i]['id'].'" rows="10" cols="80">
 
             </textarea>
                     </form>
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-primary float-right" title="Lưu lại" id="add-new-area" onclick="createfee()"><i
+                    <button type="button" class="btn btn-primary float-right" title="Lưu lại" id="add-new-area" onclick="report( '.$hoatdong[$i]['id'].')"><i
                             class="fa"></i>Lưu lại
                     </button>
                 </div>
@@ -90,5 +92,52 @@ class BaocaoController extends Controller
         $res=implode(',',$data);
 //        dd($hoatdong,$res);
         return $res;
+    }
+    public function insert(Request $request){
+        $idtk=$request->get('idtk');
+        $idgv=giaovien::where('mataikhoan','=',$idtk)
+            ->select('id')
+            ->first();
+        $idhd=$request->get('idhd');
+        $data=$request->get('data');
+        $status=$request->get('status');
+        $currentday=date('Y-m-d');
+        $check=report::where('idgv','=',$idgv['id'])
+            ->where('idhd','=',$idhd)
+            ->where('created_at','>=',$currentday)
+            ->first();
+        if($check!=null){
+            $update=report::where('id','=',$check['id'])->first();
+            $update->status=$status;
+            $update->noidung=$data;
+            if($update->save()){
+                return 1;
+            }else{
+                return 0;
+            }
+        }else{
+            $new=new report;
+            $new->idgv=$idgv['id'];
+            $new->idhd=$idhd;
+            $new->status=$status;
+            $new->noidung=$data;
+            if($new->save()){
+                return 1;
+            }else{
+                return 0;
+            }
+        }
+
+    }
+    public function getdatabyid(Request $request){
+        $idtk=$request->get('idtk');
+        $currentday=date('Y-m-d');
+        $idgv=giaovien::where('mataikhoan','=',$idtk)
+            ->select('id')
+            ->first();
+        $data=report::where('idgv','=',$idgv['id'])
+            ->where('created_at','>=',$currentday)
+            ->get()->toArray();
+        return $data;
     }
 }
