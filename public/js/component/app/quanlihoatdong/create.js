@@ -18,6 +18,7 @@ function create() {
     let ten=$('#name-active').val(),
         type=$('#type-active').val(),
         note=$('#note-active').val(),
+        nametype = $('#type-active option:selected').text(),
         checkten=checkRequire('Tên',ten),
         ngayday=[];
     if(checkten==false){
@@ -26,10 +27,15 @@ function create() {
     $.each($('input[type=checkbox]:checked'),function (index,value) {
         ngayday[index]=$(this).val()
     })
+    if(ngayday==null||ngayday==''){
+        text='Vui lòng chọn ngày dạy';
+        ErrorNotify(text);
+        return false
+    }
     $.ajax({
         type:'post',
         url:'/quanlihoatdong.insert',
-        data:{ten:ten,type:type,ngayday:ngayday,note:note}
+        data:{nametype:nametype,ten:ten,type:type,ngayday:ngayday,note:note}
     }).then(function (res) {
         if(res==1){
             text='Đã tạo hoạt động thành công';

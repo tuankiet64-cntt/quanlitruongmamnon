@@ -180,8 +180,9 @@ Route::group(
     function () {
         Route::resource('quanlihoatdong', 'ActiveController');
         Route::get('quanlihoatdong.getdata', 'ActiveController@getdata');
+        Route::get('quanlihoatdong.getdatabyid', 'ActiveController@getdatabyid');
         Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
         Route::post('quanlihoatdong.insert', 'ActiveController@insert');
-//        Route::post('cackhoangphi.update', 'FeeController@update');
+        Route::post('quanlihoatdong.update', 'ActiveController@update');
     }
 );

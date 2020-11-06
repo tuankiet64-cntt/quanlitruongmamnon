@@ -23,6 +23,7 @@ class ActiveController extends Controller
     public function getdata()
     {
         $data=hoatdong::join('danhmuclop as dm','dm.id','iddm')
+            ->select('hoatdong.id','tenhoatdong','ngaygiangday','ghichu','loptuoi')
             ->get()->toArray();
         return DataTables::of($data)
 //            ->addColumn('sotien', function ($row) {
@@ -45,7 +46,7 @@ class ActiveController extends Controller
             })
             ->addColumn('action', function ($row) {
                 return '<div class="btn-group btn-group-sm">
-                            <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="openModalUpdate(' . $row['id'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-pencil"></span></button>
+                            <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="OpenModalupdate(' . $row['id'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-pencil"></span></button>
                         </div>';
 
             })
@@ -68,6 +69,7 @@ class ActiveController extends Controller
         $iddm=$request->get('type');
         $datadate=$request->get('ngayday');
         $note=$request->get('note');
+        $nametype=$request->get('nametype');
         $ngayday=implode(',',$datadate);
         try {
             $new=new hoatdong;
@@ -80,10 +82,40 @@ class ActiveController extends Controller
         }catch (\Illuminate\Database\QueryException  $e) {
             $errorCode = $e->errorInfo[1];
             if ($errorCode == 1062) {
-                return 'Hoạt động ' . $ten . ' đã tòn tại';
+                return 'Hoạt động ' . $ten . ' của lớp '.$nametype.' đã tòn tại';
             }
             return $e;
         }
 
+    }
+    public function getdatabyid(Request $request){
+        $id=$request->get('id');
+        $data=hoatdong::where('id','=',$id)->first();
+        $data['ngaygiangday']=explode(',',$data['ngaygiangday']);
+        return $data;
+    }
+    public function update(Request $request){
+        $id=$request->get('id');
+        $ten=$request->get('ten');
+        $iddm=$request->get('type');
+        $datadate=$request->get('ngayday');
+        $note=$request->get('note');
+        $nametype=$request->get('nametype');
+        $ngayday=implode(',',$datadate);
+        try {
+            $new=hoatdong::where('id','=',$id)->first();
+            $new->iddm=$iddm;
+            $new->tenhoatdong=ucwords($ten);
+            $new->ngaygiangday=$ngayday;
+            $new->ghichu=$note;
+            $new->save();
+            return 1;
+        }catch (\Illuminate\Database\QueryException  $e) {
+            $errorCode = $e->errorInfo[1];
+            if ($errorCode == 1062) {
+                return 'Hoạt động ' . $ten . ' của lớp '.$nametype.' đã tòn tại';
+            }
+            return $e;
+        }
     }
 }
