@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 04, 2020 lúc 12:11 PM
+-- Thời gian đã tạo: Th10 06, 2020 lúc 03:59 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.31
 
@@ -231,7 +231,10 @@ CREATE TABLE `hoatdong` (
 --
 
 INSERT INTO `hoatdong` (`id`, `iddm`, `tenhoatdong`, `ngaygiangday`, `ghichu`, `created_at`, `updated_at`) VALUES
-(1, 3, 'Âm nhạc', '2,3,4,5', 'Hát ca', NULL, NULL);
+(1, 3, 'Âm Nhạc', '2,3,4,5,2,3,4,5,6', 'Hát ca', NULL, '2020-11-06 02:48:53'),
+(3, 2, 'Âm nhạc', '', NULL, NULL, NULL),
+(9, 4, 'Âm Nhạc', '1,6', NULL, '2020-11-06 02:22:54', '2020-11-06 02:22:54'),
+(10, 2, 'Hát Ca', '1,2', NULL, '2020-11-06 02:23:22', '2020-11-06 02:23:22');
 
 -- --------------------------------------------------------
 
@@ -569,7 +572,7 @@ ALTER TABLE `giaovien`
 --
 ALTER TABLE `hoatdong`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `hoatdong_iddm_foreign` (`iddm`);
+  ADD UNIQUE KEY `UQ_active` (`iddm`,`tenhoatdong`);
 
 --
 -- Chỉ mục cho bảng `hocsinh`
@@ -684,7 +687,7 @@ ALTER TABLE `giaovien`
 -- AUTO_INCREMENT cho bảng `hoatdong`
 --
 ALTER TABLE `hoatdong`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `hocsinh`
