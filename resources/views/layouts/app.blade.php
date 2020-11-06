@@ -39,6 +39,8 @@
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="..\files\assets\pages\data-table\extensions\responsive\css\responsive.dataTables.css">
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\datetimepicker\jquery.datetimepicker.css" >
+    <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\samples\css\samples.css" >
+    <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" >
 
 {{--    datetimepicker--}}
     <!-- Sweetalert.css -->
@@ -379,6 +381,12 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li class="">
+                                    <a href="{{route('quanlihoatdong.quanlihoatdong.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
+                                        <span class="pcoded-mtext">Quản lí hoạt động lớp</span>
+                                    </a>
+                                </li>
                                 <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
@@ -461,6 +469,12 @@
                                     <a href="{{route('quanlihoatdong.quanlihoatdong.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
                                         <span class="pcoded-mtext">Quản lí hoạt động lớp</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
+                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>
                                     </a>
                                 </li>
                                 <li class="">
@@ -554,6 +568,8 @@
     <script src="..\files\bower_components\datetimepicker\build\jquery.datetimepicker.full.min.js"></script>
     <script type="text/javascript" src="..\files\bower_components\select2\js\select2.full.min.js"></script>
     <script type="text/javascript" src="..\files\bower_components\multiselect\js\jquery.multi-select.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\ckeditor\ckeditor.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\ckeditor\samples\js\sample.js"></script>
     <script type="text/javascript" src="..\files\assets\pages\advance-elements\select2-custom.js"></script>
     @stack('script')
     <script type="text/javascript">
