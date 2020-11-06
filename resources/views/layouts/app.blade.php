@@ -39,7 +39,7 @@
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="..\files\assets\pages\data-table\extensions\responsive\css\responsive.dataTables.css">
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\datetimepicker\jquery.datetimepicker.css" >
-{{--    <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\samples\css\samples.css" >--}}
+    <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\plugins\cloudservices\plugin.js" >
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" >
 
 {{--    datetimepicker--}}
@@ -569,6 +569,7 @@
     <script type="text/javascript" src="..\files\bower_components\select2\js\select2.full.min.js"></script>
     <script type="text/javascript" src="..\files\bower_components\multiselect\js\jquery.multi-select.js"></script>
     <script type="text/javascript" src="..\files\bower_components\ckeditor\ckeditor.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\ckeditor\adapters\jquery.js"></script>
     <script type="text/javascript" src="..\files\bower_components\ckeditor\samples\js\sample.js"></script>
     <script type="text/javascript" src="..\files\assets\pages\advance-elements\select2-custom.js"></script>
     @stack('script')

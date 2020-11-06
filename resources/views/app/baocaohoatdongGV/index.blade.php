@@ -30,44 +30,9 @@
             </div>
         </div>
         <div class="page-body">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                    <H4 class="d-flex flex-row">
-                        <span class="sub-title">Báo cáo môn:</span>
-                        <div class="m-l-2 d-flex flex-row" style="margin: -7px 14px;">
-                            <div class="form-radio">
-                                <div class="radio radio-inline">
-                                    <label>
-                                        <input type="radio" name="check" data-id="" id="status" value="1">
-                                        <i class="helper"></i>
-                                        <span>Đã dạy</span>
+            <input type="text" class="d-none" id="idgv" value="{{auth()->id()}}">
+            <div class="container" id="content">
 
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-radio">
-                                <div class="radio radio-inline">
-                                    <label>
-                                        <input type="radio" name="check" data-id="" id="status" value="1">
-                                        <i class="helper"></i>
-                                        <span>Chưa dạy</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </H4>
-                    <h3 id="name-sb"><span>
-                            Âm nhạc
-                        </span>
-                    </h3>
-                </div>
-                <div class="card-body">
-                    <H4 class="sub-title">Nội dung</H4>
-                    <form>
-            <textarea name="editor1" id="editor1" rows="10" cols="80">
-            </textarea>
-                    </form>
-                </div>
             </div>
         </div>
         @push('script')
