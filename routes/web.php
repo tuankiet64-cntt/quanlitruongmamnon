@@ -181,7 +181,7 @@ Route::group(
         Route::resource('quanlihoatdong', 'ActiveController');
         Route::get('quanlihoatdong.getdata', 'ActiveController@getdata');
         Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
-//        Route::post('password.update', 'ChangepasswordController@update');
+        Route::post('quanlihoatdong.insert', 'ActiveController@insert');
 //        Route::post('cackhoangphi.update', 'FeeController@update');
     }
 );

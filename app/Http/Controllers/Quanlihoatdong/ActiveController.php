@@ -32,8 +32,9 @@ class ActiveController extends Controller
 //                return '<label class="text-center">' . date("m-Y", strtotime($row['thangapdung'])) . '</label>';
 //            })
             ->addColumn('lichday', function ($row) {
-                $data=explode(',',$row['ngaygiangday']);
-                if ($data!= null) {
+                if ($row['ngaygiangday']!= null) {
+                    $data=explode(',',$row['ngaygiangday']);
+
                     for($i=0;$i<count($data);$i++){
                         $data[$i]='Thứ'.' '.($data[$i]+1);
                     }
@@ -61,5 +62,28 @@ class ActiveController extends Controller
             $res[$i]='<option value="'.$data[$i]['id'].'">'.$data[$i]['loptuoi'].'</option>';
         }
         return implode(',',$res);
+    }
+    public function insert(Request $request){
+        $ten=$request->get('ten');
+        $iddm=$request->get('type');
+        $datadate=$request->get('ngayday');
+        $note=$request->get('note');
+        $ngayday=implode(',',$datadate);
+        try {
+            $new=new hoatdong;
+            $new->iddm=$iddm;
+            $new->tenhoatdong=ucwords($ten);
+            $new->ngaygiangday=$ngayday;
+            $new->ghichu=$note;
+            $new->save();
+            return 1;
+        }catch (\Illuminate\Database\QueryException  $e) {
+            $errorCode = $e->errorInfo[1];
+            if ($errorCode == 1062) {
+                return 'Hoạt động ' . $ten . ' đã tòn tại';
+            }
+            return $e;
+        }
+
     }
 }

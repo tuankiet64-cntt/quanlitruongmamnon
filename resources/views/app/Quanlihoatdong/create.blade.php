@@ -6,11 +6,11 @@
         <div class="container">
             <div class="form-group">
                 <label class="sub-title">Tên Hoạt động</label>
-                <input type="text" class="form-control" id="name-fee">
+                <input type="text" class="form-control" id="name-active">
             </div>
             <div class="form-group">
                 <label class="sub-title">Loại lớp</label>
-                <select class="form-control"  id="type-class">
+                <select class="form-control"  id="type-active">
                 </select>
             </div>
             <div class="form-group">
@@ -72,14 +72,14 @@
             </div>
             <div class="form-group">
                 <label class="sub-title">Ghi chú</label>
-                <input type="text" class="form-control" id="note-fee">
+                <input type="text" class="form-control" id="note-active">
             </div>
         </div>
     </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" onclick="CloseModalCreate()">Đóng</button>
-    <button type="button" class="btn btn-primary buttonload" title="Lưu lại" id="add-new-area" onclick="createfee()"><i
+    <button type="button" class="btn btn-primary buttonload" title="Lưu lại" id="add-new-area" onclick="create()"><i
             class="fa"></i>Lưu lại
     </button>
 </div>
