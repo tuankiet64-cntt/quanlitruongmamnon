@@ -13,6 +13,7 @@
                 <select class="form-control"  id="type-active">
                 </select>
             </div>
+
             <div class="form-group">
                 <label class="sub-title">Ngày trong tuần</label>
                 <div class="d-flex justify-content-around">
@@ -69,6 +70,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="form-group">
+                <label class="sub-title">Ngày kết thúc</label>
+                <input class="datetimepicker form-control" id="ngaykethuc" type="text" >
             </div>
             <div class="form-group">
                 <label class="sub-title">Ghi chú</label>

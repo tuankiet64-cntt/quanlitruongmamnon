@@ -1,3 +1,6 @@
+$('#create-modal').on('shown.bs.modal', function () {
+    configdatetime($('.datetimepicker'),$(this))
+})
 function OpenModalCreate() {
     $('#create-modal').modal('show')
     getloptuoi()
@@ -18,6 +21,7 @@ function create() {
     let ten=$('#name-active').val(),
         type=$('#type-active').val(),
         note=$('#note-active').val(),
+        dayend=$('#ngaykethuc').val(),
         nametype = $('#type-active option:selected').text(),
         checkten=checkRequire('Tên',ten),
         ngayday=[];
@@ -35,7 +39,7 @@ function create() {
     $.ajax({
         type:'post',
         url:'/quanlihoatdong.insert',
-        data:{nametype:nametype,ten:ten,type:type,ngayday:ngayday,note:note}
+        data:{dayend:dayend,nametype:nametype,ten:ten,type:type,ngayday:ngayday,note:note}
     }).then(function (res) {
         if(res==1){
             text='Đã tạo hoạt động thành công';

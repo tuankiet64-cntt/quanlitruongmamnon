@@ -23,15 +23,15 @@ class ActiveController extends Controller
     public function getdata()
     {
         $data=hoatdong::join('danhmuclop as dm','dm.id','iddm')
-            ->select('hoatdong.id','tenhoatdong','ngaygiangday','ghichu','loptuoi')
+            ->select('hoatdong.id','tenhoatdong','ngaygiangday','ghichu','loptuoi','ngayketthuc')
             ->get()->toArray();
         return DataTables::of($data)
 //            ->addColumn('sotien', function ($row) {
 //                return '<label class="text-center">' . number_format($row['sotien']) . '</label>';
 //            })
-//            ->addColumn('thangapdung', function ($row) {
-//                return '<label class="text-center">' . date("m-Y", strtotime($row['thangapdung'])) . '</label>';
-//            })
+            ->addColumn('ngayketthuc', function ($row) {
+                return '<label class="text-center">' . date("d-m-Y", strtotime($row['ngayketthuc'])) . '</label>';
+            })
             ->addColumn('lichday', function ($row) {
                 if ($row['ngaygiangday']!= null) {
                     $data=explode(',',$row['ngaygiangday']);
@@ -51,7 +51,7 @@ class ActiveController extends Controller
 
             })
             ->addIndexColumn()
-            ->rawColumns(['action','lichday'])
+            ->rawColumns(['action','lichday','ngayketthuc'])
             ->make();
     }
     public function getdataloptuoi(){
@@ -70,12 +70,14 @@ class ActiveController extends Controller
         $datadate=$request->get('ngayday');
         $note=$request->get('note');
         $nametype=$request->get('nametype');
+        $dayend=$request->get('dayend');
         $ngayday=implode(',',$datadate);
         try {
             $new=new hoatdong;
             $new->iddm=$iddm;
             $new->tenhoatdong=ucwords($ten);
             $new->ngaygiangday=$ngayday;
+            $new->ngaykethuc=date("Y-m-d", strtotime($dayend));
             $new->ghichu=$note;
             $new->save();
             return 1;
@@ -92,6 +94,8 @@ class ActiveController extends Controller
         $id=$request->get('id');
         $data=hoatdong::where('id','=',$id)->first();
         $data['ngaygiangday']=explode(',',$data['ngaygiangday']);
+        $data['ngayketthuc']=date("d-m-Y", strtotime($data['ngayketthuc']));
+//        dd($data);
         return $data;
     }
     public function update(Request $request){
@@ -100,6 +104,7 @@ class ActiveController extends Controller
         $iddm=$request->get('type');
         $datadate=$request->get('ngayday');
         $note=$request->get('note');
+        $dayend=$request->get('dayend');
         $nametype=$request->get('nametype');
         $ngayday=implode(',',$datadate);
         try {
@@ -107,6 +112,7 @@ class ActiveController extends Controller
             $new->iddm=$iddm;
             $new->tenhoatdong=ucwords($ten);
             $new->ngaygiangday=$ngayday;
+            $new->ngayketthuc=date("Y-m-d", strtotime($dayend));
             $new->ghichu=$note;
             $new->save();
             return 1;

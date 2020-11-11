@@ -71,6 +71,10 @@
                 </div>
             </div>
             <div class="form-group">
+                <label class="sub-title">Ngày kết thúc</label>
+                <input class="datetimepicker form-control" id="ngaykethuc-update" type="text" >
+            </div>
+            <div class="form-group">
                 <label class="sub-title">Ghi chú</label>
                 <input type="text" class="form-control" id="note-active-update">
             </div>

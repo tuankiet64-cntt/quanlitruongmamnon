@@ -25,6 +25,7 @@ class BaocaoController extends Controller
     public function getdata(Request $request){
         $idtk=$request->get('id');
         $now = new \DateTime();
+        $currentday=date('Y-m-d');
         $day = $now->format('N');
         $idgv=giaovien::where('mataikhoan','=',$idtk)
             ->select('id')
@@ -35,8 +36,10 @@ class BaocaoController extends Controller
             ->first();
         $hoatdong=hoatdong::where('iddm','=',$loptuoi['madanhmuclop'])
             ->where('ngaygiangday','like','%'.$day.'%')
+            ->where('ngayketthuc','>=',$currentday)
             ->get()
             ->toArray();
+//        dd($hoatdong,$currentday);
         $data=[];
 //        dd($hoatdong);
         for($i=0;$i<count($hoatdong);$i++){

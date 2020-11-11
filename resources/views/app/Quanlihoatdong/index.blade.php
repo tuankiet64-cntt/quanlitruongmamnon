@@ -46,6 +46,7 @@
                         {{--                        <th>Hộ khẩu</th>--}}
                         <th>Loại lớp</th>
                         <th>Ngày trong tuần</th>
+                        <th>Ngày kết thúc</th>
                         <th>Ghi chú</th>
                         <th>Chức năng</th>
                         </thead>

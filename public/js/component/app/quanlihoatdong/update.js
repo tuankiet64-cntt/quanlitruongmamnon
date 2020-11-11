@@ -1,5 +1,7 @@
 let $idold = '';
-
+$('#update-modal').on('shown.bs.modal', function () {
+    configdatetime($('.datetimepicker'),$(this))
+})
 function OpenModalupdate(id, r) {
     $('#update-modal').modal('show')
     $idold = id;
@@ -13,6 +15,7 @@ function OpenModalupdate(id, r) {
         $('#name-active-update').val(res['tenhoatdong'])
         $('#type-active-update').val(res['iddm']).trigger('change')
         $('#note-active-update').val(res['ghichu'])
+        $('#ngaykethuc-update').val(res['ngayketthuc'])
         $.each(res['ngaygiangday'], function (index, v) {
             $('input[type=checkbox][value=' + v + ']').prop('checked', true)
         })
@@ -38,6 +41,7 @@ function update() {
         type = $('#type-active-update').val(),
         nametype = $('#type-active-update option:selected').text(),
         note = $('#note-active-update').val(),
+        dayend=$('#ngaykethuc-update').val(),
         checkten = checkRequire('Tên', ten),
         ngayday = [];
     if (checkten == false) {
@@ -54,7 +58,7 @@ function update() {
     $.ajax({
         type: 'post',
         url: '/quanlihoatdong.update',
-        data: {nametype:nametype,id: $idold, ten: ten, type: type, ngayday: ngayday, note: note}
+        data: {dayend:dayend,nametype:nametype,id: $idold, ten: ten, type: type, ngayday: ngayday, note: note}
     }).then(function (res) {
         if (res == 1) {
             text = 'Đã tạo hoạt động thành công';
