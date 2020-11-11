@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <title>Trường mầm non vũ trụ</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,11 +15,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="#">
-    <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="keywords"
+          content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
     <link rel="icon" href="..\files\assets\images\favicon.ico" type="image/x-icon">
-    <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\bootstrap\css\bootstrap.min.css">
     <!-- themify-icons line icon -->
@@ -34,16 +36,20 @@
     <!-- Style.css -->
 
     <link rel="stylesheet" type="text/css" href="..\files\assets\css\jquery.mCustomScrollbar.css">
-    <link rel="stylesheet" type="text/css" href="..\files\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="..\files\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css">
     <link rel="stylesheet" type="text/css" href="..\files\assets\pages\data-table\css\buttons.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="..\files\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css">
-    <link rel="stylesheet" type="text/css" href="..\files\assets\pages\data-table\extensions\responsive\css\responsive.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="..\files\bower_components\datetimepicker\jquery.datetimepicker.css" >
-    <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\plugins\cloudservices\plugin.js" >
-    <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" >
+    <link rel="stylesheet" type="text/css"
+          href="..\files\bower_components\datatables.net-responsive-bs4\css\responsive.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="..\files\assets\pages\data-table\extensions\responsive\css\responsive.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="..\files\bower_components\datetimepicker\jquery.datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\plugins\cloudservices\plugin.js">
+    <link rel="stylesheet" type="text/css"
+          href="..\files\bower_components\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css">
 
 {{--    datetimepicker--}}
-    <!-- Sweetalert.css -->
+<!-- Sweetalert.css -->
     <link rel="stylesheet" type="text/css"
           href="..\files\bower_components\sweetalert\css\sweetalert.css">
     <link rel="stylesheet" type="text/css"
@@ -115,7 +121,8 @@
                                 <div class="input-group">
                                     <span class="input-group-addon search-close"><i class="feather icon-x"></i></span>
                                     <input type="text" class="form-control">
-                                    <span class="input-group-addon search-btn"><i class="feather icon-search"></i></span>
+                                    <span class="input-group-addon search-btn"><i
+                                            class="feather icon-search"></i></span>
                                 </div>
                             </div>
                         </li>
@@ -132,37 +139,47 @@
                                     <i class="feather icon-bell"></i>
                                     <span class="badge bg-c-pink">5</span>
                                 </div>
-                                <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn"
+                                    data-dropdown-out="fadeOut">
                                     <li>
                                         <h6>Notifications</h6>
                                         <label class="label label-danger">New</label>
                                     </li>
                                     <li>
                                         <div class="media">
-                                            <img class="d-flex align-self-center img-radius" src="..\files\assets\images\avatar-4.jpg" alt="Generic placeholder image">
+                                            <img class="d-flex align-self-center img-radius"
+                                                 src="..\files\assets\images\avatar-4.jpg"
+                                                 alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">John Doe</h5>
-                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
+                                                    elit.</p>
                                                 <span class="notification-time">30 minutes ago</span>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="media">
-                                            <img class="d-flex align-self-center img-radius" src="..\files\assets\images\avatar-3.jpg" alt="Generic placeholder image">
+                                            <img class="d-flex align-self-center img-radius"
+                                                 src="..\files\assets\images\avatar-3.jpg"
+                                                 alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">Joseph William</h5>
-                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
+                                                    elit.</p>
                                                 <span class="notification-time">30 minutes ago</span>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="media">
-                                            <img class="d-flex align-self-center img-radius" src="..\files\assets\images\avatar-4.jpg" alt="Generic placeholder image">
+                                            <img class="d-flex align-self-center img-radius"
+                                                 src="..\files\assets\images\avatar-4.jpg"
+                                                 alt="Generic placeholder image">
                                             <div class="media-body">
                                                 <h5 class="notification-user">Sara Soudein</h5>
-                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer
+                                                    elit.</p>
                                                 <span class="notification-time">30 minutes ago</span>
                                             </div>
                                         </div>
@@ -181,16 +198,18 @@
                         <li class="user-profile header-notification">
                             <div class="dropdown-primary dropdown">
                                 <div class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="..\files\assets\images\avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                                    <img src="..\files\assets\images\avatar-4.jpg" class="img-radius"
+                                         alt="User-Profile-Image">
                                     <span>{{Auth::user()->name}}</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </div>
-                                <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-{{--                                    <li>--}}
-{{--                                        <a href="#!">--}}
-{{--                                            <i class="feather icon-settings"></i> Settings--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
+                                <ul class="show-notification profile-notification dropdown-menu"
+                                    data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                    {{--                                    <li>--}}
+                                    {{--                                        <a href="#!">--}}
+                                    {{--                                            <i class="feather icon-settings"></i> Settings--}}
+                                    {{--                                        </a>--}}
+                                    {{--                                    </li>--}}
                                     <li>
                                         <a href="{{route('user.user.index')}}">
                                             <i class="feather icon-user"></i> Thông tin cá nhân
@@ -201,11 +220,11 @@
                                             <i class="feather icon-settings"></i> Đổi mật khẩu
                                         </a>
                                     </li>
-{{--                                    <li>--}}
-{{--                                        <a href="auth-lock-screen.htm">--}}
-{{--                                            <i class="feather icon-lock"></i> Lock Screen--}}
-{{--                                        </a>--}}
-{{--                                    </li>--}}
+                                    {{--                                    <li>--}}
+                                    {{--                                        <a href="auth-lock-screen.htm">--}}
+                                    {{--                                            <i class="feather icon-lock"></i> Lock Screen--}}
+                                    {{--                                        </a>--}}
+                                    {{--                                    </li>--}}
                                     <li>
                                         <a href="{{route('logout')}}">
                                             <i class="feather icon-log-out"></i> Đăng xuất
@@ -228,7 +247,8 @@
                         <div class="chat-inner-header">
                             <div class="back_chatBox">
                                 <div class="right-icon-control">
-                                    <input type="text" class="form-control  search-text" placeholder="Search Friend" id="search-friends">
+                                    <input type="text" class="form-control  search-text" placeholder="Search Friend"
+                                           id="search-friends">
                                     <div class="form-icon">
                                         <i class="icofont icofont-search"></i>
                                     </div>
@@ -236,45 +256,56 @@
                             </div>
                         </div>
                         <div class="main-friend-list">
-                            <div class="media userlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+                            <div class="media userlist-box" data-id="1" data-status="online"
+                                 data-username="Josephin Doe" data-toggle="tooltip" data-placement="left"
+                                 title="Josephin Doe">
                                 <a class="media-left" href="#!">
-                                    <img class="media-object img-radius img-radius" src="..\files\assets\images\avatar-3.jpg" alt="Generic placeholder image ">
+                                    <img class="media-object img-radius img-radius"
+                                         src="..\files\assets\images\avatar-3.jpg" alt="Generic placeholder image ">
                                     <div class="live-status bg-success"></div>
                                 </a>
                                 <div class="media-body">
                                     <div class="f-13 chat-header">Josephin Doe</div>
                                 </div>
                             </div>
-                            <div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe" data-toggle="tooltip" data-placement="left" title="Lary Doe">
+                            <div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe"
+                                 data-toggle="tooltip" data-placement="left" title="Lary Doe">
                                 <a class="media-left" href="#!">
-                                    <img class="media-object img-radius" src="..\files\assets\images\avatar-2.jpg" alt="Generic placeholder image">
+                                    <img class="media-object img-radius" src="..\files\assets\images\avatar-2.jpg"
+                                         alt="Generic placeholder image">
                                     <div class="live-status bg-success"></div>
                                 </a>
                                 <div class="media-body">
                                     <div class="f-13 chat-header">Lary Doe</div>
                                 </div>
                             </div>
-                            <div class="media userlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                            <div class="media userlist-box" data-id="3" data-status="online" data-username="Alice"
+                                 data-toggle="tooltip" data-placement="left" title="Alice">
                                 <a class="media-left" href="#!">
-                                    <img class="media-object img-radius" src="..\files\assets\images\avatar-4.jpg" alt="Generic placeholder image">
+                                    <img class="media-object img-radius" src="..\files\assets\images\avatar-4.jpg"
+                                         alt="Generic placeholder image">
                                     <div class="live-status bg-success"></div>
                                 </a>
                                 <div class="media-body">
                                     <div class="f-13 chat-header">Alice</div>
                                 </div>
                             </div>
-                            <div class="media userlist-box" data-id="4" data-status="online" data-username="Alia" data-toggle="tooltip" data-placement="left" title="Alia">
+                            <div class="media userlist-box" data-id="4" data-status="online" data-username="Alia"
+                                 data-toggle="tooltip" data-placement="left" title="Alia">
                                 <a class="media-left" href="#!">
-                                    <img class="media-object img-radius" src="..\files\assets\images\avatar-3.jpg" alt="Generic placeholder image">
+                                    <img class="media-object img-radius" src="..\files\assets\images\avatar-3.jpg"
+                                         alt="Generic placeholder image">
                                     <div class="live-status bg-success"></div>
                                 </a>
                                 <div class="media-body">
                                     <div class="f-13 chat-header">Alia</div>
                                 </div>
                             </div>
-                            <div class="media userlist-box" data-id="5" data-status="online" data-username="Suzen" data-toggle="tooltip" data-placement="left" title="Suzen">
+                            <div class="media userlist-box" data-id="5" data-status="online" data-username="Suzen"
+                                 data-toggle="tooltip" data-placement="left" title="Suzen">
                                 <a class="media-left" href="#!">
-                                    <img class="media-object img-radius" src="..\files\assets\images\avatar-2.jpg" alt="Generic placeholder image">
+                                    <img class="media-object img-radius" src="..\files\assets\images\avatar-2.jpg"
+                                         alt="Generic placeholder image">
                                     <div class="live-status bg-success"></div>
                                 </a>
                                 <div class="media-body">
@@ -295,7 +326,8 @@
             </div>
             <div class="media chat-messages">
                 <a class="media-left photo-table" href="#!">
-                    <img class="media-object img-radius img-radius m-t-5" src="..\files\assets\images\avatar-3.jpg" alt="Generic placeholder image">
+                    <img class="media-object img-radius img-radius m-t-5" src="..\files\assets\images\avatar-3.jpg"
+                         alt="Generic placeholder image">
                 </a>
                 <div class="media-body chat-menu-content">
                     <div class="">
@@ -313,7 +345,8 @@
                 </div>
                 <div class="media-right photo-table">
                     <a href="#!">
-                        <img class="media-object img-radius img-radius m-t-5" src="..\files\assets\images\avatar-4.jpg" alt="Generic placeholder image">
+                        <img class="media-object img-radius img-radius m-t-5" src="..\files\assets\images\avatar-4.jpg"
+                             alt="Generic placeholder image">
                     </a>
                 </div>
             </div>
@@ -460,7 +493,7 @@
                                         </li>
                                         <li class=" ">
                                             <a href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">
-                                            <span class="pcoded-mtext">Giáo viên</span>
+                                                <span class="pcoded-mtext">Giáo viên</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -471,8 +504,14 @@
                                         <span class="pcoded-mtext">Quản lí hoạt động lớp</span>
                                     </a>
                                 </li>
+{{--                                <li class="">--}}
+{{--                                    <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">--}}
+{{--                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>--}}
+{{--                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
                                 <li class="">
-                                    <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">
+                                    <a href="{{route('baocaohoatdongHT.baocaohoatdongHT.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
                                         <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>
                                     </a>
@@ -483,12 +522,12 @@
                                         <span class="pcoded-mtext">Quản lí tài khoản</span>
                                     </a>
                                 </li>
-                                <li class="">
-                                    <a href="{{route('diemdanh.diemdanh.index')}}">
-                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
-                                        <span class="pcoded-mtext">Điểm danh học sinh</span>
-                                    </a>
-                                </li>
+                                {{--                                <li class="">--}}
+                                {{--                                    <a href="{{route('diemdanh.diemdanh.index')}}">--}}
+                                {{--                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>--}}
+                                {{--                                        <span class="pcoded-mtext">Điểm danh học sinh</span>--}}
+                                {{--                                    </a>--}}
+                                {{--                                </li>--}}
                                 <li class="">
                                     <a href="{{route('cackhoangphi.cackhoangphi.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-money"></i></span>
@@ -537,8 +576,10 @@
     <script type="text/javascript" src="..\files\assets\pages\accordion\accordion.js"></script>
     <!-- i18next.min.js -->
     <script type="text/javascript" src="..\files\bower_components\i18next\js\i18next.min.js"></script>
-    <script type="text/javascript" src="..\files\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js"></script>
-    <script type="text/javascript" src="..\files\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js"></script>
+    <script type="text/javascript"
+            src="..\files\bower_components\i18next-xhr-backend\js\i18nextXHRBackend.min.js"></script>
+    <script type="text/javascript"
+            src="..\files\bower_components\i18next-browser-languagedetector\js\i18nextBrowserLanguageDetector.min.js"></script>
     <script type="text/javascript" src="..\files\bower_components\jquery-i18next\js\jquery-i18next.min.js"></script>
     <!-- Custom js -->
     <script src="..\files\assets\js\pcoded.min.js"></script>
@@ -547,17 +588,17 @@
     <script type="text/javascript" src="..\files\assets\js\script.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-{{--    datatable--}}
+    {{--    datatable--}}
     <script src="..\files\bower_components\datatables.net\js\jquery.dataTables.min.js"></script>
     <script src="..\files\bower_components\datatables.net-buttons\js\dataTables.buttons.min.js"></script>
-{{--    <script src="..\files\assets\pages\data-table\js\jszip.min.js"></script>--}}
-{{--    <script src="..\files\assets\pages\data-table\js\pdfmake.min.js"></script>--}}
-{{--    <script src="..\files\bower_components\vfs_fonts\vfs_fonts.js"></script>--}}
-{{--    <script src="..\files\assets\pages\data-table\js\vfs_fonts.js"></script>--}}
+    {{--    <script src="..\files\assets\pages\data-table\js\jszip.min.js"></script>--}}
+    {{--    <script src="..\files\assets\pages\data-table\js\pdfmake.min.js"></script>--}}
+    {{--    <script src="..\files\bower_components\vfs_fonts\vfs_fonts.js"></script>--}}
+    {{--    <script src="..\files\assets\pages\data-table\js\vfs_fonts.js"></script>--}}
     <script src="..\files\bower_components\datatables.net-buttons\js\buttons.print.min.js"></script>
     <script src="..\files\bower_components\datatables.net-buttons\js\buttons.html5.min.js"></script>
     <script src="..\files\bower_components\datatables.net-bs4\js\dataTables.bootstrap4.min.js"></script>
-{{--    <script src="..\files\swal\dist\sweetalert2.min.js"></script>--}}
+    {{--    <script src="..\files\swal\dist\sweetalert2.min.js"></script>--}}
     <script type="text/javascript" src="..\files\bower_components\sweetalert\js\sweetalert2@9.js"></script>
     <!--alertify css-->
     <link rel="stylesheet" type="text/css" href="..\files\AlertifyJS\build\css\alertify.css">

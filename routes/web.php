@@ -197,3 +197,14 @@ Route::group(
 //        Route::post('quanlihoatdong.update', 'ActiveController@update');
     }
 );
+Route::group(
+    ['namespace' => 'BaocaohoatdongHT', 'as' => 'baocaohoatdongHT.', 'middleware' => []],
+    function () {
+        Route::resource('baocaohoatdongHT', 'ActiveHTController');
+//        Route::get('baocaohoatdongGV.getdata', 'BaocaoController@getdata');
+//        Route::get('baocaohoatdongGV.getdatabyid', 'BaocaoController@getdatabyid');
+//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
+//        Route::post('baocaohoatdongGV.insert', 'BaocaoController@insert');
+//        Route::post('quanlihoatdong.update', 'ActiveController@update');
+    }
+);
