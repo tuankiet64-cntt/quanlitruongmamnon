@@ -22,7 +22,7 @@
                                 <a href="/"> <i class="feather icon-home"></i> </a>
                             </li>
                             <li class="breadcrumb-item"><a
-                                    href="{{route('cackhoangphi.cackhoangphi.index')}}">Báo cáo hoạt động</a>
+                                    href="{{route('cackhoangphi.cackhoangphi.index')}}">Báo cáo hoạt động của giáo viên</a>
                             </li>
                         </ul>
                     </div>
