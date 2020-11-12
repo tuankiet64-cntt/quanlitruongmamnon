@@ -190,10 +190,12 @@ Route::group(
     ['namespace' => 'BaocaohoatdongGV', 'as' => 'baocaohoatdongGV.', 'middleware' => []],
     function () {
         Route::resource('baocaohoatdongGV', 'BaocaoController');
+        Route::resource('checkhoatdongGV', 'CheckcommentController');
         Route::get('baocaohoatdongGV.getdata', 'BaocaoController@getdata');
         Route::get('baocaohoatdongGV.getdatabyid', 'BaocaoController@getdatabyid');
 //        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
         Route::post('baocaohoatdongGV.insert', 'BaocaoController@insert');
+//
 //        Route::post('quanlihoatdong.update', 'ActiveController@update');
     }
 );

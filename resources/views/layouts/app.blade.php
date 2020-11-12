@@ -386,7 +386,7 @@
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="">
+                                            <a href="{{route('baocaohoatdongGV.checkhoatdongGV.index')}}">
                                                 <span class="pcoded-mtext">Nhận xét</span>
                                             </a>
                                         </li>
