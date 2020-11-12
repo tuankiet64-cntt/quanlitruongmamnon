@@ -192,6 +192,7 @@ Route::group(
         Route::resource('baocaohoatdongGV', 'BaocaoController');
         Route::resource('checkhoatdongGV', 'CheckcommentController');
         Route::get('baocaohoatdongGV.getdata', 'BaocaoController@getdata');
+        Route::get('checkhoatdongGV.getdata', 'CheckcommentController@getdata');
         Route::get('baocaohoatdongGV.getdatabyid', 'BaocaoController@getdatabyid');
 //        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
         Route::post('baocaohoatdongGV.insert', 'BaocaoController@insert');
