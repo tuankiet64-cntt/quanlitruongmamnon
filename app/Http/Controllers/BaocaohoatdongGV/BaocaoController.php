@@ -42,6 +42,9 @@ class BaocaoController extends Controller
 //        dd($hoatdong,$currentday);
         $data=[];
 //        dd($hoatdong);
+        if($hoatdong==[]){
+            return '<div class="card"><h4 class="text-center">Hôm nay chưa sắp xếp môn học</h4></div>';
+        }
         for($i=0;$i<count($hoatdong);$i++){
             $data[$i]='<div class="card">
                 <div class="card-header d-flex justify-content-between">

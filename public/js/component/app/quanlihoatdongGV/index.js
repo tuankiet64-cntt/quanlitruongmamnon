@@ -1,8 +1,5 @@
 $(function () {
     loadmonhoc()
-    $('#editor').ckeditor({
-        uiColor: '#9AB8F3'
-    })
 })
 function loadmonhoc() {
     idtk = $('#idgv').val()

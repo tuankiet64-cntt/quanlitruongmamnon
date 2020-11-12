@@ -32,7 +32,29 @@
         <div class="page-body">
             <input type="text" class="d-none" id="idgv" value="{{auth()->id()}}">
             <div class="container" id="content">
-
+                <div class="card card-body">
+                    <table class="table table-border-style col-lg-12" id="reporttb">
+                        <thead>
+                        <th>STT</th>
+                        <th>Tên hoạt động</th>
+                        <th>Giáo viên</th>
+                        <th>Ngày tạo</th>
+                        <th>Trạng thái</th>
+                        {{--                    <th>Ghi chú</th>--}}
+                        {{--                        <th>Số lượng tối đa</th>--}}
+                        <th>Chức năng</th>
+                        </thead>
+                    </table>
+                </div>
+                <div class="modal fade" id="update-modal" data-keyboard="false" data-backdrop="static" tabindex="-1"
+                     role="dialog"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content " id="container-modal">
+                            @include('app.baocaohoatdongHT.update');
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         @push('script')
@@ -40,8 +62,7 @@
                     src="..\files\assets\pages\advance-elements\moment-with-locales.min.js"></script>
             <script type="text/javascript"
                     src="..\files\assets\pages\advance-elements\bootstrap-datetimepicker.min.js"></script>
-{{--            <script src="../js/component/app/quanlihoatdongGV/index.js"></script>--}}
-    {{--            <script src="../js/component/app/quanlilop/delete.js"></script>--}}
+            <script src="../js/component/app/quanlihoatdongHT/index.js"></script>
 
     @endpush
 @endsection

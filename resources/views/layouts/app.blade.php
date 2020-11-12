@@ -374,11 +374,23 @@
                                         <span class="pcoded-mtext">Điểm danh học sinh</span>
                                     </a>
                                 </li>
-                                <li class="">
-                                    <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">
-                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
-                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>
+                                <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="fa fa-cog"></i></span>
+                                        <span class="pcoded-mtext">Hoạt động</span>
                                     </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">
+                                                <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="">
+                                                <span class="pcoded-mtext">Nhận xét</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         @elseif( Auth::user()->level == 4 && Auth::user()->status ==1)
