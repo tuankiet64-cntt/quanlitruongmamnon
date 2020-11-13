@@ -99,9 +99,24 @@ function loadtableph2(data) {
             // {data: 'status', name: 'status', className: 'text-center'},
             {data: 'email', name: 'email', className: 'text-center'},
         ],
-        scrollY: true,
-        scrollX: true,
-        scrollCollapse: true,
+        scrollX:'100%',
         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, 'Tất cả']],
     });
+}
+function bill() {
+    $('input[type=checkbox]').parents('tr').find('td:eq(0)').addClass('d-none')
+    $('input[type=checkbox]').parents('thead').find('th:eq(0)').addClass('d-none')
+    $('#tablephi-done_wrapper').find('.row').eq(0).addClass('d-none')
+    $('#tablephi-done_wrapper').find('.row:last').addClass('d-none')
+    $('#hide').addClass('d-none')
+    $('#done-modal .container').printThis({
+        afterPrint:function () {
+            $('#hide').removeClass('d-none')
+            $('input[type=checkbox]').parents('tr').find('td:eq(0)').removeClass('d-none')
+            $('input[type=checkbox]').parents('thead').find('th:eq(0)').removeClass('d-none')
+            $('#tablephi-done_wrapper').find('.row').eq(0).removeClass('d-none')
+            $('#tablephi-done_wrapper').find('.row:last').removeClass('d-none')
+
+        }
+    })
 }

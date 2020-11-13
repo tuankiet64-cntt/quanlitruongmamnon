@@ -34,7 +34,7 @@
                         <span id="dateoff-done"></span>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" id="hide">
                     <table class="table table-border-style col-lg-12" id="tableph-done">
                         <thead>
                         <th>STT</th>
@@ -70,12 +70,14 @@
                 </thead>
             </table>
             {{--            Tổng tiền--}}
+            <br>
             <div class="float-right h4">Tổng tiền: <span id="total-fee-done"></span><span>VND</span></div>
         </div>
     </div>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" onclick="closemodaldone()">Đóng</button>
+    <button type="button" class="btn btn-warning" onclick="bill()">In biên lai</button>
 </div>
 
 @push('script')

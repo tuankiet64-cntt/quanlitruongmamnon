@@ -45,6 +45,8 @@
           href="..\files\assets\pages\data-table\extensions\responsive\css\responsive.dataTables.css">
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\datetimepicker\jquery.datetimepicker.css">
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\plugins\cloudservices\plugin.js">
+    <link rel="stylesheet" type="text/css" href="..\files\bower_components\jasonday-printThis-f73ca19\assets\css\normalize.css">
+{{--    <link rel="stylesheet" type="text/css" href="..\files\bower_components\jasonday-printThis-f73ca19\assets\css\skeleton.css">--}}
     <link rel="stylesheet" type="text/css"
           href="..\files\bower_components\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css">
 
@@ -624,6 +626,7 @@
     <script type="text/javascript" src="..\files\bower_components\ckeditor\ckeditor.js"></script>
     <script type="text/javascript" src="..\files\bower_components\ckeditor\adapters\jquery.js"></script>
     <script type="text/javascript" src="..\files\bower_components\ckeditor\samples\js\sample.js"></script>
+    <script type="text/javascript" src="..\files\bower_components\jasonday-printThis-f73ca19\printThis.js"></script>
     <script type="text/javascript" src="..\files\assets\pages\advance-elements\select2-custom.js"></script>
     @stack('script')
     <script type="text/javascript">
