@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 06, 2020 lúc 03:59 AM
+-- Thời gian đã tạo: Th10 13, 2020 lúc 03:16 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.31
 
@@ -157,7 +157,8 @@ INSERT INTO `dongtien` (`id`, `idhs`, `idphi`, `idcanbo`, `tongtien`, `created_a
 (1, 1, '1', 2, '100000', '2020-09-09 07:08:48', NULL),
 (2, 2, '1', 2, '20000', '2020-10-13 02:15:16', NULL),
 (4, 1, '[\"1\",\"2\"]', 2, '30000', '2020-10-28 07:32:55', '2020-10-28 07:32:55'),
-(5, 4, '[\"1\",\"2\"]', 2, '20000', '2020-10-28 08:09:53', '2020-10-28 08:09:53');
+(5, 4, '[\"1\",\"2\"]', 2, '20000', '2020-10-28 08:09:53', '2020-10-28 08:09:53'),
+(6, 1, '[\"3\"]', 2, '10000', '2020-11-13 01:37:20', '2020-11-13 01:37:20');
 
 -- --------------------------------------------------------
 
@@ -223,18 +224,19 @@ CREATE TABLE `hoatdong` (
   `ngaygiangday` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ghichu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `ngayketthuc` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `hoatdong`
 --
 
-INSERT INTO `hoatdong` (`id`, `iddm`, `tenhoatdong`, `ngaygiangday`, `ghichu`, `created_at`, `updated_at`) VALUES
-(1, 3, 'Âm Nhạc', '2,3,4,5,2,3,4,5,6', 'Hát ca', NULL, '2020-11-06 02:48:53'),
-(3, 2, 'Âm nhạc', '', NULL, NULL, NULL),
-(9, 4, 'Âm Nhạc', '1,6', NULL, '2020-11-06 02:22:54', '2020-11-06 02:22:54'),
-(10, 2, 'Hát Ca', '1,2', NULL, '2020-11-06 02:23:22', '2020-11-06 02:23:22');
+INSERT INTO `hoatdong` (`id`, `iddm`, `tenhoatdong`, `ngaygiangday`, `ghichu`, `created_at`, `updated_at`, `ngayketthuc`) VALUES
+(1, 3, 'Âm Nhạc', '2,3,4,5,6', 'Hát ca', NULL, '2020-11-09 02:21:45', '2020-11-30'),
+(3, 2, 'Âm nhạc', '', NULL, NULL, NULL, '2020-11-07'),
+(9, 4, 'Âm Nhạc', '6,1,3', NULL, '2020-11-06 02:22:54', '2020-11-06 02:22:54', '2020-12-10'),
+(10, 3, 'Hát Ca', '1,2,5', NULL, '2020-11-06 02:23:22', '2020-11-06 02:23:22', '2020-11-10');
 
 -- --------------------------------------------------------
 
@@ -297,7 +299,7 @@ CREATE TABLE `lichday` (
 --
 
 INSERT INTO `lichday` (`id`, `idgv`, `idlophoc`, `ngayday`, `created_at`, `updated_at`) VALUES
-(12, 4, 24, '[\"1\",\"2\",\"3\",\"6\"]', '2020-10-21 23:07:02', '2020-10-21 23:07:02');
+(12, 4, 24, '[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\"]', '2020-10-21 23:07:02', '2020-11-06 05:18:34');
 
 -- --------------------------------------------------------
 
@@ -369,7 +371,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (28, '2020_10_24_092342_cackhoanphi', 22),
 (29, '2020_10_24_092348_dadongtien', 22),
 (30, '2020_10_25_202719_addmonth', 23),
-(32, '2020_11_04_161401_createhoatdong', 24);
+(32, '2020_11_04_161401_createhoatdong', 24),
+(33, '2020_11_06_153233_createreport', 25),
+(34, '2020_11_09_083236_adddateend', 26);
 
 -- --------------------------------------------------------
 
@@ -472,6 +476,32 @@ INSERT INTO `phuhuynh` (`id`, `mahs`, `hovaten`, `sdt`, `email`, `quanhe`, `ngay
 (5, 9, 'ádasd', '0961612308', 'trantuankiet071097@gmail.com', 'Dì', '2020-08-09', 'ádasd', NULL, '2020-09-26 04:43:29', '2020-09-26 04:43:29'),
 (6, 10, 'Tràn tuấn kiệt', '0961612308', 'trantuankiet071097@gmail.com', 'cậu', '2020-03-09', 'ádasdasd', NULL, '2020-09-26 04:48:00', '2020-09-26 04:48:00'),
 (7, 11, 'Tràn tuấn kiệt', '0961612308', 'trantuankiet071097@gmail.com', 'Chú', '2020-09-09', 'ádasd', NULL, '2020-09-26 04:50:28', '2020-09-26 04:50:28');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `report`
+--
+
+CREATE TABLE `report` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `idgv` bigint(20) UNSIGNED NOT NULL,
+  `idhd` bigint(20) UNSIGNED NOT NULL,
+  `status` int(11) NOT NULL,
+  `noidung` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `nhanxet` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `report`
+--
+
+INSERT INTO `report` (`id`, `idgv`, `idhd`, `status`, `noidung`, `created_at`, `updated_at`, `nhanxet`) VALUES
+(1, 4, 1, 1, '<p>Các bé hát rất hay</p>', '2020-11-06 08:56:05', '2020-11-12 06:29:06', '<p>Có tiến bộ vượt bậc quá trời</p>'),
+(2, 4, 10, 0, '<p>Hát hay quá chời. Ca sĩ</p>', '2020-11-06 09:03:06', '2020-11-06 09:20:10', '<p>Có tiến bộ vượt bậc quá trời luôn á</p>'),
+(3, 4, 1, 1, '<p>Ca múa quá trời quá đất</p>', '2020-11-12 08:31:27', '2020-11-12 08:31:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -623,6 +653,14 @@ ALTER TABLE `phuhuynh`
   ADD KEY `phuhuynh_mahs_foreign` (`mahs`);
 
 --
+-- Chỉ mục cho bảng `report`
+--
+ALTER TABLE `report`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `report_idgv_foreign` (`idgv`),
+  ADD KEY `report_idhd_foreign` (`idhd`);
+
+--
 -- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
@@ -669,7 +707,7 @@ ALTER TABLE `diemdanh`
 -- AUTO_INCREMENT cho bảng `dongtien`
 --
 ALTER TABLE `dongtien`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -711,7 +749,7 @@ ALTER TABLE `lophoc`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT cho bảng `nknhaphoc`
@@ -724,6 +762,12 @@ ALTER TABLE `nknhaphoc`
 --
 ALTER TABLE `phuhuynh`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT cho bảng `report`
+--
+ALTER TABLE `report`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
@@ -785,6 +829,13 @@ ALTER TABLE `lophoc`
 --
 ALTER TABLE `phuhuynh`
   ADD CONSTRAINT `phuhuynh_mahs_foreign` FOREIGN KEY (`mahs`) REFERENCES `hocsinh` (`id`);
+
+--
+-- Các ràng buộc cho bảng `report`
+--
+ALTER TABLE `report`
+  ADD CONSTRAINT `report_idgv_foreign` FOREIGN KEY (`idgv`) REFERENCES `giaovien` (`id`),
+  ADD CONSTRAINT `report_idhd_foreign` FOREIGN KEY (`idhd`) REFERENCES `hoatdong` (`id`);
 
 --
 -- Các ràng buộc cho bảng `users`
