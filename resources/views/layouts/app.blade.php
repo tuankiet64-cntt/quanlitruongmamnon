@@ -434,20 +434,26 @@
                                         <span class="pcoded-mtext">Quản lí hoạt động lớp</span>
                                     </a>
                                 </li>
+                                <li class="">
+                                    <a href="{{route('quanlixeplop.quanlixeplop.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-user-plus"></i></span>
+                                        <span class="pcoded-mtext">Quản lí xếp lớp</span>
+                                    </a>
+                                </li>
                                 <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                                        <span class="pcoded-mtext">Quản lí xếp lớp</span>
+                                        <span class="pcoded-mtext">Quản lí lịch dạy và Phân công</span>
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class="">
-                                            <a href="{{route('quanlixeplop.quanlixeplop.index')}}">
-                                                <span class="pcoded-mtext">Học sinh</span>
+                                            <a href="">
+                                                <span class="pcoded-mtext">Lịch dạy</span>
                                             </a>
                                         </li>
                                         <li class=" ">
                                             <a href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">
-                                                <span class="pcoded-mtext">Giáo viên</span>
+                                                <span class="pcoded-mtext">Phân lớp</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -497,17 +503,17 @@
                                 <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                                        <span class="pcoded-mtext">Quản lí xếp lớp</span>
+                                        <span class="pcoded-mtext">Lịch dạy và Phân công</span>
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class="">
-                                            <a href="{{route('quanlixeplop.quanlixeplop.index')}}">
-                                                <span class="pcoded-mtext">Học sinh</span>
+                                            <a href="{{route('lichday.lichday.index')}}">
+                                                <span class="pcoded-mtext">Lịch dạy</span>
                                             </a>
                                         </li>
                                         <li class=" ">
                                             <a href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">
-                                                <span class="pcoded-mtext">Giáo viên</span>
+                                                <span class="pcoded-mtext">Phân lớp</span>
                                             </a>
                                         </li>
                                     </ul>

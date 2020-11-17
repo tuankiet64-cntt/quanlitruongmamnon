@@ -211,3 +211,13 @@ Route::group(
         Route::post('baocaohoatdongHT.update', 'ActiveHTController@update');
     }
 );
+Route::group(
+    ['namespace' => 'Lichday', 'as' => 'lichday.', 'middleware' => []],
+    function () {
+        Route::resource('lichday', 'LichdayController');
+        Route::get('lichday.getdata', 'LichdayController@getData');
+        Route::get('lichday.getdatabyid', 'LichdayController@getdatabyid');
+//        Route::post('diemdanh.insert', 'DiemdanhController@insert');
+//        Route::post('diemdanh.update', 'DiemdanhController@update');
+    }
+);

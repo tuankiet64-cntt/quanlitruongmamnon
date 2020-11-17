@@ -11,4 +11,12 @@ class lophoc extends Model
     {
         return $this->hasMany('App\hocsinh','malophoc','id');
     }
+    public function lichday()
+    {
+        return $this->hasMany('App\lichday','idlophoc','id');
+    }
+    public function danhmuc()
+    {
+        return $this->belongsTo('App\danhmuclophoc','madanhmuclop','id');
+    }
 }
