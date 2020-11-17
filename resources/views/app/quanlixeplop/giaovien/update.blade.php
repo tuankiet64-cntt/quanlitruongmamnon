@@ -75,7 +75,7 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" onclick="closeModalUpdateXL()">Đóng</button>
+    <button type="button" class="btn btn-default" id="bt-close" onclick="closeModalUpdateXL()">Đóng</button>
     <button type="button" class="btn btn-primary float-right" title="Lưu lại" id="add-new-area"
             onclick="updatexeplop()"><i class="fa"></i>Lưu lại
     </button>

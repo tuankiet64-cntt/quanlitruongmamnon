@@ -24,12 +24,11 @@ function Createlich(id, r) {
     $('#update-modal').modal('show')
     $('input[type=checkbox]').parents('label').find('span').removeClass('text-primary')
     position = r;
-    $.ajax({
+        $.ajax({
         type: 'get',
         url: '/quanlixeplop-giaovien.getlichday',
         data: {id: id}
     }).then(function (res) {
-        console.log($('#idgv').val())
         $('#idgv').val(id)
         $('#idlichhoc').val(res.id)
         if (res['ngayday'] == null && res != 0) {
@@ -61,7 +60,47 @@ function Createlich(id, r) {
         })
     })
 }
-
+function updateAgain(id, r) {
+    $('#primary').addClass('d-none')
+    $('#chonlop').val('').trigger('change');
+    $('input[type=checkbox]').parents('label').find('span').removeClass('text-primary')
+    position = r;
+    $.ajax({
+        type: 'get',
+        url: '/quanlixeplop-giaovien.getlichday',
+        data: {id: id}
+    }).then(function (res) {
+        $('#idgv').val(id)
+        $('#idlichhoc').val(res.id)
+        if (res['ngayday'] == null && res != 0) {
+            $('input[type=checkbox]').prop('checked', false)
+            text = 'Giáo viên chưa có lịch dạy'
+            $('#chonlop').val(res.idlophoc).trigger('change.select2')
+            tengv = r.parents('tr').find('td:eq(1)').text()
+            $('#tengv').text(tengv)
+            ErrorNotify(text)
+            checkngay()
+            return false
+        } else if (res == 0) {
+            $('input[type=checkbox]').prop('checked', false)
+            text = 'Giáo viên chưa có lịch dạy và lớp dạy'
+            tengv = r.parents('tr').find('td:eq(1)').text()
+            $('#tengv').text(tengv)
+            ErrorNotify(text)
+            $('#chonlop').on('select2:select', function () {
+                checkngay()
+            })
+            return false
+        }
+        tengv = r.parents('tr').find('td:eq(1)').text()
+        $('#tengv').text(tengv)
+        lophoctruoc=res.idlophoc;
+        $('#chonlop').val(res.idlophoc).trigger('change.select2')
+        $.each(res['ngayday'], function (index, value) {
+            $('input[type=checkbox][value=' + value + ']').prop('checked', true)
+        })
+    })
+}
 function updatexeplop() {
     let data = [], i = 0;
     $('input:checked').each(function (index, value) {
@@ -103,7 +142,7 @@ function updatexeplop() {
 }
 
 let change = 0;
-$('input[type=checkbox]').on('change', function () {
+$('input[type=checkbox]').on('click', function () {
     let idlophoc = $('#chonlop').val(),
         idgv = $('#idgv').val(),
         day = $(this).val(),
@@ -135,8 +174,7 @@ $('input[type=checkbox]').on('change', function () {
                     $('input[type=checkbox][value=' + day + ']').prop('checked', true)
                     change = 0
                 }
-                // Createlich(idgv,position)
-                // return false;
+                return false;
             }
         })
     } else {
@@ -145,6 +183,7 @@ $('input[type=checkbox]').on('change', function () {
 })
 
 function closeModalUpdateXL() {
+    reloadTable()
     $('#update-modal').modal('hide');
 }
 
@@ -223,6 +262,10 @@ $('#chonlop').on('select2:select', function () {
                             })
                         }else{
                             $('#chonlop').val(lophoctruoc).trigger('change.select2')
+                            updateAgain(idgv,position)
+                            // $('#bt-close').click(function () {
+                            //     closeModalUpdatexeplop()
+                            // })
                         }
                     })
                 }
