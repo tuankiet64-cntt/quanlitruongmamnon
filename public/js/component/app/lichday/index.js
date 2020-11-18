@@ -1,3 +1,4 @@
+let table1='';
 $(function () {
     getdata()
 })
@@ -32,7 +33,7 @@ function getdata() {
     });
 }
 function getdatabyid(id) {
-    table = $('#tablelichday').DataTable({
+    table1 = $('#tablelichday').DataTable({
         destroy: true,
         responsive: true,
         processing: true,
@@ -61,4 +62,7 @@ function getdatabyid(id) {
         scrollCollapse: true,
         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, 'Tất cả']],
     });
+}
+function reloadTable() {
+    table1.ajax.reload(null,false)
 }

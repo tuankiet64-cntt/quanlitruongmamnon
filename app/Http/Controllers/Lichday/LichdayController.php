@@ -85,12 +85,73 @@ class LichdayController extends Controller
             })
             ->addColumn('action', function ($row) {
                 return '<div class="btn-group btn-group-sm">
-                            <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="getdatabyid(' . $row['id'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-chevron-up"></span></button>
+                            <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="Createlich(' . $row['id'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-pencil"></span></button>
                         </div>';
 
             })
             ->addIndexColumn()
             ->rawColumns(['action','lichday'])
             ->make();
+    }
+    public function getdatagvbyid(Request $request){
+        $id = $request->get('id');
+        $data = lichday::where('id', '=', $id)->first();
+        if ($data == null) {
+            return 0;
+        }
+        $data['ngayday'] = json_decode($data['ngayday']);
+        return $data;
+    }
+    public function checklichday(Request $request)
+    {
+        $idlophoc = $request->get('idlophoc');
+        $daycheck = $request->get('day');
+        $data = lichday::where('idlophoc', '=', $idlophoc)->get();
+//        $check = '';
+        for ($i = 0; $i < count($data); $i++)
+        {
+            $arrayngayday=json_decode($data[$i]['ngayday']);
+            for ($y = 0; $y < count($arrayngayday); $y++)
+            {
+                if ($arrayngayday[$y]==$daycheck){
+                    $check=1;
+                    $data=[$check,$data[$i]['idgv']];
+                    return $data;
+                }
+            }
+        }
+    }
+    public function updatelichday(Request $request)
+    {
+        $data = $request->get('data');
+        $idlophoc = $request->get('idlophoc');
+        $idlichhoc = $request->get('idlichhoc');
+        $idgv = $request->get('idgv');
+//        dd($idlichhoc);
+//        dd($idlichhoc,$idlophoc,$idgv);
+        if ($idlichhoc == null) {
+            $lichday = new lichday;
+            $lichday->idgv = $idgv;
+            $lichday->idlophoc = $idlophoc;
+            $lichday->ngayday = json_encode($data);
+        } else {
+            $lichday = lichday::where('id', '=', $idlichhoc)->first();
+            $lichday->ngayday = json_encode($data);
+        }
+        if ($lichday->save()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    public function getlichday(Request $request)
+    {
+        $id = $request->get('id');
+        $data = lichday::where('idgv', '=', $id)->first();
+        if ($data == null) {
+            return 0;
+        }
+        $data['ngayday'] = json_decode($data['ngayday']);
+        return $data;
     }
 }

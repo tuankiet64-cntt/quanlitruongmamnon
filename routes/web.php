@@ -217,7 +217,10 @@ Route::group(
         Route::resource('lichday', 'LichdayController');
         Route::get('lichday.getdata', 'LichdayController@getData');
         Route::get('lichday.getdatabyid', 'LichdayController@getdatabyid');
-//        Route::post('diemdanh.insert', 'DiemdanhController@insert');
-//        Route::post('diemdanh.update', 'DiemdanhController@update');
+        Route::get('lichday.getdatagvbyid', 'LichdayController@getdatagvbyid');
+        Route::get('lichday.checklichday', 'LichdayController@checklichday');
+        Route::get('lichday.getlichday', 'LichdayController@getlichday');
+        Route::post('lichday.updatelichday', 'LichdayController@updatelichday');
+        Route::post('lichday.delete', 'LichdayController@delete');
     }
 );

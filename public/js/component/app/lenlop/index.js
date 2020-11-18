@@ -35,3 +35,4 @@ function getdata() {
 function reloadtable() {
     table.ajax.reload(null,false)
 }
+

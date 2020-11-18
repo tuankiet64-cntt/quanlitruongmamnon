@@ -33,6 +33,7 @@
                         <h4 class="sub-title">Danh sách lớp</h4>
                         <input type="text" class="d-none" id="idgv">
                         <input type="text" class="d-none" id="idlichhoc">
+                        <input type="text" class="d-none" id="chonlop">
                         <div class="row">
                             <div class="table table-border-style  col-lg-12" style="width: 100%">
                                 <table class="table table-border-style " id="tableclass">
@@ -68,6 +69,22 @@
                                     <th>Chức năng</th>
                                     </thead>
                                 </table>
+                            </div>
+{{--                            <div class="modal fade" id="create-modal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog"--}}
+{{--                                 aria-hidden="true">--}}
+{{--                                <div class="modal-dialog modal-xl" role="document">--}}
+{{--                                    <div class="modal-content " id="container-modal">--}}
+{{--                                        @include('app.lichday.create');--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+                            <div class="modal fade" id="update-modal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog"
+                                 aria-hidden="true">
+                                <div class="modal-dialog modal-xl" role="document">
+                                    <div class="modal-content " id="container-modal">
+                                        @include('app.lichday.update');
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
