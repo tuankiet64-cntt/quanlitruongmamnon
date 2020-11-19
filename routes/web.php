@@ -220,6 +220,10 @@ Route::group(
         Route::get('lichday.getdatagvbyid', 'LichdayController@getdatagvbyid');
         Route::get('lichday.checklichday', 'LichdayController@checklichday');
         Route::get('lichday.getlichday', 'LichdayController@getlichday');
+        Route::get('lichday.checkday', 'LichdayController@checkday');
+        Route::get('lichday.getdatagv', 'LichdayController@getdatagv');
+        Route::post('lichday.checklichdaycuagv', 'LichdayController@checklichdaycuagv');
+        Route::post('lichday.checklichdaycuagv2', 'LichdayController@checklichdaycuagv2');
         Route::post('lichday.updatelichday', 'LichdayController@updatelichday');
         Route::post('lichday.delete', 'LichdayController@delete');
     }

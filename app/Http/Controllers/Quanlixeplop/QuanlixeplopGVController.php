@@ -185,4 +185,5 @@ class QuanlixeplopGVController extends Controller
             return $exception;
         }
     }
+
 }

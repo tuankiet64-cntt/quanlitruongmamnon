@@ -511,11 +511,11 @@
                                                 <span class="pcoded-mtext">Lịch dạy</span>
                                             </a>
                                         </li>
-                                        <li class=" ">
-                                            <a href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">
-                                                <span class="pcoded-mtext">Phân lớp</span>
-                                            </a>
-                                        </li>
+{{--                                        <li class=" ">--}}
+{{--                                            <a href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">--}}
+{{--                                                <span class="pcoded-mtext">Giáo viên</span>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
                                     </ul>
                                 </li>
                                 <li class="">

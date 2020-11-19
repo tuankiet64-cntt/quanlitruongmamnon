@@ -1,13 +1,13 @@
 <div class="modal-header">
     <div class="col-lg-12 d-flex justify-content-between">
-        <h4 class="modal-title text-center" id="title_create">Cập nhật lịch dạy</h4>
-        <button type="button" class="tabledit-edit-button btn btn-danger waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="Delete()" data-toggle="modal" data-target="#area_update" title="Xóa lịch dạy"><span class="fa fa-trash"></span></button>
+        <h4 class="modal-title text-center" id="title_create">Tạo lịch dạy của lớp: <span id="class"></span></span></h4>
+{{--        <button type="button" class="tabledit-edit-button btn btn-danger waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="Delete()" data-toggle="modal" data-target="#area_update" title="Xóa lịch dạy"><span class="fa fa-trash"></span></button>--}}
     </div>
 </div>
 <div class="modal-body background-body-color">
     <div class="card card-block mb-0 form-row">
         <div class="container">
-            <input type="text" class="d-none" id="phuhuynh">
+            <input type="text" class="d-none" id="idlophoc">
             <input type="text" class="d-none" id="idnknhaphoc">
             <div class="d-flex justify-content-around">
                 <h6 class="">Ngày dạy của giáo viên:<span id="tengv"></span>
@@ -70,9 +70,13 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" id="bt-close" onclick="closeModalUpdateXL()">Đóng</button>
+    <button type="button" class="btn btn-default" id="bt-close" onclick="closemodalCreate()">Đóng</button>
     <button type="button" class="btn btn-primary float-right" title="Lưu lại" id="add-new-area"
-            onclick="updatexeplop()"><i class="fa"></i>Lưu lại
+            onclick="Createlichday()"><i class="fa"></i>Lưu lại
     </button>
 </div>
+
+@push('script')
+    <script src="../js/component/app/lichday/create.js"></script>
+@endpush
 

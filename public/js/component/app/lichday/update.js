@@ -1,6 +1,5 @@
 let position = '',
     lophoctruoc = '';
-
 function Createlich(id, r) {
     $('#update-modal').modal('show')
     $('input[type=checkbox]').parents('label').find('span').removeClass('text-primary')
@@ -127,7 +126,6 @@ $('input[type=checkbox]').on('click', function () {
         idgv = $('#idgv').val(),
         day = $(this).val(),
         idlichhoc = $('#idlichhoc').val();
-    console.log(idlophoc)
     if ($(this).is(':checked')) {
         $.ajax({
             type: 'get',
@@ -158,7 +156,7 @@ function checkngay() {
     id = $('#chonlop').val();
     $.ajax({
         type: 'get',
-        url: '/quanlixeplop-giaovien.checklday',
+        url: '/lichday.checkday',
         data: {id: id}
     }).then(function (res) {
         $('input[type=checkbox]').prop('checked', false)
@@ -173,6 +171,7 @@ function checkngay() {
 
 function Delete() {
     let idlichhoc = $('#idlichhoc').val(),
+        text='Xóa lịch dạy này sẽ xóa dữ liệu điểm danh của lịch dạy này ! Bạn chắc chứ !',
         title = 'Bạn chắc chắn xóa lịch dạy này';
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -183,6 +182,7 @@ function Delete() {
     });
     swalWithBootstrapButtons.fire({
         title: title,
+        text:text,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Đồng ý',
@@ -209,77 +209,4 @@ function Delete() {
     })
 }
 
-// $('#chonlop').on('select2:select', function () {
-//     let idgv = $('#idgv').val(),
-//         idlophoc=$(this).val(),
-//         idlichhoc = $('#idlichhoc').val(),
-//         options=[];
-//     if(idlichhoc!=null&&idlophoc!=lophoctruoc){
-//         $.ajax({
-//             type:'get',
-//             url:'/quanlixeplop-giaovien.checkdiemdanh',
-//             data:{idlichhoc:idlichhoc,lophoctruoc:lophoctruoc,idgv:idgv}
-//         }).then(function (res) {
-//             $.map(res[1],
-//                 function(o) {
-//                     options[o.idgv] = o.hovaten;
-//                 });
-//             if(res[0]==1){
-//                 title='Bạn chắc chắn chuyển lớp cho giáo viên này';
-//                 text='Vui lòng chọn giáo viên đám nhiệm lịch học để chuyển lớp';
-//                 const swalWithBootstrapButtons = Swal.mixin({
-//                     customClass: {
-//                         confirmButton: 'btn btn-primary btn-sweet-alert',
-//                         cancelButton: 'btn btn-default btn-sweet-alert'
-//                     },
-//                     buttonsStyling: false
-//                 });
-//                 swalWithBootstrapButtons.fire({
-//                     title: title,
-//                     text: text,
-//                     icon: 'warning',
-//                     input: 'select',
-//                     inputOptions:options,
-//                     showCancelButton: true,
-//                     confirmButtonText: 'Đồng ý',
-//                     cancelButtonText: 'Hủy',
-//                     reverseButtons: true,
-//                     focusConfirm: true,
-//                     inputPlaceholder: 'Hãy chọn giáo viên'
-//                 }).then((result) => {
-//                     if (result.value) {
-//                         idgvtt=result.value;
-//                         $.ajax({
-//                             type:'post',
-//                             url:'/quanlixeplop-giaovien.chuyenlop',
-//                             data:{idgvtt:idgvtt,idgv:idgv,idlichhoc:idlichhoc}
-//                         }).then(function (res) {
-//                             if(res==1){
-//                                 text='Bạn đã chuyển lịch dạy thành công'
-//                                 $('#idlichhoc').val(null)
-//                                 Success(text)
-//                                 checkngay()
-//                                 reloadTable()
-//                             }else{
-//                                 text='Có lỗi trong quá trình thực hiện'
-//                                 ErrorNotify(text)
-//                             }
-//                         })
-//                     }else{
-//                         $('#chonlop').val(lophoctruoc).trigger('change.select2')
-//                         updateAgain(idgv,position)
-//                         // $('#bt-close').click(function () {
-//                         //     closeModalUpdatexeplop()
-//                         // })
-//                     }
-//                 })
-//             }
-//         })
-//     }
-//     // $.ajax({
-//     //     type: 'get',
-//     //     url: '/quanlixeplop-giaovien.checklop',
-//     //     data: {idgv:idgv,idlophoc:idlophoc}
-//     // })
-// })
 

@@ -1,7 +1,9 @@
-let table1='';
+let table1 = '',
+    table = '';
 $(function () {
     getdata()
 })
+
 function getdata() {
     table = $('#tableclass').DataTable({
         destroy: true,
@@ -11,8 +13,8 @@ function getdata() {
             processing: 'Đang tải ....'
         },
         ajax: {
-            type:'get',
-            url:'/lichday.getdata',
+            type: 'get',
+            url: '/lichday.getdata',
         },
         serverSide: false,
         ordering: true,
@@ -21,6 +23,7 @@ function getdata() {
             {data: 'tenlop', className: 'text-center'},
             {data: 'danhmuc.loptuoi', className: 'text-center'},
             {data: 'lichday', name: 'gioitinh', className: 'text-center'},
+            {data: 'status', name: 'status', className: 'text-center'},
             // {data: '', name: 'tenlop', className: 'text-center'},
             // {data: 'ghichu', name: 'ghichu', className: 'text-center'},
             // {data: 'status', name: 'status', className: 'text-center'},
@@ -32,7 +35,11 @@ function getdata() {
         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, 'Tất cả']],
     });
 }
-function getdatabyid(id) {
+
+function getdatabyid(id, r) {
+    let name = r.parents('tr').find('td:eq(1)').text();
+    $('#class').text(name)
+    $('#idlophoc').val(id)
     table1 = $('#tablelichday').DataTable({
         destroy: true,
         responsive: true,
@@ -41,9 +48,9 @@ function getdatabyid(id) {
             processing: 'Đang tải ....'
         },
         ajax: {
-            type:'get',
-            url:'/lichday.getdatabyid',
-            data:{id:id}
+            type: 'get',
+            url: '/lichday.getdatabyid',
+            data: {id: id}
         },
         serverSide: false,
         ordering: true,
@@ -51,7 +58,6 @@ function getdatabyid(id) {
             {data: 'DT_RowIndex', name: 'DT_RowIndex', class: 'text-center', width: '5%'},
             {data: 'hovaten', className: 'text-center'},
             {data: 'lichday', className: 'text-center'},
-            // {data: 'lichday', name: 'gioitinh', className: 'text-center'},
             // {data: '', name: 'tenlop', className: 'text-center'},
             // {data: 'ghichu', name: 'ghichu', className: 'text-center'},
             // {data: 'status', name: 'status', className: 'text-center'},
@@ -63,6 +69,8 @@ function getdatabyid(id) {
         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, 'Tất cả']],
     });
 }
+
 function reloadTable() {
-    table1.ajax.reload(null,false)
+    table1.ajax.reload(null, false)
+    table.ajax.reload(null, false)
 }

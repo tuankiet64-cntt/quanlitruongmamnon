@@ -25245,3 +25245,7 @@ body.dark #styleSelector .form-control {
 #nextclass_wrapper .dataTables_scrollHead > .dataTables_scrollHeadInner > table>thead > tr >  th:last-child {
     padding-bottom: 0.8em!important;
 }
+/*#tablegvadd_wrapper .dataTables_scrollHead > .dataTables_scrollHeadInner > table>thead > tr >  th:last-child {*/
+/*    padding-bottom: 0.6em!important;*/
+/*}*/
+
