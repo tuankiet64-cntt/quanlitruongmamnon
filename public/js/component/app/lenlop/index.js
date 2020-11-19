@@ -19,8 +19,8 @@ function getdata() {
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex', class: 'text-center', width: '5%'},
             {data: 'tenlop', className: 'text-center'},
+            {data: 'loptuoi', name: 'loptuoi', className: 'text-center'},
             {data: 'soluong', className: 'text-center'},
-            // {data: 'sotien', name: 'gioitinh', className: 'text-center'},
             // {data: 'loaiphi', name: 'tenlop', className: 'text-center'},
             // {data: 'ghichu', name: 'ghichu', className: 'text-center'},
             // {data: 'status', name: 'status', className: 'text-center'},

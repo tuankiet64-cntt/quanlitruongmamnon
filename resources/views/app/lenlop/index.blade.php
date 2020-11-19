@@ -38,6 +38,7 @@
                         <thead>
                         <th>STT</th>
                         <th>Tên lớp</th>
+                        <th>Lớp tuổi</th>
                         <th>Số lượng</th>
 {{--                        <th>Số tiền</th>--}}
 {{--                        <th>Loại phí</th>--}}

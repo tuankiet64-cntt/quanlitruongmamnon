@@ -51,7 +51,9 @@ function updategv() {
            closeModaladd(0)
            Success(text)
            reloadTable()
-       }else{
+       }
+       else
+           {
            let title='Giáo viên đang dạy lịch khác',
                text = 'Bạn chắc chắn muốn chuyển giáo viên sang lớp này. Lịch dạy cũ của giáo viên sẽ trống';
            const swalWithBootstrapButtons = Swal.mixin({

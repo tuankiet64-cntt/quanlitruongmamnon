@@ -7,8 +7,8 @@
             <table class="table table-border-style col-lg-12" id="nextclass">
                 <thead>
                 <th>STT</th>
-                <th>Tên lớp</th>
-                <th>Số lượng</th>
+                <th>Tên lớp tuổi</th>
+                <th>Độ tuổi</th>
                 {{--                        <th>Số tiền</th>--}}
                 {{--                        <th>Loại phí</th>--}}
                 {{--                        <th>Ghi chú</th>--}}
