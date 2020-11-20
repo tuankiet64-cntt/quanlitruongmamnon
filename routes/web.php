@@ -172,7 +172,7 @@ Route::group(
 //        Route::get('lenlop.getdataclass', 'NextlevelController@getdataclass');
 //        Route::get('lenlop.checktontai', 'NextlevelController@checktontai');
         Route::post('password.update', 'ChangepasswordController@update');
-//        Route::post('cackhoangphi.update', 'FeeController@update');
+        Route::post('User.update', 'UserController@update');
     }
 );
 Route::group(

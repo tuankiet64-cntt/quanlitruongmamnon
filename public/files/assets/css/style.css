@@ -25248,4 +25248,7 @@ body.dark #styleSelector .form-control {
 /*#tablegvadd_wrapper .dataTables_scrollHead > .dataTables_scrollHeadInner > table>thead > tr >  th:last-child {*/
 /*    padding-bottom: 0.6em!important;*/
 /*}*/
-
+#edit:hover {
+    cursor: pointer;
+    color:blue;
+}
