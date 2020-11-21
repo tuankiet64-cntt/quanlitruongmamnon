@@ -29,6 +29,7 @@ class FeeController extends Controller
             ->addColumn('thangapdung', function ($row) {
                 return '<label class="text-center">' . date("m-Y", strtotime($row['thangapdung'])) . '</label>';
             })
+
             ->addColumn('loaiphi', function ($row) {
                 if($row['loaiphi']==1){
                     return '<label class="text-center" data-value="1">Phí ngày</label>';

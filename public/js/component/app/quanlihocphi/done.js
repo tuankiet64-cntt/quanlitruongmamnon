@@ -59,7 +59,7 @@ function loadtablephidone2(data) {
             {data: 'ghichu', name: 'email', className: 'text-center'},
         ],
         scrollY: true,
-        scrollX: true,
+        // scrollX: true,
         scrollCollapse: true,
         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, 'Tất cả']],
         initComplete:function () {

@@ -34,7 +34,7 @@
                         <span id="dateoff"></span>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" id="hide-create">
                     <table class="table table-border-style col-lg-12" id="tableph">
                         <thead>
                         <th>STT</th>
@@ -66,11 +66,12 @@
                 <th>Tháng áp dụng</th>
                 <th>Số tiền</th>
                 <th>Loại phí</th>
+                <th>Tổng tiền</th>
                 <th>Ghi chú</th>
                 </thead>
             </table>
             {{--            Tổng tiền--}}
-             <div class="float-right h4">Tổng tiền: <span id="total-fee"></span><span>VND</span></div>
+             <div class="float-right h4">Tổng tiền:  <span id="total-fee"></span>&nbsp<span>VND</span></div>
         </div>
     </div>
 </div>

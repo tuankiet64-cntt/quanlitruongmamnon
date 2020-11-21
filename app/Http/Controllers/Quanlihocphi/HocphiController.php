@@ -147,6 +147,9 @@ class HocphiController extends Controller
                         </label>
                     </div>';
             })
+            ->addColumn('tongtien', function ($row) {
+                return '<label class="text-center" id="tongtien"></label>&nbsp<span>VND</span>';
+            })
             ->addColumn('sotien', function ($row) {
                 return '<label class="text-center">' . number_format($row['sotien']) . '</label>';
             })
@@ -161,7 +164,7 @@ class HocphiController extends Controller
                 }
             })
             ->addIndexColumn()
-            ->rawColumns(['thangapdung', 'checkbox', 'loaiphi', 'sotien'])
+            ->rawColumns(['thangapdung','tongtien', 'checkbox', 'loaiphi', 'sotien'])
             ->make();
     }
 

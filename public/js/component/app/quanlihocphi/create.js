@@ -95,7 +95,7 @@ function loadtablephi() {
             // {data: 'gioitinh', name: 'gioitinh', className: 'text-center'},
             {data: 'sotien', name: 'sdt', className: 'text-center'},
             {data: 'loaiphi', name: 'quanhe', className: 'text-center'},
-            // {data: 'status', name: 'status', className: 'text-center'},
+            {data: 'tongtien', name: 'tongtien', className: 'text-center'},
             {data: 'ghichu', name: 'email', className: 'text-center'},
         ],
         scrollY: true,
@@ -112,12 +112,15 @@ $(document).on('click', '#checkfee', function () {
     total = $('#total-fee').text()
     if ($(this).is(':checked')) {
         if (type == 1) {
+            $(this).parents('tr').find('td:eq(5)').find('label').text(formatNumber(feeday(removeformatNumber(tien))))
             tienngay = tienngay + (feeday(removeformatNumber(tien)))
         } else {
+            $(this).parents('tr').find('td:eq(5)').find('label').text(formatNumber(feemonth(removeformatNumber(tien))))
             tienthang = tienthang + (feemonth(removeformatNumber(tien)))
         }
         tongtien()
     } else {
+        $(this).parents('tr').find('td:eq(5)').find('label').text()
         if (total != 0 || total != null) {
             if (type == 1) {
                 tienngay = tienngay - (feeday(removeformatNumber(tien)))
@@ -213,13 +216,6 @@ function createhp() {
         tongtien = removeformatNumber($('#total-fee').text());
     // checkphi=checkRequire(cackhoanphi),
     // checktongtien=checkRequire(tongtien);
-    if (tongtien == '' || tongtien == 0) {
-        ErrorNotify('Chưa chọn phí để đóng')
-        return false;
-    } else if (cackhoanphi == []) {
-        ErrorNotify('Chưa chọn phí để đóng')
-        return false;
-    }
     tabledt.rows().every(function (index, element) {
         var row = $(this.node());
         // console.log(row.find('td:eq(0)').find('input').is(':checked'))
@@ -227,6 +223,13 @@ function createhp() {
             cackhoanphi[index] = row.find('td:eq(0)').find('input').data('id')
         }
     })
+    if (tongtien == '' || tongtien == 0) {
+        ErrorNotify('Chưa chọn phí để đóng')
+        return false;
+    } else if (cackhoanphi == []||cackhoanphi=="") {
+        ErrorNotify('Chưa chọn phí để đóng')
+        return false;
+    }
     $.ajax({
         type: 'post',
         url: '/quanlihocphi.insert',
@@ -235,15 +238,32 @@ function createhp() {
             cackhoanphi: cackhoanphi,
             tongtien:tongtien
         }
-    }).then(function (res) {
+    }).then( function (res) {
         if (res == 1) {
+            billcreate()
             text = 'Đã đóng học phí thành công';
             Success(text)
-            reloadtable()
-            closemodal()
         } else {
             text = 'Có lỗi trong quá trình thực hiện';
             ErrorNotify(text)
+        }
+    })
+}
+async function billcreate() {
+    $(' input[type=checkbox]').parents('tr').find('td:eq(0)').addClass('d-none')
+    $(' input[type=checkbox]').parents('thead').find('th:eq(0)').addClass('d-none')
+    $('#tablephi_wrapper').find('.row').eq(0).addClass('d-none')
+    $('#tablephi_wrapper').find('.row:last').addClass('d-none')
+    $('#hide-create').toggleClass('d-none')
+   await $('#create-modal .container').printThis({
+        afterPrint:function () {
+            $('#hide-create').toggleClass('d-none')
+            $('input[type=checkbox]').parents('tr').find('td:eq(0)').removeClass('d-none')
+            $('input[type=checkbox]').parents('thead').find('th:eq(0)').removeClass('d-none')
+            $('#tablephi_wrapper').find('.row').eq(0).removeClass('d-none')
+            $('#tablephi_wrapper').find('.row:last').removeClass('d-none')
+            closemodal()
+            reloadtable()
         }
     })
 }
