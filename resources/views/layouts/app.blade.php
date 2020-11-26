@@ -560,6 +560,12 @@
                                         <span class="pcoded-mtext">Quản lí học phí</span>
                                     </a>
                                 </li>
+                                <li class="">
+                                    <a href="{{route('tintuc.quanlitintuc.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-money"></i></span>
+                                        <span class="pcoded-mtext">Quản lí tin tức</span>
+                                    </a>
+                                </li>
                             </ul>
                         @endif
                     </div>

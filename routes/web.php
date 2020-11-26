@@ -228,3 +228,14 @@ Route::group(
         Route::post('lichday.delete', 'LichdayController@delete');
     }
 );
+Route::group(
+    ['namespace' => 'Tintuc', 'as' => 'tintuc.', 'middleware' => []],
+    function () {
+        Route::resource('quanlitintuc', 'TintucController');
+        Route::get('quanlitintuc.getdata', 'TintucController@getdata');
+//        Route::get('baocaohoatdongHT.getdatabyid', 'ActiveHTController@getdatabyid');
+//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
+        Route::post('quanlitintuc.insert', 'TintucController@insert');
+//        Route::post('baocaohoatdongHT.update', 'ActiveHTController@update');
+    }
+);
