@@ -233,9 +233,9 @@ Route::group(
     function () {
         Route::resource('quanlitintuc', 'TintucController');
         Route::get('quanlitintuc.getdata', 'TintucController@getdata');
-//        Route::get('baocaohoatdongHT.getdatabyid', 'ActiveHTController@getdatabyid');
+        Route::get('quanlitintuc.getdatabyid', 'TintucController@getdatabyid');
 //        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
         Route::post('quanlitintuc.insert', 'TintucController@insert');
-//        Route::post('baocaohoatdongHT.update', 'ActiveHTController@update');
+        Route::post('quanlitintuc.update', 'TintucController@update');
     }
 );

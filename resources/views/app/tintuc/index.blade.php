@@ -68,15 +68,15 @@
                             </div>
                         </div>
                     </div>
-                    {{--                    <div class="modal fade" id="update-modal" data-keyboard="false" data-backdrop="static" tabindex="-1"--}}
-                    {{--                         role="dialog"--}}
-                    {{--                         aria-hidden="true">--}}
-                    {{--                        <div class="modal-dialog modal-lg" role="document">--}}
-                    {{--                            <div class="modal-content " id="container-modal">--}}
-                    {{--                                @include('app.cackhoangphi.update');--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    </div>--}}
+                    <div class="modal fade" id="update-modal" data-keyboard="false" data-backdrop="static" tabindex="-1"
+                         role="dialog"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content " id="container-modal">
+                                @include('app.tintuc.update');
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
