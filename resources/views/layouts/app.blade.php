@@ -428,35 +428,41 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                                        <span class="pcoded-mtext">Lịch dạy và Phân công</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="">
+                                            <a href="{{route('lichday.lichday.index')}}">
+                                                <span class="pcoded-mtext">Lịch dạy</span>
+                                            </a>
+                                        </li>
+                                        {{--                                        <li class=" ">--}}
+                                        {{--                                            <a href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">--}}
+                                        {{--                                                <span class="pcoded-mtext">Giáo viên</span>--}}
+                                        {{--                                            </a>--}}
+                                        {{--                                        </li>--}}
+                                    </ul>
+                                </li>
                                 <li class="">
                                     <a href="{{route('quanlihoatdong.quanlihoatdong.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
                                         <span class="pcoded-mtext">Quản lí hoạt động lớp</span>
                                     </a>
                                 </li>
+                                {{--                                <li class="">--}}
+                                {{--                                    <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">--}}
+                                {{--                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>--}}
+                                {{--                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>--}}
+                                {{--                                    </a>--}}
+                                {{--                                </li>--}}
                                 <li class="">
-                                    <a href="{{route('quanlixeplop.quanlixeplop.index')}}">
-                                        <span class="pcoded-micon"><i class="fa fa-user-plus"></i></span>
-                                        <span class="pcoded-mtext">Quản lí xếp lớp</span>
+                                    <a href="{{route('baocaohoatdongHT.baocaohoatdongHT.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
+                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>
                                     </a>
-                                </li>
-                                <li class="pcoded-hasmenu" dropdown-icon="style1" subitem-icon="style1">
-                                    <a href="javascript:void(0)">
-                                        <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
-                                        <span class="pcoded-mtext">Quản lí lịch dạy và Phân công</span>
-                                    </a>
-                                    <ul class="pcoded-submenu">
-                                        <li class="">
-                                            <a href="">
-                                                <span class="pcoded-mtext">Lịch dạy</span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">
-                                                <span class="pcoded-mtext">Phân lớp</span>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </li>
                                 <li class="">
                                     <a href="{{route('quanlitaikhoan.quanlitaikhoan.index')}}">
@@ -464,7 +470,32 @@
                                         <span class="pcoded-mtext">Quản lí tài khoản</span>
                                     </a>
                                 </li>
+                                {{--                                <li class="">--}}
+                                {{--                                    <a href="{{route('diemdanh.diemdanh.index')}}">--}}
+                                {{--                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>--}}
+                                {{--                                        <span class="pcoded-mtext">Điểm danh học sinh</span>--}}
+                                {{--                                    </a>--}}
+                                {{--                                </li>--}}
+                                <li class="">
+                                    <a href="{{route('cackhoangphi.cackhoangphi.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-money"></i></span>
+                                        <span class="pcoded-mtext">Quản lí các khoản phí</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{route('quanlihocphi.quanlihocphi.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-money"></i></span>
+                                        <span class="pcoded-mtext">Quản lí học phí</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a href="{{route('tintuc.quanlitintuc.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-object-group"></i></span>
+                                        <span class="pcoded-mtext">Quản lí tin tức</span>
+                                    </a>
+                                </li>
                             </ul>
+
                         @elseif( Auth::user()->level == 2 && Auth::user()->status ==1)
                             {{ "Thành viên" }}
                         @elseif( Auth::user()->level == 1 && Auth::user()->status ==1)
@@ -562,7 +593,7 @@
                                 </li>
                                 <li class="">
                                     <a href="{{route('tintuc.quanlitintuc.index')}}">
-                                        <span class="pcoded-micon"><i class="fa fa-money"></i></span>
+                                        <span class="pcoded-micon"><i class="fa fa-object-group"></i></span>
                                         <span class="pcoded-mtext">Quản lí tin tức</span>
                                     </a>
                                 </li>
