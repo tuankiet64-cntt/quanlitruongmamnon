@@ -37,6 +37,7 @@ function create() {
             text='Tạo bài viết thành công'
             Success(text)
             $('#create-modal input').val('')
+            $('#content').val("")
             CloseModalTintuc()
             reloadtable()
         }else {

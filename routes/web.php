@@ -232,7 +232,11 @@ Route::group(
     ['namespace' => 'Tintuc', 'as' => 'tintuc.', 'middleware' => []],
     function () {
         Route::resource('quanlitintuc', 'TintucController');
+        Route::resource('tintuc', 'HienthiController');
+        Route::get('detail', 'HienthiController@viewDetail');
         Route::get('quanlitintuc.getdata', 'TintucController@getdata');
+        Route::get('tintuc.getdata', 'HienthiController@getdata');
+        Route::get('tintuc.getdatabyid', 'HienthiController@getdatabyid');
         Route::get('quanlitintuc.getdatabyid', 'TintucController@getdatabyid');
 //        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
         Route::post('quanlitintuc.insert', 'TintucController@insert');

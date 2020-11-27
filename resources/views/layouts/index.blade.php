@@ -9,6 +9,8 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -54,7 +56,7 @@
                         <li><a href="{{route('registration.nhaphoc.index')}}">
                                 Đăng ký nhập học
                             </a></li>
-                        <li>Tin tức</li>
+                        <li><a href="{{route('tintuc.tintuc.index')}}">Tin tức</a></li>
                         <li>Liên hệ</li>
                     </ul>
                 </nav>

@@ -142,7 +142,6 @@ class TintucController extends Controller
             $new->title=$title;
             $new->description=$description;
             $new->content=$content;
-            $new->image_path="";
             if($new->save()){
                 return 1;
             }else{
