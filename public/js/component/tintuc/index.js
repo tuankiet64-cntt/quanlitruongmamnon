@@ -1,17 +1,19 @@
 $(function () {
     loaddata()
 })
-let totaldata = [];
+let soluongtoida=0;
+    totaldata = [];
 
 function loaddata() {
     $.ajax({
         type: 'get',
         url: '/tintuc.getdata',
     }).then(function (res) {
+        soluongtoida=res[2]
         $('#phantrang').append(res[1]);
         totaldata = res[0]
         phantrang(1)
-        console.log(totaldata);
+        $('.page-item ').eq(1).addClass('active')
     })
 }
 
@@ -51,9 +53,41 @@ function phantrang(tranghientai) {
 }
 
 $(document).on('click', '#pani', function () {
+    $('.page-item ').removeClass('active')
+    $(this).parents('li').addClass('active')
     hientai = $(this).text()
     phantrang(hientai)
 })
 function getdatabyid(id) {
     window.location = '/detail?id='+id;
 }
+$(document).on('click','#Next',function () {
+    $.each($('.page-item'),function (index,value) {
+        if($(this).hasClass('active')){
+            hientai=parseFloat($(this).find('a').text())
+            $(this).removeClass('active')
+        }
+    })
+    next=hientai+1;
+    if(next>soluongtoida){
+        $('.page-item ').eq(soluongtoida).addClass('active')
+        return false;
+    }
+    $('.page-item ').eq(next).addClass('active')
+    phantrang(next)
+})
+$(document).on('click','#Previous',function () {
+    $.each($('.page-item'),function (index,value) {
+        if($(this).hasClass('active')){
+            hientai=parseFloat($(this).find('a').text())
+            $(this).removeClass('active')
+        }
+    })
+    Previous=hientai-1;
+    if(Previous<1){
+        $('.page-item ').eq(1).addClass('active')
+        return false;
+    }
+    $('.page-item ').eq(Previous).addClass('active')
+    phantrang(Previous)
+})

@@ -17,7 +17,7 @@ class HienthiController extends Controller
         $phantrang=[];
         $soluongtoida=ceil(count($data)/4);
         $phantrang[0]=' <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
+                            <a class="page-link" href="javascript:void(0)" aria-label="Previous" id="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
@@ -26,12 +26,12 @@ class HienthiController extends Controller
             $phantrang[$i]='<li class="page-item"><a class="page-link" href="javascript:void(0)" id="pani" value="'.$i.'">'.$i.'</a></li>';
         }
         $phantrang[$soluongtoida+1]=' <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
+                            <a class="page-link" href="javascript:void(0)" aria-label="Next" id="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>
                             </a>
                         </li>';
-        $res=[$data,implode('',$phantrang)];
+        $res=[$data,implode('',$phantrang),$soluongtoida];
         return $res;
     }
 
