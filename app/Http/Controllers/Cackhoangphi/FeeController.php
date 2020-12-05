@@ -16,7 +16,8 @@ class FeeController extends Controller
 
     public function index()
     {
-        return view('app.cackhoangphi.index');
+        $active_nav='quanlicackhoanphi';
+        return view('app.cackhoangphi.index',compact('active_nav'));
     }
     public function getdatabymonth(Request $request){
         $date=$request->get('date');

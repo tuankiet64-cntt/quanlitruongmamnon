@@ -15,7 +15,8 @@ class QuanliNHController extends Controller
         $this->middleware('auth');
     }
     public function index(){
-        return view('app.quanlinhaphoc.index');
+        $active_nav='quanlinhaphoc';
+        return view('app.quanlinhaphoc.index', compact('active_nav'));
     }
 
     public function getData(){

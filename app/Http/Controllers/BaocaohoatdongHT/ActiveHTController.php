@@ -17,7 +17,8 @@ class ActiveHTController extends Controller
 
     public function index()
     {
-        return view('app.baocaohoatdongHT.index');
+        $active_nav='baocaohoatdongHT';
+        return view('app.baocaohoatdongHT.index',compact('active_nav'));
     }
     public function getdata(){
         $data=report::join('hoatdong as hd','hd.id','report.idhd')

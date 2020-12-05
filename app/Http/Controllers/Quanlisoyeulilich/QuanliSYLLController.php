@@ -19,7 +19,8 @@ class QuanliSYLLController extends Controller
 
     public function index()
     {
-        return view('app.quanlisoyeulilich.index');
+        $active_nav='SYLL';
+        return view('app.quanlisoyeulilich.index',compact('active_nav'));
     }
 
     public function successStudent()

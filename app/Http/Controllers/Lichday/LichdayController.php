@@ -18,7 +18,8 @@ class LichdayController extends Controller
 
     public function index()
     {
-        return view('app.lichday.index');
+        $active_nav='lichday';
+        return view('app.lichday.index',compact('active_nav'));
     }
 
     public function getData()

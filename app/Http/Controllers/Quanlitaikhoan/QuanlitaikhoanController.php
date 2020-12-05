@@ -19,7 +19,8 @@ class QuanlitaikhoanController extends Controller
 
     public function index()
     {
-        return view('app.quanlitaikhoan.index');
+        $active_nav='quanlitaikhoan';
+        return view('app.quanlitaikhoan.index',compact('active_nav'));
     }
 
     public function getdatacv()

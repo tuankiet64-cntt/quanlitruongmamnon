@@ -21,7 +21,8 @@ class NextlevelController extends Controller
 
     public function index()
     {
-        return view('app.lenlop.index');
+        $active_nav='lenlop';
+        return view('app.lenlop.index',compact('active_nav'));
     }
 
     public function getdata()

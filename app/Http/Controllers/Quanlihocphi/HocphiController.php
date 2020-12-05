@@ -21,7 +21,8 @@ class HocphiController extends Controller
 
     public function index()
     {
-        return view('app.quanlihocphi.index');
+        $active_nav='quanlihocphi';
+        return view('app.quanlihocphi.index',compact('active_nav'));
     }
 
     public function getdatalophoc()

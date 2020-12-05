@@ -16,7 +16,8 @@ class TintucController extends Controller
 
     public function index()
     {
-        return view('app.tintuc.index');
+        $active_nav='quanlitintuc';
+        return view('app.tintuc.index',compact('active_nav'));
     }
     public function getdata(){
         $data=tintuc::orderBy('id', 'DESC')->get();

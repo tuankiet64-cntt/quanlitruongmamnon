@@ -18,7 +18,8 @@ class QuanlixeplopController extends Controller
 
     public function index()
     {
-        return view('app.quanlilop.index');
+        $active_nav='quanlilop';
+        return view('app.quanlilop.index',compact('active_nav'));
     }
 
     public function getData()

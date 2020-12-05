@@ -17,7 +17,8 @@ class ActiveController extends Controller
 
     public function index()
     {
-        return view('app.quanlihoatdong.index');
+        $active_nav='quanlihoatdong';
+        return view('app.quanlihoatdong.index',compact('active_nav'));
     }
 
     public function getdata()
