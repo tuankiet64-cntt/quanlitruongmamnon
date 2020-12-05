@@ -243,3 +243,14 @@ Route::group(
         Route::post('quanlitintuc.update', 'TintucController@update');
     }
 );
+Route::group(
+    ['namespace' => 'Checkin', 'as' => 'checkin.', 'middleware' => []],
+    function () {
+//        Route::resource('baocaohoatdongHT', 'ActiveHTController');
+//        Route::get('baocaohoatdongHT.getdata', 'ActiveHTController@getdata');
+//        Route::get('baocaohoatdongHT.getdatabyid', 'ActiveHTController@getdatabyid');
+//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
+        Route::post('checkin.insert', 'checkinController@insert');
+//        Route::post('baocaohoatdongHT.update', 'ActiveHTController@update');
+    }
+);
