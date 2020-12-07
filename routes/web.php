@@ -254,3 +254,14 @@ Route::group(
 //        Route::post('baocaohoatdongHT.update', 'ActiveHTController@update');
     }
 );
+Route::group(
+    ['namespace' => 'Quanlichamcong', 'as' => 'quanlichamcong.', 'middleware' => []],
+    function () {
+        Route::resource('quanlichamcong', 'ChamcongController');
+        Route::get('quanlichamcong.getdata', 'ChamcongController@getdata');
+        Route::get('quanlichamcong.getdatabyid', 'ChamcongController@getdatabyid');
+//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
+        Route::post('quanlichamcong.insert', 'ChamcongController@insert');
+        Route::post('quanlichamcong.updatestatus', 'ChamcongController@updatestatus');
+    }
+);

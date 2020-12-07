@@ -21,7 +21,8 @@ class DiemdanhController extends Controller
 
     public function index()
     {
-        return view('app.diemdanh.index');
+        $active_nav='diemdanh';
+        return view('app.diemdanh.index',compact('active_nav'));
     }
 
     public function getData(Request $request)

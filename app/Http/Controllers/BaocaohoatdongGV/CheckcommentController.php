@@ -20,7 +20,8 @@ class CheckcommentController extends Controller
 
     public function index()
     {
-        return view('app.baocaohoatdongGV.checkcomment.index');
+        $active_nav='check';
+        return view('app.baocaohoatdongGV.checkcomment.index',compact('active_nav'));
     }
 
     public function getdata(Request $request)

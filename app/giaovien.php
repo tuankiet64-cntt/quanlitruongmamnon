@@ -18,5 +18,8 @@ class giaovien extends Model
     public function lichday(){
         return $this->hasOne('App\lichday','idgv','id');
     }
+    public function chamcong(){
+        return $this->hasMany('App\checkin','idgv','id');
+    }
 }
 

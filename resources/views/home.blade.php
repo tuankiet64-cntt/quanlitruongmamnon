@@ -13,7 +13,7 @@
                         @endif
                         @if (Auth::check())
                             <div>
-                                <input type="text" class="d-none" id="idgv" value="{{Auth::user()->id}}">
+                                <input type="text" class="d-none" id="idacc" value="{{Auth::user()->id}}">
                                 Bạn đang đăng nhập với quyền
                                 @if( Auth::user()->level == 0)
                                     {{ "SuperAdmin" }}
@@ -47,14 +47,6 @@
                     </div>
                 </div>
             @endif
-            <div class="card text-center d-none" style="width: 18rem;" id="on">
-                <h5 class="card-header">Chấm công</h5>
-                <div class="card-body">
-                    <p class="card-text">Bạn đã check in vào lúc: {{$time}}.</p>
-                    <p class="card-text">Số ngày công là : {{$total}}.</p>
-                    <button class="btn btn-danger" disabled>Checkin</button>
-                </div>
-            </div>
         </div>
     </div>
     @push('script')

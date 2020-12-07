@@ -20,7 +20,8 @@ class BaocaoController extends Controller
 
     public function index()
     {
-        return view('app.baocaohoatdongGV.index');
+        $active_nav='baocao';
+        return view('app.baocaohoatdongGV.index',compact('active_nav'));
     }
     public function getdata(Request $request){
         $idtk=$request->get('id');

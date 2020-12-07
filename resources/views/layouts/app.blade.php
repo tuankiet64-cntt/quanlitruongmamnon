@@ -367,10 +367,11 @@
                 <nav class="pcoded-navbar">
                     <div class="pcoded-inner-navbar main-menu">
                         <input type="text" class="d-none" value="{{Auth::user()->id}}" id="idtaikhoan">
+{{--                        Giáo viên--}}
                         @if( Auth::user()->level == 2 && Auth::user()->status ==1)
                             <div class="pcoded-navigatio-lavel">Menu Chính</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                <li class="@if($active_nav == 'diemdanh') active @endif>">
                                     <a href="{{route('diemdanh.diemdanh.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
                                         <span class="pcoded-mtext">Điểm danh học sinh</span>
@@ -382,12 +383,12 @@
                                         <span class="pcoded-mtext">Hoạt động</span>
                                     </a>
                                     <ul class="pcoded-submenu">
-                                        <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                        <li class="@if($active_nav == 'baocao') active @endif>">
                                             <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">
                                                 <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>
                                             </a>
                                         </li>
-                                        <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                        <li class="@if($active_nav == 'check') active @endif>">
                                             <a href="{{route('baocaohoatdongGV.checkhoatdongGV.index')}}">
                                                 <span class="pcoded-mtext">Nhận xét</span>
                                             </a>
@@ -395,6 +396,7 @@
                                     </ul>
                                 </li>
                             </ul>
+{{--                            Cán bộ văn phòng--}}
                         @elseif( Auth::user()->level == 4 && Auth::user()->status ==1)
                             <div class="pcoded-navigatio-lavel">Menu Chính</div>
                             <ul class="pcoded-item pcoded-left-item">
@@ -495,9 +497,30 @@
                                     </a>
                                 </li>
                             </ul>
-
-                        @elseif( Auth::user()->level == 2 && Auth::user()->status ==1)
-                            {{ "Thành viên" }}
+{{--                            kế toán--}}
+                        @elseif( Auth::user()->level == 3 && Auth::user()->status ==1)
+                            <div class="pcoded-navigatio-lavel">Menu Chính</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="@if($active_nav == 'quanlicackhoanphi') active @endif>">
+                                    <a href="{{route('cackhoangphi.cackhoangphi.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-money"></i></span>
+                                        <span class="pcoded-mtext">Quản lí các khoản phí</span>
+                                    </a>
+                                </li>
+                                <li class="@if($active_nav == 'quanlihocphi') active @endif>">
+                                    <a href="{{route('quanlihocphi.quanlihocphi.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-money"></i></span>
+                                        <span class="pcoded-mtext">Quản lí học phí</span>
+                                    </a>
+                                </li>
+                                <li class="@if($active_nav == 'quanlichamcong') active @endif>">
+                                    <a href="{{route('quanlichamcong.quanlichamcong.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-calendar-check-o"></i></span>
+                                        <span class="pcoded-mtext">Quản lí chấm công</span>
+                                    </a>
+                                </li>
+                            </ul>
+{{--                            Admin--}}
                         @elseif( Auth::user()->level == 1 && Auth::user()->status ==1)
                             <div class="pcoded-navigatio-lavel">Menu Chính</div>
                             <ul class="pcoded-item pcoded-left-item">
@@ -595,6 +618,12 @@
                                     <a href="{{route('tintuc.quanlitintuc.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-object-group"></i></span>
                                         <span class="pcoded-mtext">Quản lí tin tức</span>
+                                    </a>
+                                </li>
+                                <li class="@if($active_nav == 'quanlichamcong') active @endif>">
+                                    <a href="{{route('quanlichamcong.quanlichamcong.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-calendar-check-o"></i></span>
+                                        <span class="pcoded-mtext">Quản lí chấm công</span>
                                     </a>
                                 </li>
                             </ul>
