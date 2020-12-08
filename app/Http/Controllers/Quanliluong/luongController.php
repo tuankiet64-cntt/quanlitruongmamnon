@@ -111,7 +111,7 @@ class luongController extends Controller
             ->addColumn('action', function ($row) {
                 if($row['recordluong']!=null){
                     return '<div class="btn-group btn-group-sm">
-                            <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="OpenModalDone(' . $row['recordluong']['id'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-pencil"></span></button>
+                            <button type="button" class="tabledit-edit-button btn btn-primary waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="OpenModalDone(' . $row['recordluong']['id'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-eye"></span></button>
                         </div>';
                 }else{
                     return '<div class="btn-group btn-group-sm">
