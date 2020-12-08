@@ -616,7 +616,7 @@
                                 </li>
                                 <li class="@if($active_nav == 'quanliluong') active @endif>">
                                     <a href="{{route('quanliluong.quanliluong.index')}}">
-                                        <span class="pcoded-micon"><i class="fa fa-calendar-check-o"></i></span>
+                                        <span class="pcoded-micon"><i class="fa fa-money"></i></span>
                                         <span class="pcoded-mtext">Quản lí lương nhân viên</span>
                                     </a>
                                 </li>

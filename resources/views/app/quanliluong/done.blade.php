@@ -19,6 +19,11 @@
                 <br>
                 <label id="luong-done" class="form-control" type="text"></label>
             </div>
+            <div class="form-group">
+                <label class="sub-title">Ngày trả lương</label>
+                <br>
+                <label id="date-done" class="form-control" type="text"></label>
+            </div>
         </div>
     </div>
 </div>

@@ -55,9 +55,8 @@ class luongController extends Controller
                             <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="create(' . $row['id'] . ')" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-plus-square"></span></button>
                         </div>';
                 }
-
-
             })
+
             ->addIndexColumn()
             ->rawColumns(['action', 'sotienhangngay', 'ngaylamviec','tongtien'])
             ->make();
@@ -187,6 +186,7 @@ class luongController extends Controller
     public function getdatabyiddone(Request $request){
         $id=$request->get('id');
         $data=recordluong::where('id','=',$id)->first();
+        $data['ngaytraluong']=date("d-m-Y", strtotime($data['created_at']));
         return $data;
     }
 }

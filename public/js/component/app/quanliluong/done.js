@@ -71,9 +71,10 @@ function OpenModalDone(id,r) {
         url:'/quanliluong.getdatabyiddone',
         data:{id:id}
     }).then(function (res) {
-        $('#ngay-done').text(res['ngaylamviec']+' VNĐ')
+        $('#ngay-done').text(res['ngaylamviec']+' Ngày')
         $('#luong-done').text(formatNumber(res['tongtien'])+' VNĐ')
         $('#luonghangngay-done').text(formatNumber((res['luongngay']))+' VNĐ')
+        $('#date-done').text(res['ngaytraluong'])
     })
 }
 function CloseModalDone() {
