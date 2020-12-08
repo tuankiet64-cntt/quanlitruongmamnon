@@ -61,7 +61,11 @@ function loadtable(data) {
 }
 function createCheckin() {
     let status=$('input[type=radio]:checked').val(),
-        date=$('#datetimepicker').val();
+        date=$('#datetimepicker').val(),
+        checkdate=checkRequire('Ngày chấm công',date);
+    if(checkdate==false){
+        return false;
+    }
         $.ajax({
             type:'post',
             url:'/quanlichamcong.insert',

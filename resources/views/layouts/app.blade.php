@@ -400,13 +400,13 @@
                         @elseif( Auth::user()->level == 4 && Auth::user()->status ==1)
                             <div class="pcoded-navigatio-lavel">Menu Chính</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                <li class="@if($active_nav == 'quanlinhaphoc') active @endif>">
                                     <a href="{{route('quanlinhaphoc.qlnhaphoc.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-plus-square-o"></i></span>
                                         <span class="pcoded-mtext">Quản lí nhập học</span>
                                     </a>
                                 </li>
-                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                <li class="@if($active_nav == 'SYLL') active @endif>">
                                     <a href="{{route('quanlisoyeulilich.qlsyll.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-child"></i></span>
                                         <span class="pcoded-mtext">Quản lí sơ yếu lí lịch</span>
@@ -418,12 +418,12 @@
                                         <span class="pcoded-mtext">Quản lí lớp học</span>
                                     </a>
                                     <ul class="pcoded-submenu">
-                                        <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                        <li class="@if($active_nav == 'quanlilop') active @endif>">
                                             <a href="{{route('quanlilop.quanlilop.index')}}">
                                                 <span class="pcoded-mtext">Tạo và chỉnh sửa lớp</span>
                                             </a>
                                         </li>
-                                        <li class=" ">
+                                        <li class="@if($active_nav == 'lenlop') active @endif>">
                                             <a href="{{route('lenlop.lenlop.index')}}">
                                                 <span class="pcoded-mtext">Lên lớp</span>
                                             </a>
@@ -436,7 +436,7 @@
                                         <span class="pcoded-mtext">Lịch dạy và Phân công</span>
                                     </a>
                                     <ul class="pcoded-submenu">
-                                        <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                        <li class="@if($active_nav == 'lichday') active @endif>">
                                             <a href="{{route('lichday.lichday.index')}}">
                                                 <span class="pcoded-mtext">Lịch dạy</span>
                                             </a>
@@ -448,7 +448,7 @@
                                         {{--                                        </li>--}}
                                     </ul>
                                 </li>
-                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                <li class="@if($active_nav == 'quanlihoatdong') active @endif>">
                                     <a href="{{route('quanlihoatdong.quanlihoatdong.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
                                         <span class="pcoded-mtext">Quản lí hoạt động lớp</span>
@@ -460,13 +460,13 @@
                                 {{--                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>--}}
                                 {{--                                    </a>--}}
                                 {{--                                </li>--}}
-                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                <li class="@if($active_nav == 'baocaohoatdongHT') active @endif>">
                                     <a href="{{route('baocaohoatdongHT.baocaohoatdongHT.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
                                         <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>
                                     </a>
                                 </li>
-                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                <li class="@if($active_nav == 'quanlitaikhoan') active @endif>">
                                     <a href="{{route('quanlitaikhoan.quanlitaikhoan.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-user-plus"></i></span>
                                         <span class="pcoded-mtext">Quản lí tài khoản</span>
@@ -478,19 +478,7 @@
                                 {{--                                        <span class="pcoded-mtext">Điểm danh học sinh</span>--}}
                                 {{--                                    </a>--}}
                                 {{--                                </li>--}}
-                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
-                                    <a href="{{route('cackhoangphi.cackhoangphi.index')}}">
-                                        <span class="pcoded-micon"><i class="fa fa-money"></i></span>
-                                        <span class="pcoded-mtext">Quản lí các khoản phí</span>
-                                    </a>
-                                </li>
-                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
-                                    <a href="{{route('quanlihocphi.quanlihocphi.index')}}">
-                                        <span class="pcoded-micon"><i class="fa fa-money"></i></span>
-                                        <span class="pcoded-mtext">Quản lí học phí</span>
-                                    </a>
-                                </li>
-                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">
+                                <li class="@if($active_nav == 'quanlitintuc') active @endif>">
                                     <a href="{{route('tintuc.quanlitintuc.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-object-group"></i></span>
                                         <span class="pcoded-mtext">Quản lí tin tức</span>
@@ -624,6 +612,12 @@
                                     <a href="{{route('quanlichamcong.quanlichamcong.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-calendar-check-o"></i></span>
                                         <span class="pcoded-mtext">Quản lí chấm công</span>
+                                    </a>
+                                </li>
+                                <li class="@if($active_nav == 'quanliluong') active @endif>">
+                                    <a href="{{route('quanliluong.quanliluong.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-calendar-check-o"></i></span>
+                                        <span class="pcoded-mtext">Quản lí lương nhân viên</span>
                                     </a>
                                 </li>
                             </ul>

@@ -265,3 +265,14 @@ Route::group(
         Route::post('quanlichamcong.updatestatus', 'ChamcongController@updatestatus');
     }
 );
+Route::group(
+    ['namespace' => 'Quanliluong', 'as' => 'quanliluong.', 'middleware' => []],
+    function () {
+        Route::resource('quanliluong', 'luongController');
+        Route::get('quanliluong.getdata', 'luongController@getdata');
+        Route::get('quanliluong.getdatabyid', 'luongController@getdatabyid');
+//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
+        Route::post('quanliluong.insert', 'luongController@insert');
+        Route::post('quanliluong.update', 'luongController@update');
+    }
+);

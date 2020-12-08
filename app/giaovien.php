@@ -21,5 +21,8 @@ class giaovien extends Model
     public function chamcong(){
         return $this->hasMany('App\checkin','idgv','id');
     }
+    public function luonggv(){
+        return $this->hasOne('App\luongnv','idgv','id');
+    }
 }
 
