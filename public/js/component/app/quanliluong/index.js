@@ -33,7 +33,7 @@ function loadluongnv() {
         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, 'Tất cả']],
     });
 }
-function loadrecordtb() {
+function loadrecordtb(month) {
     table=$('#luongrecordtb').DataTable({
         destroy: true,
         responsive: true,
@@ -44,6 +44,7 @@ function loadrecordtb() {
         ajax: {
             type:'get',
             url:'/quanliluong.getdata2',
+            data:{month:month}
         },
         serverSide: false,
         ordering: true,
@@ -66,3 +67,6 @@ function loadrecordtb() {
 function reload() {
 table.ajax.reload(null,false)
 }
+$('#calendar-month').on('dp.change',function () {
+    loadrecordtb($(this).val())
+})

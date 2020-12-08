@@ -1,4 +1,16 @@
 var idgv='';
+$(function () {
+    $('#calendar-month').datetimepicker({
+        viewMode: 'years',
+        format: 'MM-YYYY',
+        locale: 'vi',
+        // minDate:'10-1-2020',
+        icons: {
+            next: "icofont icofont-rounded-right",
+            previous: "icofont icofont-rounded-left"
+        }
+    })
+})
 function done(id,r) {
     idgv=id;
     let tengv=r.parents('tr').find('td:eq(1)').text(),

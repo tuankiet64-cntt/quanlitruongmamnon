@@ -62,9 +62,10 @@ class luongController extends Controller
             ->rawColumns(['action', 'sotienhangngay', 'ngaylamviec','tongtien'])
             ->make();
     }
-    public function getdata2(){
-//        $month = $request->get('month');
-        $month='12';
+    public function getdata2(Request $request){
+        $month = $request->get('month');
+//        dd($month);
+//        $month='12';
         $data=giaovien::with(['luonggv','recordluong'=> function ($query) use ($month) {
             $query->whereMonth('recordluong.created_at', '=', $month);
         },'chamcong'=> function ($query) use ($month) {
