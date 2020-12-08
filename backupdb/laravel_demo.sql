@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 08, 2020 lúc 05:08 AM
+-- Thời gian đã tạo: Th12 08, 2020 lúc 07:00 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.31
 
@@ -430,7 +430,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (37, '2020_11_25_115612_addtintuc', 28),
 (39, '2020_12_05_142653_checkin', 29),
 (40, '2020_12_07_181229_addstatuschamcong', 30),
-(43, '2020_12_08_081203_create_luong', 31);
+(43, '2020_12_08_081203_create_luong', 31),
+(44, '2020_12_08_120335_createrecordluong', 32);
 
 -- --------------------------------------------------------
 
@@ -533,6 +534,31 @@ INSERT INTO `phuhuynh` (`id`, `mahs`, `hovaten`, `sdt`, `email`, `quanhe`, `ngay
 (5, 9, 'ádasd', '0961612308', 'trantuankiet071097@gmail.com', 'Dì', '2020-08-09', 'ádasd', NULL, '2020-09-26 04:43:29', '2020-09-26 04:43:29'),
 (6, 10, 'Tràn tuấn kiệt', '0961612308', 'trantuankiet071097@gmail.com', 'cậu', '2020-03-09', 'ádasdasd', NULL, '2020-09-26 04:48:00', '2020-09-26 04:48:00'),
 (7, 11, 'Tràn tuấn kiệt', '0961612308', 'trantuankiet071097@gmail.com', 'Chú', '2020-09-09', 'ádasd', NULL, '2020-09-26 04:50:28', '2020-09-26 04:50:28');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `recordluong`
+--
+
+CREATE TABLE `recordluong` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `idgv` bigint(20) UNSIGNED NOT NULL,
+  `ngaylamviec` int(11) NOT NULL,
+  `luongngay` int(11) NOT NULL,
+  `tongtien` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `recordluong`
+--
+
+INSERT INTO `recordluong` (`id`, `idgv`, `ngaylamviec`, `luongngay`, `tongtien`, `created_at`, `updated_at`) VALUES
+(1, 2, 20, 10000, 100000, '2020-12-07 05:10:48', NULL),
+(2, 2, 20, 10000, 100000, '2020-11-11 05:10:48', NULL),
+(3, 4, 1, 357142, 357142, '2020-12-08 05:47:18', '2020-12-08 05:47:18');
 
 -- --------------------------------------------------------
 
@@ -756,6 +782,13 @@ ALTER TABLE `phuhuynh`
   ADD KEY `phuhuynh_mahs_foreign` (`mahs`);
 
 --
+-- Chỉ mục cho bảng `recordluong`
+--
+ALTER TABLE `recordluong`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `recordluong_idgv_foreign` (`idgv`);
+
+--
 -- Chỉ mục cho bảng `report`
 --
 ALTER TABLE `report`
@@ -870,7 +903,7 @@ ALTER TABLE `luongnv`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT cho bảng `nknhaphoc`
@@ -883,6 +916,12 @@ ALTER TABLE `nknhaphoc`
 --
 ALTER TABLE `phuhuynh`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT cho bảng `recordluong`
+--
+ALTER TABLE `recordluong`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `report`
@@ -968,6 +1007,12 @@ ALTER TABLE `luongnv`
 --
 ALTER TABLE `phuhuynh`
   ADD CONSTRAINT `phuhuynh_mahs_foreign` FOREIGN KEY (`mahs`) REFERENCES `hocsinh` (`id`);
+
+--
+-- Các ràng buộc cho bảng `recordluong`
+--
+ALTER TABLE `recordluong`
+  ADD CONSTRAINT `recordluong_idgv_foreign` FOREIGN KEY (`idgv`) REFERENCES `giaovien` (`id`);
 
 --
 -- Các ràng buộc cho bảng `report`

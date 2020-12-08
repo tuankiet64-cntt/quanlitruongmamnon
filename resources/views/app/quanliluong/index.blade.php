@@ -52,7 +52,7 @@
                         <thead>
                         <th>STT</th>
                         <th>Tên giáo viên</th>
-                        <th>Só ngày làm viên</th>
+                        <th>Só ngày làm viêc</th>
                         <th>Số tiền hằng ngày</th>
                         <th>Tổng tiền</th>
                         {{--                        <th>Ghi chú</th>--}}
@@ -80,6 +80,65 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="col-lg-8">
+                        <h4 class="sub-title col-lg-4">Bảng trả lương</h4>
+                        {{--                        <button class=" btn btn-primary btn-square col-lg-4" onclick="openModalCreate()">Chấm công--}}
+                        {{--                        </button>--}}
+                        <div class="col-lg-8"></div>
+                    </div>
+                    <div class="input-group col-lg-4">
+                        <input id="calendar-month" class="form-control  text-center" type="text"
+                               placeholder="{{date('m')}}" value="{{date('m')}}">
+                        <button class="input-group-addon float-right" id="btn-calendar"><i
+                                class="fa fa-search"></i></button>
+
+                    </div>
+
+                </div>
+                <div class="card-body">
+                    <table class="table table-border-style col-lg-12" id="luongrecordtb">
+                        <thead>
+                        <th>STT</th>
+                        <th>Tên giáo viên</th>
+                        <th>Só ngày đã làm viêc</th>
+                        <th>Lương hằng ngày</th>
+                        <th>Tổng tiền</th>
+                        <th>Trạng thái</th>
+                        {{--                        <th>Số lượng tối đa</th>--}}
+                        <th>Chức năng</th>
+                        </thead>
+                    </table>
+                    <div class="modal fade" id="update-modal" data-keyboard="false" data-backdrop="static" tabindex="-1"
+                         role="dialog"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-md" role="document">
+                            <div class="modal-content " id="container-modal">
+                                @include('app.quanliluong.update');
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="create-modal" data-keyboard="false" data-backdrop="static" tabindex="-1"
+                         role="dialog"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-md" role="document">
+                            <div class="modal-content " id="container-modal">
+                                @include('app.quanliluong.create');
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="done-modal" data-keyboard="false" data-backdrop="static" tabindex="-1"
+                         role="dialog"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-md" role="document">
+                            <div class="modal-content " id="container-modal">
+                                @include('app.quanliluong.done');
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         @push('script')
             <script type="text/javascript"
@@ -87,6 +146,7 @@
             <script type="text/javascript"
                     src="..\files\assets\pages\advance-elements\bootstrap-datetimepicker.min.js"></script>
             <script src="../js/component/app/quanliluong/index.js"></script>
+            <script src="../js/component/app/quanliluong/done.js"></script>
     {{--            <script src="../js/component/app/quanlilop/delete.js"></script>--}}
 
     @endpush

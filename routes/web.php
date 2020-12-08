@@ -270,9 +270,12 @@ Route::group(
     function () {
         Route::resource('quanliluong', 'luongController');
         Route::get('quanliluong.getdata', 'luongController@getdata');
+        Route::get('quanliluong.getdata2', 'luongController@getdata2');
         Route::get('quanliluong.getdatabyid', 'luongController@getdatabyid');
+        Route::get('quanliluong.getdatabyiddone', 'luongController@getdatabyiddone');
 //        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
         Route::post('quanliluong.insert', 'luongController@insert');
+        Route::post('quanliluong.insert2', 'luongController@insert2');
         Route::post('quanliluong.update', 'luongController@update');
     }
 );

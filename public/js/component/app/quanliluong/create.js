@@ -1,4 +1,4 @@
-let idgv='';
+var idgv='';
 function create(id) {
     idgv=id;
     $('#create-modal').modal('show')

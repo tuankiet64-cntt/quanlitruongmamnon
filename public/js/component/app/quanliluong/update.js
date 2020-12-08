@@ -1,4 +1,4 @@
-let idluong='';
+var idluong='';
 function openupdate(id,r) {
     idluong=id;
     $('#update-modal').modal('show')
