@@ -596,6 +596,12 @@
                                         <span class="pcoded-mtext">Quản lí các khoản phí</span>
                                     </a>
                                 </li>
+                                <li class="@if($active_nav == 'cackhoangchi') active @endif>">
+                                    <a href="{{route('cackhoangchi.cackhoangchi.index')}}">
+                                        <span class="pcoded-micon"><i class="fa fa-money"></i></span>
+                                        <span class="pcoded-mtext">Quản lí các khoản chi</span>
+                                    </a>
+                                </li>
                                 <li class="@if($active_nav == 'quanlihocphi') active @endif>">
                                     <a href="{{route('quanlihocphi.quanlihocphi.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-money"></i></span>

@@ -279,3 +279,15 @@ Route::group(
         Route::post('quanliluong.update', 'luongController@update');
     }
 );
+Route::group(
+    ['namespace' => 'Cackhoangchi', 'as' => 'cackhoangchi.', 'middleware' => []],
+    function () {
+        Route::resource('cackhoangchi', 'ChiController');
+        Route::get('cackhoangchi.getdata', 'ChiController@getdata');
+        Route::get('cackhoangchi.getdatabyid', 'ChiController@getdatabyid');
+//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
+        Route::post('cackhoangchi.insert', 'ChiController@insert');
+        Route::post('cackhoangchi.update', 'ChiController@update');
+        Route::post('cackhoangchi.updatestatus', 'ChiController@updatestatus');
+    }
+);
