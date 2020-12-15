@@ -45,11 +45,13 @@
           href="..\files\assets\pages\data-table\extensions\responsive\css\responsive.dataTables.css">
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\datetimepicker\jquery.datetimepicker.css">
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\ckeditor\plugins\cloudservices\plugin.js">
-    <link rel="stylesheet" type="text/css" href="..\files\bower_components\jasonday-printThis-f73ca19\assets\css\normalize.css">
-{{--    <link rel="stylesheet" type="text/css" href="..\files\bower_components\jasonday-printThis-f73ca19\assets\css\skeleton.css">--}}
+    <link rel="stylesheet" type="text/css"
+          href="..\files\bower_components\jasonday-printThis-f73ca19\assets\css\normalize.css">
+    {{--    <link rel="stylesheet" type="text/css" href="..\files\bower_components\jasonday-printThis-f73ca19\assets\css\skeleton.css">--}}
     <link rel="stylesheet" type="text/css"
           href="..\files\bower_components\ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css">
-
+    <!-- Chartlist chart css -->
+    <link rel="stylesheet" type="text/css" href="..\files\bower_components\chartjs\dist\Chart.css">
 {{--    datetimepicker--}}
 <!-- Sweetalert.css -->
     <link rel="stylesheet" type="text/css"
@@ -367,7 +369,7 @@
                 <nav class="pcoded-navbar">
                     <div class="pcoded-inner-navbar main-menu">
                         <input type="text" class="d-none" value="{{Auth::user()->id}}" id="idtaikhoan">
-{{--                        Giáo viên--}}
+                        {{--                        Giáo viên--}}
                         @if( Auth::user()->level == 2 && Auth::user()->status ==1)
                             <div class="pcoded-navigatio-lavel">Menu Chính</div>
                             <ul class="pcoded-item pcoded-left-item">
@@ -396,7 +398,7 @@
                                     </ul>
                                 </li>
                             </ul>
-{{--                            Cán bộ văn phòng--}}
+                            {{--                            Cán bộ văn phòng--}}
                         @elseif( Auth::user()->level == 4 && Auth::user()->status ==1)
                             <div class="pcoded-navigatio-lavel">Menu Chính</div>
                             <ul class="pcoded-item pcoded-left-item">
@@ -485,7 +487,7 @@
                                     </a>
                                 </li>
                             </ul>
-{{--                            kế toán--}}
+                            {{--                            kế toán--}}
                         @elseif( Auth::user()->level == 3 && Auth::user()->status ==1)
                             <div class="pcoded-navigatio-lavel">Menu Chính</div>
                             <ul class="pcoded-item pcoded-left-item">
@@ -508,7 +510,7 @@
                                     </a>
                                 </li>
                             </ul>
-{{--                            Admin--}}
+                            {{--                            Admin--}}
                         @elseif( Auth::user()->level == 1 && Auth::user()->status ==1)
                             <div class="pcoded-navigatio-lavel">Menu Chính</div>
                             <ul class="pcoded-item pcoded-left-item">
@@ -553,11 +555,11 @@
                                                 <span class="pcoded-mtext">Lịch dạy</span>
                                             </a>
                                         </li>
-{{--                                        <li class=" ">--}}
-{{--                                            <a href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">--}}
-{{--                                                <span class="pcoded-mtext">Giáo viên</span>--}}
-{{--                                            </a>--}}
-{{--                                        </li>--}}
+                                        {{--                                        <li class=" ">--}}
+                                        {{--                                            <a href="{{route('quanlixeplop.quanlixeplop-giaovien.index')}}">--}}
+                                        {{--                                                <span class="pcoded-mtext">Giáo viên</span>--}}
+                                        {{--                                            </a>--}}
+                                        {{--                                        </li>--}}
                                     </ul>
                                 </li>
                                 <li class="@if($active_nav == 'quanlihoatdong') active @endif>">
@@ -566,12 +568,12 @@
                                         <span class="pcoded-mtext">Quản lí hoạt động lớp</span>
                                     </a>
                                 </li>
-{{--                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">--}}
-{{--                                    <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">--}}
-{{--                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>--}}
-{{--                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
+                                {{--                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">--}}
+                                {{--                                    <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">--}}
+                                {{--                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>--}}
+                                {{--                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>--}}
+                                {{--                                    </a>--}}
+                                {{--                                </li>--}}
                                 <li class="@if($active_nav == 'baocaohoatdongHT') active @endif>">
                                     <a href="{{route('baocaohoatdongHT.baocaohoatdongHT.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
@@ -700,6 +702,8 @@
     <script type="text/javascript" src="..\files\bower_components\ckeditor\samples\js\sample.js"></script>
     <script type="text/javascript" src="..\files\bower_components\jasonday-printThis-f73ca19\printThis.js"></script>
     <script type="text/javascript" src="..\files\assets\pages\advance-elements\select2-custom.js"></script>
+    <!-- Chart js -->
+    <script type="text/javascript" src="..\files\bower_components\chartjs\dist\Chart.js"></script>
     @stack('script')
     <script type="text/javascript">
         $.ajaxSetup({

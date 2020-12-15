@@ -291,3 +291,15 @@ Route::group(
         Route::post('cackhoangchi.updatestatus', 'ChiController@updatestatus');
     }
 );
+Route::group(
+    ['namespace' => 'Chart', 'as' => 'chart.', 'middleware' => []],
+    function () {
+//        Route::resource('chart', 'ChiController');
+        Route::get('chart.getdata', 'Chartcontroller@getdata');
+//        Route::get('cackhoangchi.getdatabyid', 'ChiController@getdatabyid');
+//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
+//        Route::post('cackhoangchi.insert', 'ChiController@insert');
+//        Route::post('cackhoangchi.update', 'ChiController@update');
+//        Route::post('cackhoangchi.updatestatus', 'ChiController@updatestatus');
+    }
+);

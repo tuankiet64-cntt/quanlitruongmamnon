@@ -47,6 +47,3 @@ function loadtable() {
 function reload() {
     table.ajax.reload(null,false)
 }
-$('#calendar-month').on('dp.change',function () {
-    loadtable()
-})
