@@ -296,6 +296,7 @@ Route::group(
     function () {
 //        Route::resource('chart', 'ChiController');
         Route::get('chart.getdata', 'Chartcontroller@getdata');
+        Route::get('chart.getdatadetail', 'Chartcontroller@getdatadetail');
 //        Route::get('cackhoangchi.getdatabyid', 'ChiController@getdatabyid');
 //        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
 //        Route::post('cackhoangchi.insert', 'ChiController@insert');

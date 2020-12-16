@@ -43,6 +43,7 @@ function getdata() {
         url: '/chart.getdata',
         data: {datestart: datestart, dateend: dateend}
     }).then(function (res) {
+        loadtable(res[2])
         let data = {
             type: 'bar',
             data: {
@@ -103,3 +104,30 @@ $('#calendar-end').on('dp.change', function () {
         getdata()
     }
 })
+function loadtable(data) {
+    table = $('#loinhuantb').DataTable({
+        destroy: true,
+        responsive: true,
+        processing: true,
+        language: {
+            processing: 'Đang tải ....'
+        },
+        data:data.original.data,
+        serverSide: false,
+        ordering: true,
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex', class: 'text-center', width: '5%'},
+            {data: 'thang', className: 'text-center'},
+            {data: 'thu' , className: 'text-center'},
+            {data: 'chi' , className: 'text-center'},
+            {data: 'loinhuan', className: 'text-center'},
+            // {data: 'trangthai', name: 'tenlop', className: 'text-center'},
+            // {data: 'status', name: 'status', className: 'text-center'},
+            {data: 'action', name: 'action', className: 'text-center'},
+        ],
+        scrollY: true,
+        scrollX: true,
+        scrollCollapse: true,
+        lengthMenu: [[25, 50, 100, -1], [25, 50, 100, 'Tất cả']],
+    });
+}

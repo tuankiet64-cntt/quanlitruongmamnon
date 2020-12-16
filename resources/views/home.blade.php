@@ -77,6 +77,28 @@
                     </div>
                 </div>
                 <canvas id="myChart" width="1200" height="600"></canvas>
+                <h4 class="sub-title">Bảng thống kê</h4>
+                <table class="table table-border-style col-lg-12" id="loinhuantb">
+                    <thead>
+                    <th>STT</th>
+                    <th>Thời gian</th>
+                    <th>Thu</th>
+                    <th>Chi</th>
+                    <th>Lợi nhuận</th>
+{{--                    <th>Trạng thái</th>--}}
+                    {{--                        <th>Số lượng tối đa</th>--}}
+                    <th>Chức năng</th>
+                    </thead>
+                </table>
+                <div class="modal fade" id="detail-modal" data-keyboard="false" data-backdrop="static" tabindex="-1"
+                     role="dialog"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content " id="container-modal">
+                            @include('app.chart.detail');
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
