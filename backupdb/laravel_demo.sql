@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 08, 2020 lúc 07:00 AM
+-- Thời gian đã tạo: Th12 16, 2020 lúc 05:25 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.31
 
@@ -20,6 +20,33 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `laravel_demo`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `cackhoangchi`
+--
+
+CREATE TABLE `cackhoangchi` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tenkhoangchi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `idgv` bigint(20) UNSIGNED NOT NULL,
+  `sotien` int(11) NOT NULL,
+  `ghichu` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `cackhoangchi`
+--
+
+INSERT INTO `cackhoangchi` (`id`, `tenkhoangchi`, `idgv`, `sotien`, `ghichu`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Vật liệu', 6, 1000000, NULL, 1, '2020-12-11 02:25:56', '2020-12-15 04:49:01'),
+(2, 'Tu sửa', 6, 10000000, NULL, 1, '2020-11-11 04:58:47', '2020-12-15 04:58:47'),
+(3, 'Cho quà thầy cô', 6, 1000000, NULL, 1, '2020-10-14 05:04:55', '2020-12-15 05:04:55'),
+(4, 'Quà trì ân', 6, 10000000, NULL, 2, '2020-09-11 05:05:11', '2020-12-15 05:05:11');
 
 -- --------------------------------------------------------
 
@@ -180,9 +207,9 @@ CREATE TABLE `dongtien` (
 --
 
 INSERT INTO `dongtien` (`id`, `idhs`, `idphi`, `idcanbo`, `tongtien`, `created_at`, `updated_at`) VALUES
-(13, 1, '[\"3\"]', 2, '10000', '2020-11-21 07:53:15', '2020-11-21 07:53:15'),
-(14, 2, '[\"3\"]', 2, '10000', '2020-11-21 07:54:43', '2020-11-21 07:54:43'),
-(15, 3, '[\"3\"]', 2, '10000', '2020-11-21 07:55:12', '2020-11-21 07:55:12');
+(13, 1, '[\"3\"]', 2, '10000000', '2020-11-21 07:53:15', '2020-11-21 07:53:15'),
+(14, 2, '[\"3\"]', 2, '10000000', '2020-11-21 07:54:43', '2020-11-21 07:54:43'),
+(15, 3, '[\"3\"]', 2, '100000000', '2020-11-21 07:55:12', '2020-11-21 07:55:12');
 
 -- --------------------------------------------------------
 
@@ -233,7 +260,7 @@ INSERT INTO `giaovien` (`id`, `mataikhoan`, `hovaten`, `gioitinh`, `ngaysinh`, `
 (2, 5, 'ádas', 1, '1997-01-10', '123123121', 'giaovien2@gmail.com', '0961612308', 'ádasd', '2020-10-05 20:16:44', '2020-10-06 20:59:45', '53 đường số 1', 'ád', 'ádasd', '1970-01-01', 'ádasd', 1),
 (4, 7, 'Thanh Lệ Nguyễn', 1, '1997-10-23', '123456789', 'giaovien1@gmail.com', '0961612309', 'Đại học', '2020-10-05 21:01:30', '2020-11-20 12:20:12', 'Nhà', 'Kinh', 'Phật', '2020-06-10', 'Nhà', 1),
 (5, 10, 'Nguyễn Thị Thanh Lệ', 0, '1968-08-10', '123456789', 'thanhlehh@gmail.com', '0934130497', 'Đại học', '2020-10-06 02:07:44', '2020-10-06 02:07:44', 'tphcm', 'Kinh', 'Phật', '1970-01-01', 'tphcm', 1),
-(6, 11, 'Trần Ngọc Bình', 1, '1960-10-23', '123456789', 'ngocbinh@gmail.com', '0961612308', 'Lái xe', '2020-10-06 02:19:35', '2020-10-06 03:10:05', 'Nhà', 'Kinh', 'Phật', '2020-10-10', 'Nhà', 1);
+(6, 2, 'Trần Ngọc Bình', 1, '1960-10-23', '123456789', 'ngocbinh@gmail.com', '0961612308', 'Lái xe', '2020-10-06 02:19:35', '2020-10-06 03:10:05', 'Nhà', 'Kinh', 'Phật', '2020-10-10', 'Nhà', 1);
 
 -- --------------------------------------------------------
 
@@ -431,7 +458,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (39, '2020_12_05_142653_checkin', 29),
 (40, '2020_12_07_181229_addstatuschamcong', 30),
 (43, '2020_12_08_081203_create_luong', 31),
-(44, '2020_12_08_120335_createrecordluong', 32);
+(44, '2020_12_08_120335_createrecordluong', 32),
+(47, '2020_12_15_090331_createtablechi', 33);
 
 -- --------------------------------------------------------
 
@@ -666,6 +694,13 @@ CREATE TABLE `user_chucvu` (
 --
 
 --
+-- Chỉ mục cho bảng `cackhoangchi`
+--
+ALTER TABLE `cackhoangchi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cackhoangchi_idgv_foreign` (`idgv`);
+
+--
 -- Chỉ mục cho bảng `cackhoangphi`
 --
 ALTER TABLE `cackhoangphi`
@@ -822,6 +857,12 @@ ALTER TABLE `user_chucvu`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `cackhoangchi`
+--
+ALTER TABLE `cackhoangchi`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT cho bảng `cackhoangphi`
 --
 ALTER TABLE `cackhoangphi`
@@ -903,7 +944,7 @@ ALTER TABLE `luongnv`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT cho bảng `nknhaphoc`
@@ -944,6 +985,12 @@ ALTER TABLE `users`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `cackhoangchi`
+--
+ALTER TABLE `cackhoangchi`
+  ADD CONSTRAINT `cackhoangchi_idgv_foreign` FOREIGN KEY (`idgv`) REFERENCES `giaovien` (`id`);
 
 --
 -- Các ràng buộc cho bảng `checkin`

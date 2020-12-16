@@ -57,7 +57,7 @@
             </div>
             <div class="card card-body @if(Auth::user()->level!=1) d-none @endif">
                 <h4 class="sub-title">Thống kê lợi nhuận</h4>
-                <div class="row d-flex align-items-center">
+                <div class="row d-flex align-items-center justify-content-center">
                     <div class="input-group col-lg-4">
                         <input id="calendar-start" class="form-control  text-center" type="text"
                                placeholder="{{date('m')-1}}" value="{{date('m')-1}}">
