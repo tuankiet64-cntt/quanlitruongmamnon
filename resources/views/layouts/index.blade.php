@@ -24,6 +24,7 @@
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="..\files\assets\icon\font-awesome\css\font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\bootstrap\css\bootstrap.min.css">
     <!-- owl carousel css -->
     <link rel="stylesheet" type="text/css" href="..\files\bower_components\owl.carousel\css\owl.carousel.css">
@@ -43,8 +44,8 @@
     <link rel="stylesheet" type="text/css" href="..\files\AlertifyJS\build\css\alertify.css">
 </head>
 <body>
-<section class="header-fixed" style="background-color:deeppink;color: white">
-    <div class="container">
+<section class="header-fixed" style="background-color:deeppink;color: white;position: sticky;top: 0px;z-index: 999999">
+    <div class="container ">
         <div class="navheader" style="clear: both">
             <div class="col-auto">
                 <img src="..\images\logo\logo.png" style="height: 40px;width: 40px">
@@ -57,7 +58,7 @@
                                 Đăng ký nhập học
                             </a></li>
                         <li><a href="{{route('tintuc.tintuc.index')}}">Tin tức</a></li>
-                        <li>Liên hệ</li>
+                        <li><a href="{{route('contact.contact.index')}}">Liên hệ</a></li>
                     </ul>
                 </nav>
             </div>

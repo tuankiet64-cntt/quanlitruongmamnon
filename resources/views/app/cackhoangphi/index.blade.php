@@ -11,7 +11,7 @@
                 <div class="col-lg-8">
                     <div class="page-header-title">
                         <div class="d-inline">
-                            <h4>Quản lý các khoảng học phí</h4>
+                            <h4>Quản lý các khoản học phí</h4>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                                 <a href="/"> <i class="feather icon-home"></i> </a>
                             </li>
                             <li class="breadcrumb-item"><a
-                                    href="{{route('cackhoangphi.cackhoangphi.index')}}">Quản lý học phí</a>
+                                    href="{{route('cackhoangphi.cackhoangphi.index')}}">Quản lý các khoản học phí</a>
                             </li>
                         </ul>
                     </div>

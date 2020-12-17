@@ -304,3 +304,16 @@ Route::group(
 //        Route::post('cackhoangchi.updatestatus', 'ChiController@updatestatus');
     }
 );
+Route::group(
+    ['namespace' => 'Contact', 'as' => 'contact.', 'middleware' => []],
+    function () {
+        Route::resource('contact', 'contactController');
+//        Route::get('chart.getdata', 'Chartcontroller@getdata');
+//        Route::get('chart.getdatadetail', 'Chartcontroller@getdatadetail');
+//        Route::get('cackhoangchi.getdatabyid', 'ChiController@getdatabyid');
+//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
+//        Route::post('cackhoangchi.insert', 'ChiController@insert');
+//        Route::post('cackhoangchi.update', 'ChiController@update');
+//        Route::post('cackhoangchi.updatestatus', 'ChiController@updatestatus');
+    }
+);
