@@ -17,7 +17,8 @@ class ChangepasswordController extends Controller
 
     public function index()
     {
-        return view('app.user.password.index');
+        $active_nav='';
+        return view('app.user.password.index',compact('active_nav'));
     }
     public function update(Request $request){
         $email=$request->get('email');

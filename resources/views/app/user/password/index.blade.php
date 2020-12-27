@@ -38,17 +38,17 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-center">
                         <div class="col-6">
-                            <form action="" autocomplete="off">
-                                <div class="d-flex justify-content-between">
-                                    <span>Mật khẩu cũ</span>
+                            <form action="" autocomplete="off" class="form-group">
+                                <div class="d-flex justify-content-between m-b-10">
+                                    <span>Mật khẩu cũ (*)</span>
                                     <input type="password" id="oldpass" class="form-control col-7" >
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <span>Mật khẩu mới</span>
+                                <div class="d-flex justify-content-between m-b-10">
+                                    <span>Mật khẩu mới (*)</span>
                                     <input type="password" id="newpass" class="form-control col-7">
                                 </div>
-                                <div class="d-flex justify-content-between ">
-                                    <span>Nhập lại mật khẩu mới</span>
+                                <div class="d-flex justify-content-between m-b-10 ">
+                                    <span>Nhập lại (*)</span>
                                     <input type="password" id="renew" class="form-control col-7">
                                 </div>
                             </form>

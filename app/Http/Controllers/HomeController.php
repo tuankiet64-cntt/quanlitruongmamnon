@@ -38,9 +38,9 @@ class HomeController extends Controller
             ->where('created_at', '>=', $currentday)->first();
         $total=checkin::where('idgv','=',$idgv['id'])
             ->whereMonth('created_at','=',$month)->count();
-        $time=date("h:i:s", strtotime($data['created_at']));
         if($data!=null){
             $checkin=1;
+            $time=date("h:i:s", strtotime($data['created_at']));
         }
         $active_nav='';
         return view('home',compact('active_nav','checkin','time','total'));
