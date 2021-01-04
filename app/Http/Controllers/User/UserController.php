@@ -16,7 +16,8 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('app.user.index');
+        $active_nav="";
+        return view('app.user.index',compact('active_nav'));
     }
     public function getdata(Request $request){
         $id=$request->get('id');

@@ -246,12 +246,7 @@ Route::group(
 Route::group(
     ['namespace' => 'Checkin', 'as' => 'checkin.', 'middleware' => []],
     function () {
-//        Route::resource('baocaohoatdongHT', 'ActiveHTController');
-//        Route::get('baocaohoatdongHT.getdata', 'ActiveHTController@getdata');
-//        Route::get('baocaohoatdongHT.getdatabyid', 'ActiveHTController@getdatabyid');
-//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
         Route::post('checkin.insert', 'checkinController@insert');
-//        Route::post('baocaohoatdongHT.update', 'ActiveHTController@update');
     }
 );
 Route::group(
@@ -285,7 +280,6 @@ Route::group(
         Route::resource('cackhoangchi', 'ChiController');
         Route::get('cackhoangchi.getdata', 'ChiController@getdata');
         Route::get('cackhoangchi.getdatabyid', 'ChiController@getdatabyid');
-//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
         Route::post('cackhoangchi.insert', 'ChiController@insert');
         Route::post('cackhoangchi.update', 'ChiController@update');
         Route::post('cackhoangchi.updatestatus', 'ChiController@updatestatus');
@@ -294,26 +288,14 @@ Route::group(
 Route::group(
     ['namespace' => 'Chart', 'as' => 'chart.', 'middleware' => []],
     function () {
-//        Route::resource('chart', 'ChiController');
         Route::get('chart.getdata', 'Chartcontroller@getdata');
         Route::get('chart.getdatadetail', 'Chartcontroller@getdatadetail');
-//        Route::get('cackhoangchi.getdatabyid', 'ChiController@getdatabyid');
-//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
-//        Route::post('cackhoangchi.insert', 'ChiController@insert');
-//        Route::post('cackhoangchi.update', 'ChiController@update');
-//        Route::post('cackhoangchi.updatestatus', 'ChiController@updatestatus');
+
     }
 );
 Route::group(
     ['namespace' => 'Contact', 'as' => 'contact.', 'middleware' => []],
     function () {
         Route::resource('contact', 'contactController');
-//        Route::get('chart.getdata', 'Chartcontroller@getdata');
-//        Route::get('chart.getdatadetail', 'Chartcontroller@getdatadetail');
-//        Route::get('cackhoangchi.getdatabyid', 'ChiController@getdatabyid');
-//        Route::get('quanlihoatdong.getdataloptuoi', 'ActiveController@getdataloptuoi');
-//        Route::post('cackhoangchi.insert', 'ChiController@insert');
-//        Route::post('cackhoangchi.update', 'ChiController@update');
-//        Route::post('cackhoangchi.updatestatus', 'ChiController@updatestatus');
     }
 );
