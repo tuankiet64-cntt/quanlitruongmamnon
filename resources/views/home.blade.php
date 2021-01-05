@@ -7,7 +7,7 @@
     </head>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="@if(Auth::user()->level==1) d-none @endif">
+            <div class="@if(Auth::user()->level==1) d-none  @endif row">
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">{{ __('Dashboard') }}</div>
@@ -36,24 +36,27 @@
                         </div>
                     </div>
                 </div>
-                @if($checkin==0)
-                    <div class="card text-center" style="width: 18rem;" id="off">
-                        <h5 class="card-header">Chấm công</h5>
-                        <div class="card-body">
-                            <p class="card-text">Click vào nút checkin để Chấm công.</p>
-                            <button class="btn btn-primary" id="checkin" onclick="checkin()">Checkin</button>
+                <div class="col-md-4">
+                    @if($checkin==0)
+                        <div class="card text-center" style="width: 18rem;" id="off">
+                            <h5 class="card-header">Chấm công</h5>
+                            <div class="card-body">
+                                <p class="card-text">Click vào nút checkin để Chấm công.</p>
+                                <button class="btn btn-primary" id="checkin" onclick="checkin()">Checkin</button>
+                            </div>
                         </div>
-                    </div>
-                @else
-                    <div class="card text-center" style="width: 18rem;">
-                        <h5 class="card-header">Chấm công</h5>
-                        <div class="card-body">
-                            <p class="card-text">Bạn đã check in vào lúc: {{$time}}.</p>
-                            <p class="card-text">Số ngày công hiện tại là : {{$total}}.</p>
-                            <button class="btn btn-danger" disabled>Checkin</button>
+                    @else
+                        <div class="card text-center" style="width: 18rem;">
+                            <h5 class="card-header">Chấm công</h5>
+                            <div class="card-body">
+                                <p class="card-text">Bạn đã check in vào lúc: {{$time}}.</p>
+                                <p class="card-text">Số ngày công hiện tại là : {{$total}}.</p>
+                                <button class="btn btn-danger" disabled>Checkin</button>
+                            </div>
                         </div>
-                    </div>
-                @endif
+                    @endif
+                </div>
+
             </div>
             <div class="card card-body @if(Auth::user()->level!=1) d-none @endif">
                 <h4 class="sub-title">Thống kê lợi nhuận</h4>

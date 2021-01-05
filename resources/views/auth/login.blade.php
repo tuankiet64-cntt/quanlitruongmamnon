@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
     <title>Trường mầm non vũ trụ</title>
+    <link rel="stylesheet" type="text/css" href="..\files\assets\icon\font-awesome\css\font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="..\files\bower_components\datatables.net-bs4\css\dataTables.bootstrap4.min.css">
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -57,11 +60,13 @@
                             </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Mật khẩu</label>
-                                <div class="col-md-6">
+                                <div class="col-md-6 d-flex">
                                     <input id="password" type="password"
                                            class="form-control @error('password') is-invalid @enderror" name="password"
                                            required autocomplete="current-password">
-
+                                    <div class="input-group-append toggle-password-admin">
+                                        <a class="btn btn-warning"><i class="fa fa-eye"></i></a>
+                                    </div>
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -136,6 +141,11 @@
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
+    });
+    $('.toggle-password-admin').click(function(){
+        $(this).find('i').toggleClass('fa fa-eye fa fa-eye-slash');
+        let input = $(this).prev();
+        input.attr('type', input.attr('type') === 'password' ? 'text' : 'password');
     });
 </script>
 </body>

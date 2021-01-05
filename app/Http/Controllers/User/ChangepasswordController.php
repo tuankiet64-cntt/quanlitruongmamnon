@@ -25,6 +25,7 @@ class ChangepasswordController extends Controller
         $newpass=$request->get('newpass');
         $oldpass=$request->get('oldpass');
         $data=['email'=>$email,'password'=>$oldpass];
+
         if(Auth::attempt($data)){
             $changepass=User::where('email','=',$email)->first();
             $changepass->password=Hash::make($newpass);

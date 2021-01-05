@@ -20,7 +20,9 @@ $('#update-modal input').on('input',function () {
 function closeModalUpdate() {
     $('#update-modal').modal('hide')
 }
-
+$('#month-fee-update').on('dp.change',function () {
+change=1;
+})
 $('#total-fee-update').on('input', function () {
     val = $(this).val()
     $(this).val(formatNumberCurrency(val))

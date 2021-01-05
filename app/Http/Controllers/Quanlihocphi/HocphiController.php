@@ -84,35 +84,47 @@ class HocphiController extends Controller
     {
         $idhp=$request->get('idhp');
         $id = $request->get('id');
+        $year=date('Y');
         $month = date('m');
+        if($month==1){
+            $month=12;
+            $year=date('Y')-1;
+        }else{
+            $month=$month-1;
+        }
         $checkhocsinh = hocsinh::where('hocsinh.id', '=', $id)
             ->join('diemdanh as dm', 'dm.idhs', 'hocsinh.id')
-            ->whereMonth('dm.created_at', '=', $month - 1)
+            ->whereMonth('dm.created_at', '=', $month)
+            ->whereYear('dm.created_at','=',$year)
             ->first();
         if ($checkhocsinh == null) {
             return 3;
         }
         $datastart = hocsinh::where('hocsinh.id', '=', $id)
             ->join('diemdanh as dm', 'dm.idhs', 'hocsinh.id')
-            ->whereMonth('dm.created_at', '=', $month - 1)
+            ->whereMonth('dm.created_at', '=', $month)
+            ->whereYear('dm.created_at','=',$year)
             ->select('dm.created_at')
             ->first()
             ->toArray();
         $formatdatestart = date("d-m-Y", strtotime($datastart['created_at']));
         $dataend = hocsinh::where('hocsinh.id', '=', $id)
             ->join('diemdanh as dm', 'dm.idhs', 'hocsinh.id')
-            ->whereMonth('dm.created_at', '=', $month - 1)
+            ->whereMonth('dm.created_at', '=', $month)
+            ->whereYear('dm.created_at','=',$year)
             ->select('dm.created_at')
             ->get()->last()->toArray();
         $formatdateend = date("d-m-Y", strtotime($dataend['created_at']));
         $dataon = hocsinh::where('hocsinh.id', '=', $id)
             ->join('diemdanh as dm', 'dm.idhs', 'hocsinh.id')
-            ->whereMonth('dm.created_at', '=', $month - 1)
+            ->whereMonth('dm.created_at', '=', $month)
+            ->whereYear('dm.created_at','=',$year)
             ->where('status', '=', 1)
             ->count();
         $dataoff = hocsinh::where('hocsinh.id', '=', $id)
             ->join('diemdanh as dm', 'dm.idhs', 'hocsinh.id')
-            ->whereMonth('dm.created_at', '=', $month - 1)
+            ->whereMonth('dm.created_at', '=', $month)
+            ->whereYear('dm.created_at','=',$year)
             ->where('status', '=', 0)
             ->count();
         $dataphuhuynh = phuhuynh::where('mahs', '=', $id)->get();
@@ -135,7 +147,16 @@ class HocphiController extends Controller
     public function getdatakhoanphi()
     {
         $month = date('m');
-        $data = cackhoangphi::whereMonth('thangapdung', '=', $month - 1)->get();
+        $year=date('Y');
+        if($month==1){
+            $month=12;
+            $year=date('Y')-1;
+        }else{
+            $month=$month-1;
+        }
+        $data = cackhoangphi::whereMonth('thangapdung', '=', $month )
+            ->whereYear('thangapdung', '=', $year )
+            ->get();
         return DataTables::of($data)
             ->addColumn('checkbox', function ($row) {
                 return '<div class="checkbox-fade fade-in-primary">

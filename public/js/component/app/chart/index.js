@@ -43,32 +43,35 @@ function getdata() {
         url: '/chart.getdata',
         data: {datestart: datestart, dateend: dateend}
     }).then(function (res) {
-        loadtable(res[2])
-        let data = {
-            type: 'bar',
-            data: {
-                labels: res[1],
-                datasets: res[0]
-            },
-            options: {
-                legend: {
-                    display: true,
-                    align: 'center'
+        console.log(res)
+        if(res!=""){
+            loadtable(res[2])
+            let data = {
+                type: 'bar',
+                data: {
+                    labels: res[1],
+                    datasets: res[0]
                 },
-                title: {
-                    display: true,
-                    text: 'Thống kê'
-                },
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+                options: {
+                    legend: {
+                        display: true,
+                        align: 'center'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Thống kê'
+                    },
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
                 }
-            }
-        };
-        drawchart(data)
+            };
+            drawchart(data)
+        }
         // myChart = new Chart(ctx,config)
 
     })

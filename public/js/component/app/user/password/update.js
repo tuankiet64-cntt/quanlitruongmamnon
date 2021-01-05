@@ -22,7 +22,8 @@ function changpassword() {
         if(res==1){
             text='Đổi mật khẩu thành công';
             Success(text);
-            $('input').val('')
+            $('.input').val('')
+            window.location="http://127.0.0.1:8000/logout";
         }else if(res==2){
             text='Sai mật khẩu cũ'
             ErrorNotify(text)
@@ -35,3 +36,8 @@ function changpassword() {
     })
 
 }
+$('.toggle-password').click(function(){
+    $(this).find('i').toggleClass('fa fa-eye fa fa-eye-slash');
+    let input = $(this).prev();
+    input.attr('type', input.attr('type') === 'password' ? 'text' : 'password');
+});

@@ -14,11 +14,14 @@ class Chartcontroller extends Controller
     public function getdata(Request $request)
     {
         $datestart = $request->get('datestart');
-        $monthstart = substr($datestart, 0, -5);
-        $yearstart = substr($datestart, 3);
         $dateend = $request->get('dateend');
+        $yearstart = substr($dateend, 3);
         $monthend = substr($dateend, 0, -5);
         $loinhuan = [];
+        $monthstart=$monthend;
+        if($datestart!=""){
+            $monthstart = substr($datestart, 0, -5);
+        }
         $chi = [];
         $month = [];
         $thu = [];
