@@ -16,7 +16,8 @@ class QuanlixeplopController extends Controller
         $this->middleware('auth');
     }
     public function index(){
-        return view('app.quanlixeplop.index');
+        $active_nav='quanlixeplop';
+        return view('app.quanlixeplop.index',compact('active_nav'));
     }
     public function getData(){
         $data=hocsinh::where('malophoc','=',1)->get();
@@ -38,8 +39,10 @@ class QuanlixeplopController extends Controller
                 // if we are any month before the birthdate: year - 1
                 // OR if we are in the month of birth but on a day
                 // before the actual birth day: year - 1
-                if ( ($month_diff < 0 ) || ($month_diff === 0 && $day_diff < 0))
+                if ( ($month_diff < 0 ) || ($month_diff === 0 && $day_diff < 0)){
                     $year_diff--;
+                    $month_diff=12-$month+date("m");
+                }
                 return '<label class="text-center">' . $year_diff . ' tuổi '.$month_diff.' tháng</label>';
             })
 //            ->addColumn('status', function ($row) {
@@ -94,8 +97,10 @@ class QuanlixeplopController extends Controller
                 // if we are any month before the birthdate: year - 1
                 // OR if we are in the month of birth but on a day
                 // before the actual birth day: year - 1
-                if ( ($month_diff < 0 ) || ($month_diff === 0 && $day_diff < 0))
+                if ( ($month_diff < 0 ) || ($month_diff === 0 && $day_diff < 0)){
                     $year_diff--;
+                    $month_diff=12-$month+date("m");
+                }
                 return '<label class="text-center">' . $year_diff . ' tuổi '.$month_diff.' tháng</label>';
 
             })
