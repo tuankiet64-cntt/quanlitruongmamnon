@@ -12,15 +12,18 @@ function checkPhone(string,phone) {
 }
 
 function checkEmail(string,email) {
-    var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    if(email == ''){
-        alertify.notify(string+' không được để trống !', 'error', 5);
-        return false;
-    } if (!email.match(re)){
-        alertify.notify(string+' không hợp lệ!', 'error', 5);
-        return false;
-    } else {
-        return true;
+    if(email!=""){
+        var re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        // if(email == ''){
+        //     alertify.notify(string+' không được để trống !', 'error', 5);
+        //     return false;
+        // }
+        if (!email.match(re)){
+            alertify.notify(string+' không hợp lệ!', 'error', 5);
+            return false;
+        } else {
+            return true;
+        }
     }
 }
 

@@ -124,7 +124,7 @@
                                                 <table width="100%" cellpadding="0" cellspacing="0">
                                                     <tr>
                                                         <td data-color="text" data-size="size navigation" data-min="10" data-max="22" data-link-style="text-decoration:none; color:#888;" class="nav" align="right" style="font:bold 13px/15px Arial, Helvetica, sans-serif; color:#888;">
-                                                            <a target="_blank" style="text-decoration:none; color:#888;" href="#">Trang chủ</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Tin Tức</a> &nbsp; &nbsp;
+                                                            <a target="_blank" style="text-decoration:none; color:#888;" href="http://127.0.0.1:8000/">Trang chủ</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="http://127.0.0.1:8000/tintuc">Tin Tức</a> &nbsp; &nbsp;
                                                         </td>
                                                     </tr>
                                                 </table>

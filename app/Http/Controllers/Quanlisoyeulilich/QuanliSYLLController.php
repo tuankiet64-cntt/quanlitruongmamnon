@@ -35,7 +35,7 @@ class QuanliSYLLController extends Controller
                 }
             })
             ->addColumn('ngaysinh', function ($row) {
-                return '<label class="text-center">' . date("d/m/Y", strtotime($row['ngaysinh'])) . '</label>';
+                return '<label class="text-center">' . date("d-m-Y", strtotime($row['ngaysinh'])) . '</label>';
             })
             ->addColumn('status', function ($row) {
                 if ($row['trangthai'] == 0) {
@@ -61,7 +61,7 @@ class QuanliSYLLController extends Controller
     {
         $id = $request->get('id');
         $data = nknhaphoc::where('id', '=', $id)->first()->toArray();
-        $data['ngaysinh'] = date("d/m/Y", strtotime($data['ngaysinh']));
+        $data['ngaysinh'] = date("d-m-Y", strtotime($data['ngaysinh']));
         return $data;
     }
 
@@ -175,7 +175,7 @@ class QuanliSYLLController extends Controller
                 }
             })
             ->addColumn('ngaysinh', function ($row) {
-                return '<label class="text-center">' . date("d/m/Y", strtotime($row['ngaysinh'])) . '</label>';
+                return '<label class="text-center">' . date("d-m-Y", strtotime($row['ngaysinh'])) . '</label>';
             })
 //            ->addColumn('status', function ($row) {
 //                if ($row['trangthai'] == 0) {
@@ -211,7 +211,7 @@ class QuanliSYLLController extends Controller
 //                }
 //            })
             ->addColumn('ngaysinh', function ($row) {
-                return '<label class="text-center">' . date("d/m/Y", strtotime($row['ngaysinh'])) . '</label>';
+                return '<label class="text-center">' . date("d-m-Y", strtotime($row['ngaysinh'])) . '</label>';
             })
 //            ->addColumn('status', function ($row) {
 //                if ($row['trangthai'] == 0) {
@@ -234,8 +234,8 @@ class QuanliSYLLController extends Controller
             ->addIndexColumn()
             ->rawColumns(['gioitinh', 'action', 'ngaysinh','lop'])
             ->make();
-        $data['ngaysinh'] = date("d/m/Y", strtotime($data['ngaysinh']));
-        $data['ngayvaotruong'] = date("d/m/Y", strtotime($data['ngaysinh']));
+        $data['ngaysinh'] = date("d-m-Y", strtotime($data['ngaysinh']));
+        $data['ngayvaotruong'] = date("d-m-Y", strtotime($data['ngaysinh']));
         $lophocdata=lophoc::all();
         for($i=0;$i<count($lophocdata);$i++){
             $lophoc[$i]='<option class="text-center" value="'.$lophocdata[$i]['id'].'">'.$lophocdata[$i]['tenlop'].'</option>';
