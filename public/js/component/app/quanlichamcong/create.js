@@ -6,11 +6,16 @@ function openModalCreate(id) {
     $('#create-modal').modal('show');
 }
 $('#create-modal').on('shown.bs.modal',function () {
+    let d= new Date(),
+        limit=(d.getMonth()+1)+'/'+1+'/'+d.getFullYear(),
+        max=(d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear();
+    console.log(limit,d.getMonth())
     $('#datetimepicker').datetimepicker({
         // viewMode: 'years',
         format: 'DD-MM-YYYY',
         locale: 'vi',
-        // minDate:'10-1-2020',
+        minDate:limit,
+        maxDate:max,
         icons: {
             next: "icofont icofont-rounded-right",
             previous: "icofont icofont-rounded-left"

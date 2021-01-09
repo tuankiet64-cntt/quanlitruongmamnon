@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title text-center" id="title_create">Thông tin của giáo viên</h4>
+    <h4 class="modal-title text-center" id="title_create">Tạo tài khoản giáo viên</h4>
 </div>
 <div class="modal-body background-body-color">
     <div class="card card-block mb-0 form-row">

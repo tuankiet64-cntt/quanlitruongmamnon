@@ -48,7 +48,7 @@
     <div class="container ">
         <div class="navheader" style="clear: both">
             <div class="col-auto">
-                <img src="..\images\logo\logo.png" style="height: 40px;width: 40px">
+                <a href="/"><img src="..\images\logo\logo.png" style="height: 40px;width: 40px;border-radius: 20px"></a>
             </div>
             <div class="col-auto">
                 <nav>

@@ -9,6 +9,8 @@ $(function () {
             previous: "icofont icofont-rounded-left"
         }
     })
+})
+$('#calendar-month').on('dp.change',function () {
     loadtable()
 })
 var table='';

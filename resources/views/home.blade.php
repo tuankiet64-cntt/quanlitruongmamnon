@@ -6,7 +6,7 @@
 
     </head>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="justify-content-center">
             <div class="@if(Auth::user()->level==1) d-none  @endif row">
                 <div class="col-md-8">
                     <div class="card">
@@ -56,7 +56,6 @@
                         </div>
                     @endif
                 </div>
-
             </div>
             <div class="card card-body @if(Auth::user()->level!=1) d-none @endif">
                 <h4 class="sub-title">Thống kê lợi nhuận</h4>

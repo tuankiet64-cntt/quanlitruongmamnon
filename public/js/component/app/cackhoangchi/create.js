@@ -26,6 +26,7 @@ function createchi() {
             Success(text)
             reload()
             CloseModalCreate()
+            deleteinput()
         }else if(res==0) {
             text='Có lỗi trong quá trình thực hiện'
             ErrorNotify(text)
@@ -45,3 +46,6 @@ $('#total-chi').on('input', function () {
     }
     $(this).val(formatNumber(value))
 })
+function deleteinput() {
+    $('#create-modal input').val("")
+}

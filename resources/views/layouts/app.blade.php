@@ -425,6 +425,11 @@
                                                 <span class="pcoded-mtext">Tạo và chỉnh sửa lớp</span>
                                             </a>
                                         </li>
+                                        <li class="@if($active_nav == 'quanlixeplop') active @endif>">
+                                            <a href="{{route('quanlixeplop.quanlixeplop.index')}}">
+                                                <span class="pcoded-mtext">Quản lí xếp lớp</span>
+                                            </a>
+                                        </li>
                                         <li class="@if($active_nav == 'lenlop') active @endif>">
                                             <a href="{{route('lenlop.lenlop.index')}}">
                                                 <span class="pcoded-mtext">Lên lớp</span>
@@ -537,7 +542,7 @@
                                                 <span class="pcoded-mtext">Tạo và chỉnh sửa lớp</span>
                                             </a>
                                         </li>
-                                        <li class="@if($active_nav == 'xeplop') active @endif>">
+                                        <li class="@if($active_nav == 'quanlixeplop') active @endif>">
                                             <a href="{{route('quanlixeplop.quanlixeplop.index')}}">
                                                 <span class="pcoded-mtext">Quản lí xếp lớp</span>
                                             </a>

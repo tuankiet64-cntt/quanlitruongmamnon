@@ -10,7 +10,6 @@ $(function () {
             previous: "icofont icofont-rounded-left"
         }
     })
-    callwithclass()
 })
 let table='';
 function getdatachamcong() {
@@ -51,29 +50,4 @@ function reloadtable() {
 $('#calendar-month').on('dp.change',function () {
     getdatachamcong()
 })
-class ajax {
-    constructor(type, url,data) {
-        this.type = type;
-        this.url = url;
-        this.data=data;
-    }
-    runajax(){
-        $.ajax({
-            type:this.type,
-            url:this.url,
-            data:this.data,
-        }).then(function (res) {
-            return res
-        })
-    }
-    sayhi(){
-        return 456
-    }
-}
-async function  callwithclass() {
-    let month=$('#calendar-month').val();
-    var data= new ajax('get','/quanlichamcong.getdata',{month:month})
-    let data1= data.runajax()
-    let data2= data.sayhi()
-    console.log(data1,data2)
-}
+

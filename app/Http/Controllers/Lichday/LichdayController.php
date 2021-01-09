@@ -111,10 +111,17 @@ class LichdayController extends Controller
             })
 
             ->addColumn('action', function ($row) {
-                return '<div class="btn-group btn-group-sm">
+                if($row['hovaten']!=null){
+                    return '<div class="btn-group btn-group-sm">
                             <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="Createlich(' . $row['id'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-pencil"></span></button>
-                            <button type="button" class="tabledit-edit-button btn btn-primary waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="openModaladd(' . $row['idgv'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Giáo viên"><span class="fa fa-user-plus"></span></button>
                         </div>';
+                }else{
+                    return '<div class="btn-group btn-group-sm">
+                            <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="Createlich(' . $row['id'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-pencil"></span></button>
+                             <button type="button" class="tabledit-edit-button btn btn-primary waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="openModaladd(' . $row['id'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Giáo viên"><span class="fa fa-user-plus"></span></button>
+                        </div>';
+                }
+
 
             })
             ->addIndexColumn()

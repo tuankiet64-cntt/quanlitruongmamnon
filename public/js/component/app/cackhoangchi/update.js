@@ -54,18 +54,44 @@ $('#total-chi-update').on('input', function () {
     $(this).val(formatNumber(value))
 })
 function updatestatus(id,status) {
-    $.ajax({
-        type:'post',
-        url:'/cackhoangchi.updatestatus',
-        data:{id:id,status:status}
-    }).then(function (res) {
-        if(res==1){
-            text='Đổi trạng thái thành công'
-            Success(text)
-            reload()
-        }else if(res==0) {
-            text='Có lỗi trong quá trình thực hiện'
-            ErrorNotify(text)
+    if(status==1){
+        title='Duyệt khoản chi'
+    }else {
+        title='Hủy khoản chi'
+    }
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-primary btn-sweet-alert',
+            cancelButton: 'btn btn-default btn-sweet-alert'
+        },
+        buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+        title: title,
+        // text: text,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Đồng ý',
+        cancelButtonText: 'Hủy',
+        reverseButtons: true,
+        focusConfirm: true
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type:'post',
+                url:'/cackhoangchi.updatestatus',
+                data:{id:id,status:status}
+            }).then(function (res) {
+                if(res==1){
+                    text='Đổi trạng thái thành công'
+                    Success(text)
+                    reload()
+                }else if(res==0) {
+                    text='Có lỗi trong quá trình thực hiện'
+                    ErrorNotify(text)
+                }
+            })
         }
     })
+
 }
