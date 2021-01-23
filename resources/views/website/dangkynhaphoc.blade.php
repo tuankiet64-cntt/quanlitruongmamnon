@@ -27,23 +27,25 @@
                                         <h4 class="title-tiny">Thông tin của bé</h4>
                                         <div class="input-group">
                                             <input class="input--style-3" id="ten-hocsinh" type="text"
-                                                   placeholder="Họ và tên của bé" name="name">
+                                                   placeholder="Họ và tên của bé" name="name"
+                                                   title="This is the text of the tooltip">
                                         </div>
                                         <div class="input-group">
-                                            <input class="input--style-3 js-datepicker" id="ngay-sinh" type="text"
-                                                   placeholder="Ngày sinh"  name="birthday">
-                                            <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                            <div>
+                                                <input class="input--style-3 js-datepicker" id="ngay-sinh" type="text"
+                                                       placeholder="Ngày sinh" name="birthday">
+                                                <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                            </div>
                                         </div>
                                         <div class="input-group">
                                             <select class="form-control" id="gender">
-                                                <option disabled="disabled" selected="selected">Giới tính</option>
                                                 <option value="1">Nam</option>
                                                 <option value="0">Nữ</option>
                                             </select>
                                         </div>
                                         <div class="input-group">
                                             <input class="input--style-3" id="ho-khau-thuong-tru"
-                                                   placeholder="Hộ khẩu thương trú" ">
+                                                   placeholder="Hộ khẩu thương trú">
                                         </div>
                                         <div class="input-group">
                                             <input class="input--style-3" type="text" id="dia-chi"
@@ -55,63 +57,9 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12" style="color: white">
-                                        <div class="row">
-                                            <label class="col-sm-4 title-tiny">Người thân</label>
-                                            <label class="col-sm-8">
-                                                <div class="form-radio d-flex flex-row" id="nguoithan">
-                                                    <div class="radio radio-inline">
-                                                        <label  style="color: white">
-                                                            <input type="radio" name="status" checked
-                                                                   value="1">
-                                                            <i class="helper"></i>Cha mẹ
-                                                        </label>
-                                                    </div>
-                                                    <div class="radio radio-inline">
-                                                        <label  style="color: white">
-                                                            <input type="radio" name="status"
-                                                                   value="2">
-                                                            <i class="helper"></i>Người thân
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </label>
-
-                                        </div>
-                                        <div id="chavame" class="row">
+                                        <div id="phuhuynh" class="row">
                                             <div class="col-lg-12">
-                                                <h4 class="title-tiny">Thông tin của bố</h4>
-                                                <div class="input-group">
-                                                    <input class="input--style-3" type="text" id="ho-ten-bo"
-                                                           placeholder="Họ và tên bố" name="phone">
-                                                </div>
-                                                <div class="input-group">
-                                                    <input class="input--style-3 sdt" type="text" id="sdt-bo"
-                                                           placeholder="Số điện thoại" name="phone">
-                                                </div>
-                                                <div class="input-group">
-                                                    <input class="input--style-3" type="email" id="mail-bo"
-                                                           placeholder="Địa chỉ email" name="phone">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <h4 class="title-tiny">Thông tin của mẹ</h4>
-                                                <div class="input-group">
-                                                    <input class="input--style-3" type="text" id="ho-ten-me"
-                                                           placeholder="Họ và tên mẹ" name="phone">
-                                                </div>
-                                                <div class="input-group">
-                                                    <input class="input--style-3 sdt" type="text" id="sdt-me"
-                                                           placeholder="Số điện thoại" name="phone">
-                                                </div>
-                                                <div class="input-group">
-                                                    <input class="input--style-3" type="text" id="mail-me"
-                                                           placeholder="Địa chỉ email" name="phone">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="phuhuynh" class="row d-none">
-                                            <div class="col-lg-12">
-                                                <h4 class="title-tiny">Thông tin của người đứng xin</h4>
+                                                <h4 class="title-tiny">Phụ huynh</h4>
                                                 <div class="input-group">
                                                     <input class="input--style-3" type="text" id="ho-ten-ph"
                                                            placeholder="Họ và tên " name="phone">
@@ -121,7 +69,7 @@
                                                            placeholder="Số điện thoại" name="phone">
                                                 </div>
                                                 <div class="input-group">
-                                                    <input class="input--style-3" type="text"  id="mail-ph"
+                                                    <input class="input--style-3" type="text" id="mail-ph"
                                                            placeholder="Địa chỉ email" name="phone">
                                                 </div>
                                             </div>
@@ -130,7 +78,8 @@
 
                                 </div>
                                 <div class="p-t-10">
-                                    <button class="btn btn--pill btn--green" id="submit" onclick="create()">Đăng kí</button>
+                                    <button class="btn btn--pill btn--green" id="submit" onclick="create()">Đăng kí
+                                    </button>
                                 </div>
                             </div>
                             <div id="camon" class="d-none" style="color:white;">

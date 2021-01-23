@@ -455,24 +455,24 @@
                                         {{--                                        </li>--}}
                                     </ul>
                                 </li>
-                                <li class="@if($active_nav == 'quanlihoatdong') active @endif>">
-                                    <a href="{{route('quanlihoatdong.quanlihoatdong.index')}}">
-                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
-                                        <span class="pcoded-mtext">Quản lí hoạt động lớp</span>
-                                    </a>
-                                </li>
+{{--                                <li class="@if($active_nav == 'quanlihoatdong') active @endif>">--}}
+{{--                                    <a href="{{route('quanlihoatdong.quanlihoatdong.index')}}">--}}
+{{--                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>--}}
+{{--                                        <span class="pcoded-mtext">Quản lí hoạt động lớp</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
                                 {{--                                <li class="@if($active_nav == 'ACCOUNTANCY.RANK') active @endif>">--}}
                                 {{--                                    <a href="{{route('baocaohoatdongGV.baocaohoatdongGV.index')}}">--}}
                                 {{--                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>--}}
                                 {{--                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>--}}
                                 {{--                                    </a>--}}
                                 {{--                                </li>--}}
-                                <li class="@if($active_nav == 'baocaohoatdongHT') active @endif>">
-                                    <a href="{{route('baocaohoatdongHT.baocaohoatdongHT.index')}}">
-                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>
-                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>
-                                    </a>
-                                </li>
+{{--                                <li class="@if($active_nav == 'baocaohoatdongHT') active @endif>">--}}
+{{--                                    <a href="{{route('baocaohoatdongHT.baocaohoatdongHT.index')}}">--}}
+{{--                                        <span class="pcoded-micon"><i class="fa fa-check-square-o"></i></span>--}}
+{{--                                        <span class="pcoded-mtext">Báo cáo hoạt động lớp</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
                                 <li class="@if($active_nav == 'quanlitaikhoan') active @endif>">
                                     <a href="{{route('quanlitaikhoan.quanlitaikhoan.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-user-plus"></i></span>
@@ -511,7 +511,7 @@
                                 <li class="@if($active_nav == 'quanlichamcong') active @endif>">
                                     <a href="{{route('quanlichamcong.quanlichamcong.index')}}">
                                         <span class="pcoded-micon"><i class="fa fa-calendar-check-o"></i></span>
-                                        <span class="pcoded-mtext">Quản lí chấm công</span>
+                                        <span class="pcoded-mtext">Quản lí chấ  m công</span>
                                     </a>
                                 </li>
                             </ul>

@@ -5,7 +5,7 @@
     <div class="card card-block mb-0 form-row">
         <div class="container">
             <div class="row">
-                <input type="text" class="d-none" id="phuhuynh">
+
                 <input type="text" class="d-none" id="idhocsinh">
                 <div class="col-lg-12">
                     <h5 class="col-lg-12 p-b-20 text-center">Thông tin của bé</h5>

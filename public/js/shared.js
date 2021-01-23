@@ -1,28 +1,32 @@
+$('#dangkinhaphoc input').attr("autocomplete", "off")
+$('#create-modal input').not($('#password')).attr("autocomplete", "off")
 
-$('#dangkinhaphoc input').attr("autocomplete","off")
-$('#create-modal input').not($('#password')).attr("autocomplete","off")
-function configdatetime(inputelement,element) {
+function configdatetime(inputelement, element) {
     $.datetimepicker.setLocale('vi');
     inputelement.datetimepicker({
         format: 'd-m-Y',
         timepicker: false,
         parentID: element,
-        scrollInput : false
+        scrollInput: false
     })
     inputelement.on('keydown', function () {
         return false
     })
 }
+
 function formatNumberCurrency(n) {
     return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
+
 function removeformatNumber(num) {
-    return Number(num.replace(/[^0-9.-]+/g,""));
+    return Number(num.replace(/[^0-9.-]+/g, ""));
 }
+
 function formatNumber(num) {
     // return num.toLocaleString(undefined);
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
 }
+
 function configCkeditor(element) {
     element.ckeditor({
         entities_latin: false,
@@ -34,4 +38,12 @@ function configCkeditor(element) {
         cloudServices_uploadUrl: 'https://76542.cke-cs.com/easyimage/upload/'
     })
 
+}
+
+var erroricon = (element) => {
+    node= element.parent()
+    node.find('span i').removeClass('d-none')
+}
+var hidetooltip=()=>{
+    element.tooltip('show')
 }

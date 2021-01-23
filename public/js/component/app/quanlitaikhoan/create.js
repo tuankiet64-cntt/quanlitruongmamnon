@@ -1,8 +1,8 @@
 $(function () {
-    $('.js-example-basic-single').select2({
-        dropdownParent:$('#create-modal'),
-        theme:'classic'
-    })
+    // $('.js-example-basic-single').select2({
+    //     dropdownParent:$('#create-modal'),
+    //     theme:'classic'
+    // })
     configdatetime($('.datetimepicker'),$('#create-modal'))
     getcv()
 })

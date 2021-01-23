@@ -53,26 +53,10 @@ function createSYLL(id) {
         $('#ngaysinh').val(res.ngaysinh)
         $('#diachi').val(res.diachi)
         $('#hokhau').val(res.hokhau)
-        $('#hotenbo').val(res.hotenbo)
-        $('#sdtbo').val(res.sdtbo)
-        $('#emailbo').val(res.emailbo)
-        $('#hotenme').val(res.hotenme)
-        $('#sdtme').val(res.sdtme)
-        $('#emailme').val(res.emailme)
         $('#hotenph').val(res.hovatenph)
         $('#sdt_ph').val(res.sdtph)
         $('#email_ph').val(res.emailph)
         $('#gioitinh').val(res.gioitinh).trigger('change')
-        if(res.hovatenph!=""){
-            $('#phuhuynh').val(1)
-            $('.chame').addClass('d-none')
-            $('.ph').removeClass('d-none')
-
-        }else {
-            $('#phuhuynh').val(0)
-            $('.ph').addClass('d-none')
-            $('.chame').removeClass('d-none')
-        }
     })
 }
 

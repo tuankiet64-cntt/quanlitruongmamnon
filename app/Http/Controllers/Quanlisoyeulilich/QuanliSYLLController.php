@@ -79,12 +79,6 @@ class QuanliSYLLController extends Controller
         $hotenac = $request->get('hotenac');
         $sdtac = $request->get('sdtac');
         $tongiao = $request->get('tongiao');
-        $hotenbo = $request->get('hotenbo');
-        $email_bo = $request->get('email_bo');
-        $ngaysinh_bo = $request->get('ngaysinh_bo');
-        $nghenghiep_bo = $request->get('nghenghiep_bo');
-        $sdt_bo = $request->get('sdt_bo');
-        $tencongty_bo = $request->get('tencongty_bo');
         $hotenme = $request->get('hotenme');
         $ngaysinh_me = $request->get('ngaysinh_me');
         $sdt_me = $request->get('sdt_me');
@@ -98,6 +92,7 @@ class QuanliSYLLController extends Controller
         $nghenghiep_ph = $request->get('nghenghiep_ph');
         $tencongty_ph = $request->get('tencongty_ph');
         $quanhe = $request->get('quanhe');
+        $quanhe_add = $request->get('quanhe_ph');
         $gioitinh = $request->get('gioitinh');
         $ngayvaotruong = $request->get('ngayvaotruong');
         $hs = new hocsinh;
@@ -121,32 +116,7 @@ class QuanliSYLLController extends Controller
             $anhchi->quanhe='Anh/Chị';
             $anhchi->save();
         }
-        if ($quanhe == null) {
-            $bo = new phuhuynh;
-            $bo->mahs = $hs->id;
-            $bo->hovaten = $hotenbo;
-            $bo->sdt = $sdt_bo;
-            $bo->email = $email_bo;
-            $bo->quanhe = 'Bố';
-            $bo->ngaysinh = date("Y-m-d", strtotime($ngaysinh_bo));
-            $bo->nghenghiep = $nghenghiep_bo;
-            $bo->tendonvi = $tencongty_bo;
-            $me = new phuhuynh;
-            $me->mahs = $hs->id;
-            $me->hovaten = $hotenme;
-            $me->sdt = $sdt_me;
-            $me->email = $email_me;
-            $me->quanhe = 'Mẹ';
-            $me->ngaysinh = date("Y-m-d", strtotime($ngaysinh_me));
-            $me->nghenghiep = $nghenghiep_me;
-            $me->tendonvi = $tencongty_me;
-            if ($bo->save() && $me->save()) {
-                nknhaphoc::where('id', '=', $idhs)->update(['trangthai' => '3']);
-                return 1;
-            } else {
-                return 0;
-            }
-        } else {
+        if($hotenme!=null&&$ngaysinh_me!=null){
             $ph = new phuhuynh;
             $ph->mahs = $hs->id;
             $ph->hovaten = $hotenph;
@@ -156,13 +126,38 @@ class QuanliSYLLController extends Controller
             $ph->ngaysinh = date("Y-m-d", strtotime($ngaysinh_ph));
             $ph->nghenghiep = $nghenghiep_ph;
             $ph->tendonvi = $tencongty_ph;
-            if ($ph->save()) {
+            $me = new phuhuynh;
+            $me->mahs = $hs->id;
+            $me->hovaten = $hotenme;
+            $me->sdt = $sdt_me;
+            $me->email = $email_me;
+            $me->quanhe = $quanhe_add;
+            $me->ngaysinh = date("Y-m-d", strtotime($ngaysinh_me));
+            $me->nghenghiep = $nghenghiep_me;
+            $me->tendonvi = $tencongty_me;
+            if ($ph->save() && $me->save()) {
                 nknhaphoc::where('id', '=', $idhs)->update(['trangthai' => '3']);
                 return 1;
             } else {
                 return 0;
             }
         }
+        $ph = new phuhuynh;
+        $ph->mahs = $hs->id;
+        $ph->hovaten = $hotenph;
+        $ph->sdt = $sdt_ph;
+        $ph->email = $email_ph;
+        $ph->quanhe = $quanhe;
+        $ph->ngaysinh = date("Y-m-d", strtotime($ngaysinh_ph));
+        $ph->nghenghiep = $nghenghiep_ph;
+        $ph->tendonvi = $tencongty_ph;
+        if ($ph->save()) {
+            nknhaphoc::where('id', '=', $idhs)->update(['trangthai' => '3']);
+            return 1;
+        } else {
+            return 0;
+        }
+
     }
     public function getDatahs(){
         $data=hocsinh::with('lophoc')->get();
