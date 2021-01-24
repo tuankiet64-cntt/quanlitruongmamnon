@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 07, 2021 lúc 02:58 AM
+-- Thời gian đã tạo: Th1 24, 2021 lúc 04:06 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.2.31
 
@@ -46,7 +46,10 @@ INSERT INTO `cackhoangchi` (`id`, `tenkhoangchi`, `idgv`, `sotien`, `ghichu`, `s
 (1, 'Vật liệu', 6, 1000000, NULL, 1, '2020-12-11 02:25:56', '2020-12-15 04:49:01'),
 (2, 'Tu sửa', 6, 10000000, NULL, 1, '2020-11-11 04:58:47', '2020-12-15 04:58:47'),
 (3, 'Cho quà thầy cô', 6, 1000000, NULL, 1, '2020-10-14 05:04:55', '2020-12-15 05:04:55'),
-(4, 'Quà trì ân', 6, 10000000, NULL, 2, '2020-09-11 05:05:11', '2020-12-15 05:05:11');
+(4, 'Quà trì ân', 6, 10000000, NULL, 2, '2020-09-11 05:05:11', '2020-12-15 05:05:11'),
+(5, 'Tiền đổ rác', 6, 1000000, NULL, 1, '2021-01-09 11:45:50', '2021-01-09 11:45:57'),
+(6, 'Tiền đổ rác tuần 2', 6, 1000000, NULL, 0, '2021-01-09 11:46:11', '2021-01-09 11:55:34'),
+(7, 'Tài liệu', 6, 2000000, NULL, 2, '2021-01-09 11:47:11', '2021-01-09 11:47:11');
 
 -- --------------------------------------------------------
 
@@ -124,7 +127,7 @@ CREATE TABLE `chucvu` (
 INSERT INTO `chucvu` (`id`, `tenchucvu`, `chuthich`, `created_at`, `updated_at`, `status`) VALUES
 (1, 'Admin', 'Người Quản trị', NULL, NULL, ''),
 (2, 'Giáo viên', 'Giảng dạy', NULL, NULL, ''),
-(3, 'Bảo mẫu', 'Chăm sóc ăn uống', NULL, NULL, ''),
+(3, 'Kế toán', 'Thu tiền', NULL, NULL, ''),
 (4, 'Cán Bộ Văn Phòng', 'Làm những công việc trong văn phòng', NULL, NULL, '');
 
 -- --------------------------------------------------------
@@ -136,7 +139,9 @@ INSERT INTO `chucvu` (`id`, `tenchucvu`, `chuthich`, `created_at`, `updated_at`,
 CREATE TABLE `danhmuclop` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `loptuoi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `stt` int(11) NOT NULL,
   `dotuoi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -145,12 +150,13 @@ CREATE TABLE `danhmuclop` (
 -- Đang đổ dữ liệu cho bảng `danhmuclop`
 --
 
-INSERT INTO `danhmuclop` (`id`, `loptuoi`, `dotuoi`, `created_at`, `updated_at`) VALUES
-(1, 'Chưa xếp lớp', '36 tháng', NULL, NULL),
-(2, 'Mầm', '5 tuổi', NULL, NULL),
-(3, 'Chồi ', '4 tuổi', NULL, NULL),
-(4, 'Lá', '3 tuổi', NULL, NULL),
-(5, 'Kết thúc', '7 tuổi', NULL, NULL);
+INSERT INTO `danhmuclop` (`id`, `loptuoi`, `stt`, `dotuoi`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'Chưa xếp lớp', 0, '2 ', 2, NULL, NULL),
+(2, 'Mầm', 0, '3 ', 2, NULL, NULL),
+(3, 'Chồi ', 1, '4 ', 2, NULL, NULL),
+(4, 'Lá', 2, '5 ', 2, NULL, NULL),
+(5, 'Kết thúc', 3, '7', 2, NULL, NULL),
+(6, '24 tháng', 2, '2 ', 2, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -167,27 +173,6 @@ CREATE TABLE `diemdanh` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `diemdanh`
---
-
-INSERT INTO `diemdanh` (`id`, `idhs`, `id_lichday`, `chuthich`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 12, NULL, 1, '2020-09-02 02:20:40', '2020-09-09 07:58:34'),
-(2, 1, 12, NULL, 0, '2020-09-08 02:20:40', '2020-10-24 02:20:40'),
-(3, 1, 12, NULL, 1, '2020-09-16 08:07:52', '2020-10-24 02:20:40'),
-(4, 4, 12, NULL, 1, '2020-12-08 02:20:40', '2020-10-24 02:20:40'),
-(5, 5, 12, NULL, 0, '2020-12-09 02:20:40', '2020-10-24 02:20:40'),
-(8, 1, 12, NULL, 1, '2020-12-28 08:08:10', '2020-10-28 08:08:10'),
-(9, 2, 12, NULL, 1, '2020-12-28 08:08:10', '2020-10-28 08:08:10'),
-(10, 3, 12, NULL, 1, '2020-12-28 08:08:10', '2020-10-28 08:08:10'),
-(11, 4, 12, NULL, 0, '2020-12-28 08:08:10', '2020-10-28 08:08:10'),
-(12, 5, 12, NULL, 1, '2020-12-28 08:08:10', '2020-10-28 08:08:10'),
-(15, 1, 12, NULL, 1, '2021-01-05 02:19:26', '2021-01-05 02:19:26'),
-(16, 2, 12, NULL, 1, '2021-01-05 02:19:26', '2021-01-05 02:19:26'),
-(17, 3, 12, NULL, 1, '2021-01-05 02:19:26', '2021-01-05 02:19:26'),
-(18, 4, 12, NULL, 1, '2021-01-05 02:19:26', '2021-01-05 02:19:26'),
-(19, 5, 12, NULL, 1, '2021-01-05 02:19:26', '2021-01-05 02:19:26');
 
 -- --------------------------------------------------------
 
@@ -213,7 +198,8 @@ INSERT INTO `dongtien` (`id`, `idhs`, `idphi`, `idcanbo`, `tongtien`, `created_a
 (13, 1, '[\"3\"]', 2, '10000000', '2020-11-21 07:53:15', '2020-11-21 07:53:15'),
 (14, 2, '[\"3\"]', 2, '10000000', '2020-11-21 07:54:43', '2020-11-21 07:54:43'),
 (15, 3, '[\"3\"]', 2, '100000000', '2020-11-21 07:55:12', '2020-11-21 07:55:12'),
-(16, 1, '[\"4\"]', 2, '1000000', '2021-01-05 02:36:12', '2021-01-05 02:36:12');
+(16, 1, '[\"4\"]', 2, '1000000', '2021-01-05 02:36:12', '2021-01-05 02:36:12'),
+(17, 2, '[\"4\"]', 2, '1000000', '2021-01-09 11:57:31', '2021-01-09 11:57:31');
 
 -- --------------------------------------------------------
 
@@ -262,9 +248,14 @@ CREATE TABLE `giaovien` (
 
 INSERT INTO `giaovien` (`id`, `mataikhoan`, `hovaten`, `gioitinh`, `ngaysinh`, `cmnd`, `email`, `sdt`, `bangcap`, `created_at`, `updated_at`, `diachi`, `dantoc`, `tongiao`, `ngayvaotruong`, `hokhau`, `status`) VALUES
 (2, 5, 'ádas', 1, '1997-01-10', '123123121', 'giaovien2@gmail.com', '0961612308', 'ádasd', '2020-10-05 20:16:44', '2020-10-06 20:59:45', '53 đường số 1', 'ád', 'ádasd', '1970-01-01', 'ádasd', 1),
-(4, 7, 'Thanh Lệ Nguyễn', 1, '1997-10-23', '123456789', 'giaovien1@gmail.com', '0961612309', 'Đại học', '2020-10-05 21:01:30', '2020-11-20 12:20:12', 'Nhà', 'Kinh', 'Phật', '2020-06-10', 'Nhà', 1),
+(4, 7, 'Trần Tuấn Kiệt', 1, '1997-10-23', '123456789', 'giaovien1@gmail.com', '0961612309', 'Đại học', '2020-10-05 21:01:30', '2020-11-20 12:20:12', 'Nhà', 'Kinh', 'Phật', '2020-06-10', 'Nhà', 1),
 (5, 10, 'Nguyễn Thị Thanh Lệ', 0, '1968-08-10', '123456789', 'thanhlehh@gmail.com', '0934130497', 'Đại học', '2020-10-06 02:07:44', '2020-10-06 02:07:44', 'tphcm', 'Kinh', 'Phật', '1970-01-01', 'tphcm', 1),
-(6, 2, 'Trần Ngọc Bình', 1, '1960-10-23', '123456789', 'ngocbinh@gmail.com', '0961612308', 'Lái xe', '2020-10-06 02:19:35', '2020-10-06 03:10:05', 'Nhà', 'Kinh', 'Phật', '2020-10-10', 'Nhà', 1);
+(6, 2, 'Trần Ngọc Bình', 1, '1960-10-23', '123456789', 'ngocbinh@gmail.com', '0961612308', 'Lái xe', '2020-10-06 02:19:35', '2020-10-06 03:10:05', 'Nhà', 'Kinh', 'Phật', '2020-10-10', 'Nhà', 1),
+(7, 14, 'Trân Ngọc Minh Thư', 0, '1990-12-14', '025784185', 'ketoan@gmail.com', '0961612308', 'Cao Đẳng', '2021-01-22 10:08:57', '2021-01-22 10:16:15', 'TPHCM', 'KInh', 'Phật', '2021-01-06', 'TPHCM', 1),
+(8, 15, 'Nguyễn Cường', 1, '2021-01-05', '025784184', 'canbo@gmail.com', '0961612308', 'Đại Học', '2021-01-22 10:21:58', '2021-01-22 10:21:58', 'TPHCM', 'Kinh', 'Phật', '2021-01-18', 'TPHCM', 1),
+(9, 16, 'CBVP_Thanh', 0, '2021-01-21', '025784184', 'cbvp@gmail.com', '0961612308', 'Đại học', '2021-01-22 13:21:41', '2021-01-22 13:21:41', 'TPHCM', 'KInh', NULL, '2021-02-18', 'TPHCM', 1),
+(10, 17, 'KT_thanh', 0, '2021-01-19', '025784184', 'KT_thanh@gmail.com', '0961612308', 'ac', '2021-01-22 13:24:41', '2021-01-22 13:24:41', 'TPHCM', 'TPHCM', NULL, '2021-01-13', 'TPHCM', 1),
+(11, 18, 'GV_thanh', 0, '2021-01-13', '025784184', 'gv_thanh@gmail.com', '0961612308', 'ádsad', '2021-01-22 13:26:00', '2021-01-22 13:26:00', 'TPHCM', 'ádasd', NULL, '2021-01-18', 'TPHCM', 1);
 
 -- --------------------------------------------------------
 
@@ -288,10 +279,10 @@ CREATE TABLE `hoatdong` (
 --
 
 INSERT INTO `hoatdong` (`id`, `iddm`, `tenhoatdong`, `ngaygiangday`, `ghichu`, `created_at`, `updated_at`, `ngayketthuc`) VALUES
-(1, 3, 'Âm Nhạc', '2,3,4,5,6', 'Hát ca', NULL, '2020-11-09 02:21:45', '2021-01-01'),
-(3, 2, 'Âm nhạc', '', NULL, NULL, NULL, '2020-11-07'),
-(9, 4, 'Âm Nhạc', '6,1,3', NULL, '2020-11-06 02:22:54', '2020-11-06 02:22:54', '2021-01-01'),
-(10, 4, 'Hát Ca', '1,2,5', NULL, '2020-11-06 02:23:22', '2020-11-06 02:23:22', '2021-02-02');
+(1, 3, 'Âm Nhạc', '2,3,4,5,6', 'Hát ca', NULL, '2020-11-09 02:21:45', '2021-04-28'),
+(3, 2, 'Âm nhạc', '', NULL, NULL, NULL, '2021-02-28'),
+(9, 4, 'Âm Nhạc', '6,1,3', NULL, '2020-11-06 02:22:54', '2020-11-06 02:22:54', '2021-03-31'),
+(10, 4, 'Hát Ca', '1,2,5', NULL, '2020-11-06 02:23:22', '2020-11-06 02:23:22', '2021-05-31');
 
 -- --------------------------------------------------------
 
@@ -322,11 +313,20 @@ CREATE TABLE `hocsinh` (
 --
 
 INSERT INTO `hocsinh` (`id`, `hovaten`, `ngaysinh`, `gioitinh`, `diachi`, `ngayvaotruong`, `tinhtrangsuckhoe`, `created_at`, `updated_at`, `hokhauthuongtru`, `hokhautamtru`, `dantoc`, `tongiao`, `malophoc`, `tenthuonggoi`) VALUES
-(1, 'Nguyễn Văn A', '2020-01-05', 1, 'ádasd', '1970-01-01', 'Rất tốt', '2020-09-25 07:21:15', '2020-10-21 23:06:19', 'ádasd', 'ádasdas', 'ádasdasd', NULL, 24, 'Nam'),
-(2, 'Nguyễn Văn B', '2020-10-09', 1, 'Long An', '1970-01-01', 'tốt', '2020-09-25 07:33:28', '2021-01-04 01:45:05', 'Long An', 'Long An', 'Kinh', 'Phật', 24, NULL),
-(3, 'Nguyễn Văn C', '2020-09-09', 1, 'Nhà bè', '1970-01-01', 'Tốt', '2020-09-25 07:34:37', '2021-01-04 01:45:25', 'Nhà bè', 'Nhà bè', 'Kinh', NULL, 24, NULL),
-(4, 'Trần Văn D', '2020-09-09', 1, 'Long Khánh', '1970-01-01', 'Tốt', '2020-09-25 07:41:49', '2021-01-04 01:45:46', 'Long Khánh', 'Long Khánh', 'Kinh', 'Phật', 24, NULL),
-(5, 'Trần Quốc Tuấn', '2020-09-09', 1, 'TPHCM', '1970-01-01', 'Tốt', '2020-09-25 07:43:03', '2021-01-04 01:42:06', 'TPHCM', 'TPHCM', 'Kinh', 'Phật', 24, NULL);
+(1, 'Nguyễn Văn A', '2020-01-05', 1, 'ádasd', '1970-01-01', 'Rất tốt', '2020-09-25 07:21:15', '2021-01-22 13:42:12', 'ádasd', 'ádasdas', 'ádasdasd', NULL, 1, 'Nam'),
+(2, 'Nguyễn Văn B', '2020-10-09', 1, 'Long An', '1970-01-01', 'tốt', '2020-09-25 07:33:28', '2021-01-24 07:52:47', 'Long An', 'Long An', 'Kinh', 'Phật', 1, NULL),
+(3, 'Nguyễn Văn C', '2020-09-09', 1, 'Nhà bè', '1970-01-01', 'Tốt', '2020-09-25 07:34:37', '2021-01-22 13:42:12', 'Nhà bè', 'Nhà bè', 'Kinh', NULL, 1, NULL),
+(4, 'Trần Văn D', '2020-09-09', 1, 'Long Khánh', '1970-01-01', 'Tốt', '2020-09-25 07:41:49', '2021-01-22 13:42:12', 'Long Khánh', 'Long Khánh', 'Kinh', 'Phật', 1, NULL),
+(5, 'Trần Quốc Tuấn', '2020-09-09', 1, 'TPHCM', '1970-01-01', 'Tốt', '2020-09-25 07:43:03', '2021-01-22 13:42:12', 'TPHCM', 'TPHCM', 'Kinh', 'Phật', 1, NULL),
+(12, 'aaaaavbasdasd', '1970-01-01', 0, 'ádasdas', '1970-01-01', 'ádasd', '2021-01-22 13:41:17', '2021-01-22 13:45:41', 'dasdasd', NULL, 'KInh', NULL, 1, NULL),
+(13, 'ádasd', '2021-01-23', 1, 'ádasd', '2021-01-08', 'ádas', '2021-01-23 16:46:30', '2021-01-23 16:46:30', 'ádasd', 'ádasd', 'ádasd', NULL, 1, NULL),
+(14, 'ádasd', '2021-01-23', 1, 'ádasd', '2021-01-08', 'ádas', '2021-01-23 16:46:54', '2021-01-23 16:46:54', 'ádasd', 'ádasd', 'ádasd', NULL, 1, NULL),
+(15, 'ádasd', '2021-01-23', 1, 'ádasd', '2021-01-14', 'ádas', '2021-01-23 16:47:59', '2021-01-23 16:47:59', 'ádasd', 'ádasda', 'ádasdsa', NULL, 1, 'ádasdsad'),
+(16, 'ádasd', '2021-01-23', 1, 'ádasd', '2021-01-14', 'ádas', '2021-01-23 16:55:13', '2021-01-23 16:55:13', 'ádasd', 'sadasd', 'ádasd', NULL, 1, NULL),
+(17, 'ádasd', '2021-01-23', 1, 'ádasd', '2021-01-14', 'ádas', '2021-01-23 16:57:00', '2021-01-23 16:57:00', 'ádasd', 'sadasd', 'ádasd', NULL, 1, NULL),
+(18, 'ádasd', '2021-01-23', 1, 'ádasd', '2021-01-14', 'ádas', '2021-01-23 16:58:11', '2021-01-23 16:58:11', 'ádasd', 'sadasd', 'ádasd', NULL, 1, NULL),
+(19, 'Nguyễn Quốc Hưng', '2020-10-01', 1, 'TPHCM', '2021-01-14', 'Tốt', '2021-01-24 03:08:35', '2021-01-24 03:08:35', '53 đường số 4', NULL, 'ádasd', NULL, 1, NULL),
+(20, 'Nguyễn Xuân Lan', '2018-01-12', 0, '55 Tuệ tĩnh', '1970-01-01', 'Rất tốt', '2021-01-24 03:23:49', '2021-01-24 07:53:12', '55 Tuệ tĩnh', NULL, 'alskhjdjlkas', NULL, 36, NULL);
 
 -- --------------------------------------------------------
 
@@ -342,16 +342,6 @@ CREATE TABLE `lichday` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `lichday`
---
-
-INSERT INTO `lichday` (`id`, `idgv`, `idlophoc`, `ngayday`, `created_at`, `updated_at`) VALUES
-(12, 4, 24, '[\"1\",\"2\",\"3\",\"4\",\"5\"]', '2020-10-21 23:07:02', '2020-11-17 03:43:18'),
-(20, NULL, 27, '[\"4\"]', '2020-11-18 04:31:48', '2020-11-19 04:34:10'),
-(22, NULL, 27, '[\"5\",\"6\"]', '2020-11-18 04:34:41', '2020-11-19 04:34:10'),
-(23, NULL, 27, '[\"1\",\"2\"]', '2020-11-18 04:42:37', '2020-11-19 04:34:10');
 
 -- --------------------------------------------------------
 
@@ -374,10 +364,7 @@ CREATE TABLE `lophoc` (
 
 INSERT INTO `lophoc` (`id`, `madanhmuclop`, `tenlop`, `soluong`, `created_at`, `updated_at`) VALUES
 (1, 1, 'Chưa phân lớp', 1000000000, NULL, NULL),
-(24, 4, 'Chồi 1', 20, '2020-10-21 20:17:38', '2020-11-19 04:19:02'),
-(25, 2, 'Chồi 2', 100, '2020-10-21 20:18:55', '2020-10-21 20:18:55'),
-(27, 2, 'Lá 4', 20, '2020-11-03 05:27:02', '2020-11-19 04:34:10'),
-(28, 5, 'Ra Trường', 1000000, '2020-11-03 06:09:45', '2020-11-03 06:10:35');
+(36, 2, 'Lớp Nát', 1, '2021-01-22 13:42:57', '2021-01-24 06:43:26');
 
 -- --------------------------------------------------------
 
@@ -473,12 +460,6 @@ CREATE TABLE `nknhaphoc` (
   `hokhau` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `diachi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `suckhoehientai` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `hotenbo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sdtbo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `emailbo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `hotenme` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `sdtme` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `emailme` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `hovatenph` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `sdtph` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `emailph` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -491,11 +472,14 @@ CREATE TABLE `nknhaphoc` (
 -- Đang đổ dữ liệu cho bảng `nknhaphoc`
 --
 
-INSERT INTO `nknhaphoc` (`id`, `tenhs`, `ngaysinh`, `gioitinh`, `hokhau`, `diachi`, `suckhoehientai`, `hotenbo`, `sdtbo`, `emailbo`, `hotenme`, `sdtme`, `emailme`, `hovatenph`, `sdtph`, `emailph`, `trangthai`, `created_at`, `updated_at`) VALUES
-(5, 'Trần Tuấn Kiệt', '1970-01-01', 1, 'Vũng Tàu', 'ádasd', 'Tốt', 'Nguyễn VănThanh', '0961612308', 'trantuankiet071097@gmail.com', 'Nguyễn Thị Liên', '0935612795', 'trantuankiet071097@gmail.com', '', '', '', '1', '2020-09-16 20:27:27', '2021-01-07 01:36:57'),
-(24, 'Nguyễn Xuân Lan', '1970-01-01', 0, '55 Tuệ tĩnh', '55 Tuệ tĩnh', 'Tốt', 'Nguyễn VănThanh', '0961612308', 'trantuankiet071097@gmail.com', 'Nguyễn Thị Liên', '0934130497', 'trantuankiet071097@gmail.com', '', '', '', '1', '2020-12-16 05:11:09', '2020-12-16 05:40:38'),
-(25, 'Nguyễn Minh Ngọc', '1970-01-01', 0, 'Tuệ Tỉnh', '441 Lê văn quới', 'Tốt', 'Nguyễn bé hai', '0961612308', 'trantuankiet071097@gmail.com', 'Nguyễn Thị thúy', '0934130497', 'trantuankiet071097@gmail.com', '', '', '', '0', '2020-12-16 05:43:33', '2020-12-16 05:43:33'),
-(26, 'Nguyễn Quốc Hưng', '2020-10-01', 1, '53 đường số 4', 'TPHCM', 'Tốt', 'Nguyễn Phước Khanh', '0912345689', 'trantuankiet071097@gmail.com', 'Nguyễn Mỹ Kim', '0973778923', 'kevintran6266@gmail.com', '', '', '', '1', '2021-01-07 01:30:20', '2021-01-07 01:41:01');
+INSERT INTO `nknhaphoc` (`id`, `tenhs`, `ngaysinh`, `gioitinh`, `hokhau`, `diachi`, `suckhoehientai`, `hovatenph`, `sdtph`, `emailph`, `trangthai`, `created_at`, `updated_at`) VALUES
+(5, 'Trần Tuấn Kiệt', '1970-01-01', 1, 'Vũng Tàu', 'ádasd', 'Tốt', '', '', '', '1', '2020-09-16 20:27:27', '2021-01-07 01:36:57'),
+(24, 'Nguyễn Xuân Lan', '1970-01-01', 0, '55 Tuệ tĩnh', '55 Tuệ tĩnh', 'Tốt', '', '', '', '3', '2020-12-16 05:11:09', '2021-01-24 03:23:49'),
+(25, 'Nguyễn Minh Ngọc', '1970-01-01', 0, 'Tuệ Tỉnh', '441 Lê văn quới', 'Tốt', '', '', '', '0', '2020-12-16 05:43:33', '2020-12-16 05:43:33'),
+(26, 'Nguyễn Quốc Hưng', '2020-10-01', 1, '53 đường số 4', 'TPHCM', 'Tốt', '', '', '', '3', '2021-01-07 01:30:20', '2021-01-24 03:08:36'),
+(28, 'aaaaa', '1970-01-01', 1, 'ádasdasd', 'ádsad', 'Khỏe', '', '', '', '0', '2021-01-22 13:33:37', '2021-01-22 13:33:37'),
+(29, 'aaaaavbasdasd', '1970-01-01', 1, 'dasdasd', 'ádasdas', 'ádasd', '', '', '', '3', '2021-01-22 13:37:08', '2021-01-22 13:41:17'),
+(30, 'ádasd', '2021-01-23', 1, 'ádasd', 'ádasd', 'ádas', 'ádasd', '0961612308', 'trantuankiet071097@gmail.com', '3', '2021-01-23 14:33:29', '2021-01-23 16:58:11');
 
 -- --------------------------------------------------------
 
@@ -534,7 +518,14 @@ CREATE TABLE `phuhuynh` (
 --
 
 INSERT INTO `phuhuynh` (`id`, `mahs`, `hovaten`, `sdt`, `email`, `quanhe`, `ngaysinh`, `nghenghiep`, `tendonvi`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Tràn tuấn kiệt', '0961612308', 'trantuankiet071097@gmail.com', 'bố', '2020-10-09', 'ádaádasd', NULL, '2020-09-25 07:43:03', '2020-09-25 07:43:03');
+(1, 1, 'Tràn tuấn kiệt', '0961612308', 'trantuankiet071097@gmail.com', 'bố', '2020-10-09', 'ádaádasd', NULL, '2020-09-25 07:43:03', '2020-09-25 07:43:03'),
+(8, 12, 'laksjdklasjld', '1111111111', 'ntnthanh@hcmunre.edu.vn', 'Bố', '2021-01-12', 'ádasdsa', NULL, '2021-01-22 13:41:17', '2021-01-22 13:41:17'),
+(9, 12, 'laksjdklasjld', '1111111111', NULL, 'Mẹ', '2021-01-05', 'ádasdasdsa', NULL, '2021-01-22 13:41:17', '2021-01-22 13:41:17'),
+(10, 16, 'ádasd', '0961612308', 'trantuankiet071097@gmail.com', '1', '2021-01-21', 'ádasd', 'ádasd', '2021-01-23 16:55:13', '2021-01-23 16:55:13'),
+(11, 18, 'ádasd', '0961612308', 'trantuankiet071097@gmail.com', '1', '2021-01-21', 'ádasd', 'ádasd', '2021-01-23 16:58:11', '2021-01-23 16:58:11'),
+(12, 19, 'ádasd', '0961612308', 'asdSasd@gmail.com', '1', '2021-01-06', 'alkshjdhasdjk', 'kakjshdjkashd', '2021-01-24 03:08:35', '2021-01-24 03:08:35'),
+(13, 20, 'Thanh', '0961612308', 'askjhdgkjahd@gmail.com', '1', '2021-01-14', 'ákldnajlkshd', NULL, '2021-01-24 03:23:49', '2021-01-24 06:09:41'),
+(14, 20, ';ádjasjk', NULL, NULL, '2', '2020-12-29', NULL, NULL, '2021-01-24 03:23:49', '2021-01-24 03:23:49');
 
 -- --------------------------------------------------------
 
@@ -617,7 +608,8 @@ INSERT INTO `tintuc` (`id`, `title`, `description`, `content`, `image_path`, `cr
 (7, ' THÔNG BÁO KÉO DÀI THỜI GIAN TẠM NGHỈ HỌC ĐẾN HẾT NGÀY 05/04/2020', ' THÔNG BÁO ', '<p>📨<strong>Kính gửi Quý Phụ Huynh</strong>,<br />Thực hiện chỉ đạo của UBND TP.HCM trước tình hình diễn biến phức tạp, tiềm ẩn nhiều nguy cơ lây nhiễm trong cộng đồng của dịch bệnh viêm đường hô hấp cấp Covid-19 do virus Corona gây ra. Ban Giám Hiệu Trường Mầm non vũ trụ phải thông báo tiếp tục kéo dài thời gian tạm nghỉ học của các bé đến hết&nbsp;<a href=\"https://www.facebook.com/hashtag/ng%C3%A0y_05_th%C3%A1ng_04_n%C4%83m_2020?source=feed_text&amp;epa=HASHTAG&amp;__xts__%5B0%5D=68.ARBS2VdFgHvMxhe78eVMNHXGQLfJg9mzORgTvtJWStBt36ZO1TcJ6rEnpc3p474cvnkJkOcKOjT2lRNy-fd-4ERiaS1I7ZEJM1Qzg6O6exQhpxI_0tSFzSVOE2dnz7HovDIqkSLTnTogo6RAT6SP0ppAD4qw6wZegSlwS3Jrv7lCzbLIFMYLyBYwNXrlB-Qdu0OBFh9lJFd7iAsWj7W4zRNx_8RPMuRPxN10Ya6xj6mHpARcMYTIEfginz419VW_6fJAcCZgV8HeuQ5B6hpbkEQjuLB77faXrLW6PBofYXVaI6lO7PHUTJSkV0PR80mJD1g5EtY2VpWNhQsD5FZRzpBVWw&amp;__tn__=%2ANK-R\">5</a>/4/2020&nbsp;để đảm bảo sức khỏe an toàn tuyệt đối cho các bé.<br />Rất mong nhận được sự phối hợp của các Quý Phụ Huynh. Chân thành cảm ơn Quý Phụ Huynh đã luôn đồng hành và chia sẻ! Nhà trường luôn hy vọng diễn biến phòng chống bệnh dịch được kiểm soát tốt nhất để trẻ đến trường.<br />Thời gian nhập học dự kiến vào thứ hai 06/04/2020.<br />Trân Trọng<br /><strong>Ban Giám Hiệu.</strong></p>', 'images/16080947583.jpg', '2020-11-27 03:30:27', '2020-12-16 05:00:47'),
 (8, 'ĐỐ VUI CÙNG BÉ', 'Miêu tả', '<p>🦛&ldquo;Da dày và trơn bóng</p><p>&nbsp; &nbsp; &nbsp;Tai nhỏ nhưng miệng to</p><p>&nbsp; &nbsp; &nbsp;Ngày ở dưới sông, hồ</p><p>&nbsp; &nbsp; &nbsp;Đêm lên bờ ăn cỏ.&rdquo;&nbsp;🌱</p><p>(Đố bạn là con gì?)</p><p>Đáp án: Con Hà Mã</p><p>🤗 Chúng mình sẽ cùng đến với một bài thơ hỏi đố liên quan đến một loài vật mà bé hay gặp trên màn ảnh và trong Thảo Cầm Viên nè.</p><p>Ba mẹ hãy giúp cô đọc cho các bé nghe và xem các bé nhà mình có đoán ra là con vật gì không nha.</p>', '', '2020-11-27 03:30:42', '2020-12-16 04:58:12'),
 (9, 'ĐỐ VUI CÙNG BÉ', 'ĐỐ VUI CÙNG BÉ', '<p>💁&zwj;♀️&nbsp;Các bạn ơi! Cùng xem hôm nay chúng mình có đố vui gì nè. Ba mẹ giúp cô đọc cho các bạn nhỏ nhé, để xem các bạn nhỏ của mình đã đoán ra được là con vật gì không nha.</p><p>💁&zwj;♀️Mùa nắng nóng đã bắt đầu, các bạn nhỏ và gia đình đừng quên bổ sung thêm vitamin, trái cây và uống bù lượng nước đã mất đi trong cơ thể để tránh cảm giác mệt mỏi, choáng, thậm chí bị nhức đầu hay khó thở nhé. Và đừng quên:</p><p>🤗&nbsp;Luôn mang khẩu trang khi đi ra ngoài.</p><p>🤗&nbsp;Thường xuyên rửa tay.</p><p>🤗&nbsp;Ăn uống đầy đủ dưỡng chất.</p><p>Chúng ta sẽ có một sức khỏe thật tốt cho việc chuẩn bị quay lại trường học thôi. Chúc các bé ngủ thật ngon.</p>', 'images/16080946502.jpg', '2020-11-27 03:30:58', '2020-12-16 04:57:41'),
-(10, '5 hành vi của trẻ không bao giờ được bỏ qua', '5 Dấu hiệu cần quan tâm ở trẻ', '<p>Tuổi thơ là giai đoạn rất nhạy cảm với sự phát triển của trẻ. Đây là thời điểm tốt nhất để trẻ có sự phát triển về thể chất và tinh thần. Nếu trẻ có vấn đề ở độ tuổi này, sẽ dẫn đến các vấn đề hành vi về sau.</p><p>Dưới đây là 5 vấn đề cần chấn chỉnh trẻ ngay khi còn nhỏ.</p><p><strong>1. Ngắt lời</strong></p><p>Nếu con bạn liên tục ngắt lời khi người lớn đang nói thì đây là một dấu hiệu xấu. Để thu hút sự chú ý về cho mình, chúng không quan tâm đến người khác. Vô tình điều này tạo nên tính ích kỷ, xem mình là &quot;cái rốn của vũ trụ&quot;. Thói quen này cũng sẽ gây khó chịu cho người xung quanh.</p><p>Để trị, hãy giơ một hoặc hai ngón tay lên, có nghĩa là bạn sẽ ở bên con trong một hoặc hai phút nữa. Khi con làm quen được tín hiệu này và chờ một khoảng thời gian thích hợp, hãy dừng cuộc trò chuyện và khen ngợi con.</p><p>Tuy nhiên, tùy lứa tuổi mà cách xử lý khác nhau, ví như khi trẻ lên 3-4 tuổi, đừng mong con có thể đợi được vài phút, nên bạn cần xử lý việc nhanh. Hoặc khi con lớn hơn, hiểu chuyện hơn, bạn có thể kéo dài thời gian chờ đợi.</p><p><strong>2. Dùng vũ lực với người khác</strong></p><p>Hành vi đấm, cắn bạn khi đang chơi cần phải được dạy dỗ ngay. Sự hung hăng này không hề bình thường ở một đứa trẻ nếu điều này tiếp tục duy trì đến khi 8 tuổi.</p><p>Nếu thấy con bạn có điều này, hãy hỏi rõ ràng nguyên nhân, sau đó giải thích cho con hiểu đây là hành vi xấu. Làm tổn thương người khác là đáng bị lên án. Không ai được phép làm tổn thương người khác.</p><p><img alt=\"boy wearing teal and black striped t-shirt holding toy\" src=\"https://images.unsplash.com/photo-1495399375768-af8af1b8b9f5?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80\" /></p><p><strong>3. Không nghe lời cha mẹ</strong></p><p>Nếu con bạn không chú ý đến lời cha mẹ nói thì hành vi này cũng cần thay đổi. Một khi bạn bỏ qua thì con sẽ phớt lờ bạn mọi lúc. Khi con càng lớn, lời nói của bạn sẽ không còn chút trọng lượng nào với con nữa.</p><p>Khi con phớt lờ bạn nói, hãy thu hút sự chú ý của trẻ bằng cách chạm vào vai con, hướng mặt con vào mặt mình, gọi thẳng tên con, tắt các thiết bị công nghệ... để cuộc nói chuyện chỉ có con và bạn.</p><p><strong>4. Phóng đại sự thật</strong></p><p>Ban đầu trẻ có thể hơi phóng đại sự thật, ví dụ nói rất thích ăn rau nhưng thực tế không chịu ăn một loại rau nào. Những lời nói dối này không có hại, nhưng không chính xác. Khi con bạn quen với việc khiến bản thân trông đẹp hơn trong mắt người khác, việc nói dối trở nên tự động. Một lúc nào đó lời nói dối này có thể gây ra vấn đề lớn ở trường học, xã hội.</p><p>Để trị tật xấu này của trẻ, điều quan trọng là phải xem xét tuổi của chúng. Một đứa trẻ 2-3 tuổi có thể không hoàn toàn hiểu sự khác biệt giữa không trung thực và trung thực. Khi con bạn từ khoảng 4 tuổi trở lên, hãy bắt đầu giải thích thế nào là nói dối và giúp bé hiểu tại sao việc này là xấu. Khen ngợi con bạn là trung thực và khuyến khích con nói sự thật, ngay cả khi có thể khiến con gặp rắc rối.</p><p><strong>5. Hành vi hỗn xược</strong></p><p>Nếu đứa trẻ trợn mắt, lườm bạn, đánh bạn, giọng điệu gay gắt với bạn thì cần phải trị ngay. Đây là hành động thiếu tôn trọng người khác.</p><p>Một số phụ huynh phớt lờ vì nghĩ đây là hành vi nhất thời, qua một giai đoạn sẽ hết, nhưng nếu bạn không đối đầu, bạn có thể sẽ có một đứa con lớp 3 vô lễ, không thể hòa đồng với bạn, không thể kết nối với giáo viên.</p><p>Các hành vi hỗn xược này thường bắt đầu khi trẻ mẫu giáo bắt chước trẻ lớn hơn. Cách xử lý là làm cho con nhận thức được hành vi của mình. Nói với bé, ví dụ, &quot;Khi con lườm như thế, có phải con không thích những gì mẹ đang nói&quot;. Cách này không phải làm cho con xấu hổ mà để cho bé thấy được biểu hiện vẻ mặt, lời nói của mình gây khó chịu cho người khác ra sao. Nếu hành vi này tiếp tục, hãy từ chối nói chuyện cho đến khi con thay đổi thái độ.</p>', 'images/1608094589hinh-chup-tre-em.jpg', '2020-11-27 03:31:11', '2020-12-16 04:56:29');
+(10, '5 hành vi của trẻ không bao giờ được bỏ qua', '5 Dấu hiệu cần quan tâm ở trẻ', '<p>Tuổi thơ là giai đoạn rất nhạy cảm với sự phát triển của trẻ. Đây là thời điểm tốt nhất để trẻ có sự phát triển về thể chất và tinh thần. Nếu trẻ có vấn đề ở độ tuổi này, sẽ dẫn đến các vấn đề hành vi về sau.</p><p>Dưới đây là 5 vấn đề cần chấn chỉnh trẻ ngay khi còn nhỏ.</p><p><strong>1. Ngắt lời</strong></p><p>Nếu con bạn liên tục ngắt lời khi người lớn đang nói thì đây là một dấu hiệu xấu. Để thu hút sự chú ý về cho mình, chúng không quan tâm đến người khác. Vô tình điều này tạo nên tính ích kỷ, xem mình là &quot;cái rốn của vũ trụ&quot;. Thói quen này cũng sẽ gây khó chịu cho người xung quanh.</p><p>Để trị, hãy giơ một hoặc hai ngón tay lên, có nghĩa là bạn sẽ ở bên con trong một hoặc hai phút nữa. Khi con làm quen được tín hiệu này và chờ một khoảng thời gian thích hợp, hãy dừng cuộc trò chuyện và khen ngợi con.</p><p>Tuy nhiên, tùy lứa tuổi mà cách xử lý khác nhau, ví như khi trẻ lên 3-4 tuổi, đừng mong con có thể đợi được vài phút, nên bạn cần xử lý việc nhanh. Hoặc khi con lớn hơn, hiểu chuyện hơn, bạn có thể kéo dài thời gian chờ đợi.</p><p><strong>2. Dùng vũ lực với người khác</strong></p><p>Hành vi đấm, cắn bạn khi đang chơi cần phải được dạy dỗ ngay. Sự hung hăng này không hề bình thường ở một đứa trẻ nếu điều này tiếp tục duy trì đến khi 8 tuổi.</p><p>Nếu thấy con bạn có điều này, hãy hỏi rõ ràng nguyên nhân, sau đó giải thích cho con hiểu đây là hành vi xấu. Làm tổn thương người khác là đáng bị lên án. Không ai được phép làm tổn thương người khác.</p><p><img alt=\"boy wearing teal and black striped t-shirt holding toy\" src=\"https://images.unsplash.com/photo-1495399375768-af8af1b8b9f5?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80\" /></p><p><strong>3. Không nghe lời cha mẹ</strong></p><p>Nếu con bạn không chú ý đến lời cha mẹ nói thì hành vi này cũng cần thay đổi. Một khi bạn bỏ qua thì con sẽ phớt lờ bạn mọi lúc. Khi con càng lớn, lời nói của bạn sẽ không còn chút trọng lượng nào với con nữa.</p><p>Khi con phớt lờ bạn nói, hãy thu hút sự chú ý của trẻ bằng cách chạm vào vai con, hướng mặt con vào mặt mình, gọi thẳng tên con, tắt các thiết bị công nghệ... để cuộc nói chuyện chỉ có con và bạn.</p><p><strong>4. Phóng đại sự thật</strong></p><p>Ban đầu trẻ có thể hơi phóng đại sự thật, ví dụ nói rất thích ăn rau nhưng thực tế không chịu ăn một loại rau nào. Những lời nói dối này không có hại, nhưng không chính xác. Khi con bạn quen với việc khiến bản thân trông đẹp hơn trong mắt người khác, việc nói dối trở nên tự động. Một lúc nào đó lời nói dối này có thể gây ra vấn đề lớn ở trường học, xã hội.</p><p>Để trị tật xấu này của trẻ, điều quan trọng là phải xem xét tuổi của chúng. Một đứa trẻ 2-3 tuổi có thể không hoàn toàn hiểu sự khác biệt giữa không trung thực và trung thực. Khi con bạn từ khoảng 4 tuổi trở lên, hãy bắt đầu giải thích thế nào là nói dối và giúp bé hiểu tại sao việc này là xấu. Khen ngợi con bạn là trung thực và khuyến khích con nói sự thật, ngay cả khi có thể khiến con gặp rắc rối.</p><p><strong>5. Hành vi hỗn xược</strong></p><p>Nếu đứa trẻ trợn mắt, lườm bạn, đánh bạn, giọng điệu gay gắt với bạn thì cần phải trị ngay. Đây là hành động thiếu tôn trọng người khác.</p><p>Một số phụ huynh phớt lờ vì nghĩ đây là hành vi nhất thời, qua một giai đoạn sẽ hết, nhưng nếu bạn không đối đầu, bạn có thể sẽ có một đứa con lớp 3 vô lễ, không thể hòa đồng với bạn, không thể kết nối với giáo viên.</p><p>Các hành vi hỗn xược này thường bắt đầu khi trẻ mẫu giáo bắt chước trẻ lớn hơn. Cách xử lý là làm cho con nhận thức được hành vi của mình. Nói với bé, ví dụ, &quot;Khi con lườm như thế, có phải con không thích những gì mẹ đang nói&quot;. Cách này không phải làm cho con xấu hổ mà để cho bé thấy được biểu hiện vẻ mặt, lời nói của mình gây khó chịu cho người khác ra sao. Nếu hành vi này tiếp tục, hãy từ chối nói chuyện cho đến khi con thay đổi thái độ.</p>', 'images/1608094589hinh-chup-tre-em.jpg', '2020-11-27 03:31:11', '2020-12-16 04:56:29'),
+(11, 'Lớp ăn dặm', 'đasa', '<p>ádsad</p>', '', '2021-01-22 13:28:26', '2021-01-22 13:28:26');
 
 -- --------------------------------------------------------
 
@@ -651,7 +643,12 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `le
 (10, 'Nguyễn Thị Thanh Lệ', 'thanhlehh@gmail.com', NULL, '$2y$10$Dd9NjGBmtXMPG6nmMWXxWu0Ia4LW.sy.XRKR6EHm.xPbOrX5ChF/W', 2, '1', NULL, '2020-10-06 02:07:44', '2020-10-06 02:07:44'),
 (11, 'Trần Ngọc Bình', 'ngocbinh@gmail.com', NULL, '$2y$10$rj5Aa4eFT.7H9TdSM0P7QOwgAj2Qg9/OPiAVjq7iZMady6l1g8Hsy', 3, '1', NULL, '2020-10-06 02:19:35', '2020-10-06 20:02:54'),
 (12, 'Kiet', 'giaovien3@gmail.com', NULL, '$2y$10$eYusO4IoVjC6g78wfZt6nOzkYNo/5NPNyFpHxZileKdliX0zh2QfC', 1, '1', NULL, '2020-12-28 09:05:13', '2020-12-28 09:05:13'),
-(13, 'Kiet', 'giaovien4@gmail.com', NULL, '$2y$10$gBkatTYr65TR.UM6NRv8wOS/BRnug0OPVr85lww9siBT5Y7Wsw2K2', 1, '1', NULL, '2020-12-28 09:06:19', '2020-12-28 09:06:19');
+(13, 'Kiet', 'giaovien4@gmail.com', NULL, '$2y$10$gBkatTYr65TR.UM6NRv8wOS/BRnug0OPVr85lww9siBT5Y7Wsw2K2', 1, '1', NULL, '2020-12-28 09:06:19', '2020-12-28 09:06:19'),
+(14, 'Trân Ngọc Minh Thư', 'ketoan@gmail.com', NULL, '$2y$10$FnUSCAP7auoZbFqt1M69feNf5iRBDqu61qeGjaaYBEiLS5wa.N.6q', 3, '1', NULL, '2021-01-22 10:08:57', '2021-01-22 10:16:15'),
+(15, 'Nguyễn Cường', 'canbo@gmail.com', NULL, '$2y$10$Wi/fdtFOUAatmrFcT5.1ZesNjMSZ7aDJWdGGK65ylLLviWhlmuocq', 4, '1', NULL, '2021-01-22 10:21:58', '2021-01-22 10:21:58'),
+(16, 'CBVP_Thanh', 'cbvp@gmail.com', NULL, '$2y$10$eVUOhVs20P8MRRBc.g4N6uti4ceUO2MU3oefULgBM9WqyrX3D98Ve', 4, '1', NULL, '2021-01-22 13:21:41', '2021-01-22 13:21:41'),
+(17, 'KT_thanh', 'KT_thanh@gmail.com', NULL, '$2y$10$ClV93vy2xSjUFBF5f2AmFOwNVEAb4nMtsSjw.2j5dM0KtybmAvxnG', 3, '1', NULL, '2021-01-22 13:24:41', '2021-01-22 13:24:41'),
+(18, 'GV_thanh', 'gv_thanh@gmail.com', NULL, '$2y$10$tIQZn49A4.YZyuFdGAyNJuqANvxzywnOxXu2YgnkMkqUVjg8c/D.W', 2, '1', NULL, '2021-01-22 13:26:00', '2021-01-22 13:26:00');
 
 -- --------------------------------------------------------
 
@@ -835,7 +832,7 @@ ALTER TABLE `user_chucvu`
 -- AUTO_INCREMENT cho bảng `cackhoangchi`
 --
 ALTER TABLE `cackhoangchi`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `cackhoangphi`
@@ -859,7 +856,7 @@ ALTER TABLE `chucvu`
 -- AUTO_INCREMENT cho bảng `danhmuclop`
 --
 ALTER TABLE `danhmuclop`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `diemdanh`
@@ -871,7 +868,7 @@ ALTER TABLE `diemdanh`
 -- AUTO_INCREMENT cho bảng `dongtien`
 --
 ALTER TABLE `dongtien`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `failed_jobs`
@@ -883,7 +880,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT cho bảng `giaovien`
 --
 ALTER TABLE `giaovien`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `hoatdong`
@@ -895,7 +892,7 @@ ALTER TABLE `hoatdong`
 -- AUTO_INCREMENT cho bảng `hocsinh`
 --
 ALTER TABLE `hocsinh`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `lichday`
@@ -907,7 +904,7 @@ ALTER TABLE `lichday`
 -- AUTO_INCREMENT cho bảng `lophoc`
 --
 ALTER TABLE `lophoc`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT cho bảng `luongnv`
@@ -925,13 +922,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT cho bảng `nknhaphoc`
 --
 ALTER TABLE `nknhaphoc`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `phuhuynh`
 --
 ALTER TABLE `phuhuynh`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `recordluong`
@@ -949,13 +946,13 @@ ALTER TABLE `report`
 -- AUTO_INCREMENT cho bảng `tintuc`
 --
 ALTER TABLE `tintuc`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
