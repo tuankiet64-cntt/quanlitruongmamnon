@@ -76,7 +76,7 @@
                     <H4 class="sub-title" style="color: white;margin-bottom: 10px">Đăng ký tham quan</H4>
                     Hãy để con bạn đến thăm và trải nghiệm miễn phí môi trường giáo dục hữu cơ để phát triển tốt nhất tại Vũ trụ
                     <br>
-                    <button class="btn btn-success btn-round" style="margin-top: 33px">Đăng ký ngay</button>
+                    <a class="btn btn-success btn-round" href="{{route('registration.nhaphoc.index')}}" style="margin-top: 33px">Đăng ký ngay</a>
                 </div>
                 <div class="col-5">
                     <H4 class="sub-title" style="color: white;margin-bottom: 10px">Thông tin trường mầm non vũ trụ</H4>

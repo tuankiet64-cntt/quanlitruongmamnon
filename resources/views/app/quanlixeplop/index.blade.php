@@ -69,6 +69,7 @@
                             <div class="table table-border-style  col-lg-6">
                                 <div class="d-flex justify-content-between">
                                     <h4 class="sub-title">Học sinh đã có lớp &nbsp<label class="badge badge-lg bg-warning" id="dacolop"></label></h4>
+                                    <h4 class="sub-title">Độ tuổi &nbsp<label class="badge badge-lg bg-warning" id="dotuoi"></label></h4>
                                     <h4 class="sub-title">Số lượng tối đa &nbsp<label class="badge badge-lg bg-warning" id="toida"></label></h4>
                                 </div>
                                 <table class="table table-border-style" id="tbdacolop">

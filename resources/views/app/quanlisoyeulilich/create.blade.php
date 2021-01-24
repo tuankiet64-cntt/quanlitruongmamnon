@@ -31,8 +31,6 @@
                     <div class="form-group d-flex flex-row justify-content-between">
                         <label class="col-lg-5 ">Ngày sinh(*)</label>
                         <input class="datetimepicker need col-lg-7 form-control" id="ngaysinh" type="text" >
-                        <span style="font-size: 34px;"><i class="error d-none text-danger fa fa-ban"></i></span>
-
                     </div>
                     <div class="form-group d-flex flex-row justify-content-between">
                         <label class="col-lg-5 ">Ngày vao trường(*)</label>
@@ -54,7 +52,7 @@
                     </div>
                     <div class="form-group d-flex flex-row justify-content-between">
                         <label class="col-lg-5">Hộ khẩu tạm trú(*)</label>
-                        <input class="col-lg-7 need form-control" id="hokhautamtru">
+                        <input class="col-lg-7  form-control" id="hokhautamtru">
                         <span style="font-size: 34px;"><i class="error d-none text-danger fa fa-ban"></i></span>
 
                     </div>

@@ -67,11 +67,19 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="update-modal" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog"
+        <div class="modal fade" id="update-modal" data-keyboard="false" data-backdrop="static" tabindex="2000"data-target="#update-modal-ph"  role="dialog"
              aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content " id="container-modal">
                         @include('app.quanlisoyeulilich.edit');
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="update-modal-ph" data-keyboard="false" data-backdrop="static" tabindex="1000000" role="dialog"
+             aria-hidden="true">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content " id="container-modal">
+                        @include('app.quanlisoyeulilich.updateph');
                 </div>
             </div>
         </div>

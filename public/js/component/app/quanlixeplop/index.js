@@ -1,18 +1,18 @@
-let table1='',
-    table2='',
-    tong='',
-    soluonghienco=''
-    soluongchophep='';
+let table1 = '',
+    table2 = '',
+    tong = '',
+    soluonghienco = ''
+soluongchophep = '';
 $(function () {
     loadtable()
     loadtablexeplop()
     getlop()
     $('.js-example-basic-single').select2({
-        theme:'classic'
+        theme: 'classic'
     })
 })
 
-function loadtable(){
+function loadtable() {
     checksoluong()
     table1 = $('#tbchuacolop').DataTable({
         destroy: true,
@@ -41,15 +41,16 @@ function loadtable(){
         scrollX: true,
         scrollCollapse: true,
         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, 'Tất cả']],
-        initComplete:function () {
+        initComplete: function () {
             $('#checked').text(table1.rows().count())
         }
 
     });
 }
-function loadtablexeplop(){
+
+function loadtablexeplop() {
     let id;
-    id=$('#chonlop').val()
+    id = $('#chonlop').val()
     table2 = $('#tbdacolop').DataTable({
         destroy: true,
         responsive: true,
@@ -60,7 +61,7 @@ function loadtablexeplop(){
         ajax: {
             type: 'get',
             url: '/quanlixeplop.getdata2',
-            data:{id:id}
+            data: {id: id}
         },
         serverSide: false,
         ordering: false,
@@ -78,8 +79,8 @@ function loadtablexeplop(){
         scrollX: true,
         scrollCollapse: true,
         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, 'Tất cả']],
-        initComplete:function () {
-            soluonghienco=table2.rows().count()
+        initComplete: function () {
+            soluonghienco = table2.rows().count()
             checksoluong()
             $('#dacolop').text(soluonghienco)
             $('#Cothethem').text(soluongchophep)
@@ -87,74 +88,88 @@ function loadtablexeplop(){
         }
     });
 }
- function getlop() {
+
+function getlop() {
     $.ajax({
-        type:'get',
-        url:'/quanlixeplop.getlophoc',
-    }).then( function (res) {
+        type: 'get',
+        url: '/quanlixeplop.getlophoc',
+    }).then(function (res) {
         $('#chonlop option').not('option:eq(0)').remove()
         $('#chonlop').append(res)
     })
 }
+
 function getid() {
-    let checked=[],i=0,
-        lop=$('#chonlop').val();
-    if(lop==null||lop==''){
-        text='Hãy chọn lớp để thực hiện thao tác';
+    let checked = [], i = 0,
+        lop = $('#chonlop').val();
+    if (lop == null || lop == '') {
+        text = 'Hãy chọn lớp để thực hiện thao tác';
         ErrorNotify(text)
-    }
-    else if(checksoluong()==false){
+        return false
+    } else if (checksoluong() == false) {
         return false;
     }
-     table1.rows().every(function(index, element) {
+    clastuoi = $('#chonlop').find('option:selected').data('dotuoi');
+    console.log(clastuoi,lop)
+    table1.rows().every(function (index, element) {
         var row = $(this.node());
         // console.log(row.find('td:eq(0)').find('input').is(':checked'))
-          if(row.find('td:eq(0)').find('input').is(':checked')){
-              checked[i] = row.find('td:eq(0)').find('input:checked').val();
-            i++;
+        if (row.find('td:eq(0)').find('input').is(':checked')) {
+            dotuoicurrent = row.find('td:eq(2)').find('label').data('dotuoi');
+            ten = row.find('td:eq(1)').text();
+            if (dotuoicurrent == clastuoi) {
+                checked[i] = row.find('td:eq(0)').find('input:checked').val();
+                i++;
+            } else {
+                row.find('td:eq(0)').find('input').prop("checked",false)
+                ErrorNotify('Bé ' + ten + ' chưa đủ tuổi hoặc lớn hơn tuổi quy định')
+            }
         }
     })
-    if(checked!=""&& checked.length<=soluongchophep){
+    if (checked != "" && checked.length <= soluongchophep) {
         $.ajax({
-            type:'post',
-            url:'/quanlixeplop.xeplop',
-            data:{check:checked,lop:lop}
+            type: 'post',
+            url: '/quanlixeplop.xeplop',
+            data: {check: checked, lop: lop}
         }).then(function (res) {
-            if(res=='1'){
-                let text='Xếp lớp thành công';
+            if (res == '1') {
+                let text = 'Xếp lớp thành công';
                 Success(text)
-                table1.ajax.reload(null,false);
+                table1.ajax.reload(null, false);
                 $('#chonlop').val(lop).trigger('change')
-            }else {
-                let text='Có lỗi trong quá trình thực hiện'+res
+            } else {
+                let text = 'Có lỗi trong quá trình thực hiện' + res
                 ErrorNotify(text)
             }
         })
-    }
-    else if (checksoluong()!=false && checked.length>soluongchophep){
-        let soluong=checked.length-soluongchophep;
-        text='Số lượng thêm vượt hơn '+soluong+' học sinh'
+    } else if (checksoluong() != false && checked.length > soluongchophep) {
+        let soluong = checked.length - soluongchophep;
+        text = 'Số lượng thêm vượt hơn ' + soluong + ' học sinh'
         ErrorNotify(text)
     }
 }
-function checksoluong(){
-    tong=$('#chonlop option:selected').data('soluong')
-    soluongchophep=tong-soluonghienco;
+
+function checksoluong() {
+    tong = $('#chonlop option:selected').data('soluong')
+    soluongchophep = tong - soluonghienco;
     // console.log(soluongchophep,tong,soluonghienco)
-    if(tong==null){
-        soluongchophep='#';
+    if (tong == null) {
+        soluongchophep = '#';
     }
-    if(soluongchophep==0){
-        text='Lớp đã đủ học sinh';
+    if (soluongchophep == 0) {
+        text = 'Lớp đã đủ học sinh';
         ErrorNotify(text);
         return false;
     }
 }
-$('#chonlop').on('change',function () {
+
+$('#chonlop').on('change', function () {
     loadtablexeplop()
+    $('#dotuoi').text($(this).find('option:selected').data('dotuoi'))
 })
+
 function reloadtable() {
-    lop=$('#chonlop').val()
-    table1.ajax.reload(null,false);
+    lop = $('#chonlop').val()
+    table1.ajax.reload(null, false);
     $('#chonlop').val(lop).trigger('change')
 }

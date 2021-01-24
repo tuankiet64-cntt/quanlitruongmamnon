@@ -29,12 +29,15 @@
                                             <input class="input--style-3" id="ten-hocsinh" type="text"
                                                    placeholder="Họ và tên của bé" name="name"
                                                    title="This is the text of the tooltip">
+                                            <span style="font-size: 34px;"><i class="error d-none text-danger fa fa-ban"></i></span>
+
                                         </div>
                                         <div class="input-group">
                                             <div>
                                                 <input class="input--style-3 js-datepicker" id="ngay-sinh" type="text"
                                                        placeholder="Ngày sinh" name="birthday">
                                                 <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+
                                             </div>
                                         </div>
                                         <div class="input-group">
@@ -46,6 +49,8 @@
                                         <div class="input-group">
                                             <input class="input--style-3" id="ho-khau-thuong-tru"
                                                    placeholder="Hộ khẩu thương trú">
+                                            <span style="font-size: 34px;"><i class="error d-none text-danger fa fa-ban"></i></span>
+
                                         </div>
                                         <div class="input-group">
                                             <input class="input--style-3" type="text" id="dia-chi"
@@ -54,6 +59,8 @@
                                         <div class="input-group">
                                             <input class="input--style-3" type="text" id="suc-khoe"
                                                    placeholder="Tình trạng sức khỏe của bé" name="phone">
+                                            <span style="font-size: 34px;"><i class="error d-none text-danger fa fa-ban"></i></span>
+
                                         </div>
                                     </div>
                                     <div class="col-lg-12" style="color: white">
@@ -63,14 +70,20 @@
                                                 <div class="input-group">
                                                     <input class="input--style-3" type="text" id="ho-ten-ph"
                                                            placeholder="Họ và tên " name="phone">
+                                                    <span style="font-size: 34px;"><i class="error d-none text-danger fa fa-ban"></i></span>
+
                                                 </div>
                                                 <div class="input-group">
                                                     <input class="input--style-3" type="text" id="sdt-ph"
                                                            placeholder="Số điện thoại" name="phone">
+                                                    <span style="font-size: 34px;"><i class="error d-none text-danger fa fa-ban"></i></span>
+
                                                 </div>
                                                 <div class="input-group">
                                                     <input class="input--style-3" type="text" id="mail-ph"
                                                            placeholder="Địa chỉ email" name="phone">
+                                                    <span style="font-size: 34px;"><i class="error d-none text-danger fa fa-ban"></i></span>
+
                                                 </div>
                                             </div>
                                         </div>

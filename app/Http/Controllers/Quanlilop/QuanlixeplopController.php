@@ -43,7 +43,9 @@ class QuanlixeplopController extends Controller
 
     public function gettypelop()
     {
-        $data = danhmuclophoc::where('id', '>', 1)->get()->toArray();
+        $data = danhmuclophoc::where('id', '>', 1)
+            ->where('stt','<',3)
+            ->get()->toArray();
         $res = [];
         for ($i = 0; $i < count($data); $i++) {
             $res[$i] = '<option value="' . $data[$i]['id'] . '">' . $data[$i]['loptuoi'] . '</option>';

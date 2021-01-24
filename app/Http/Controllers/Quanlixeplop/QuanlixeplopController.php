@@ -43,7 +43,7 @@ class QuanlixeplopController extends Controller
                     $year_diff--;
                     $month_diff=12-$month+date("m");
                 }
-                return '<label class="text-center">' . $year_diff . ' tuổi '.$month_diff.' tháng</label>';
+                return '<label class="text-center" data-dotuoi="'.$year_diff.'">' . $year_diff . ' tuổi '.$month_diff.' tháng</label>';
             })
 //            ->addColumn('status', function ($row) {
 //                if ($row['trangthai'] == 0) {
@@ -146,11 +146,13 @@ class QuanlixeplopController extends Controller
         }
     }
     public function getLopHoc(){
-        $data=lophoc::all();
+        $data=lophoc::join('danhmuclop as dm','dm.id','lophoc.madanhmuclop')
+            ->select('lophoc.id','dm.dotuoi','lophoc.soluong','lophoc.tenlop')
+            ->get();
         $loop=[];
         for ($i=0;$i<count($data);$i++){
             if($data[$i]['id']!=1){
-                $loop[$i]='<option class="text-center" value="'.$data[$i]['id'].'" data-soluong="'.$data[$i]['soluong'].'">'.$data[$i]['tenlop'].'</option>';
+                $loop[$i]='<option class="text-center" data-dotuoi="'.$data[$i]['dotuoi'].'" value="'.$data[$i]['id'].'" data-soluong="'.$data[$i]['soluong'].'">'.$data[$i]['tenlop'].'</option>';
             }
         }
         $res=implode('',$loop);

@@ -1,8 +1,9 @@
 let realtotal = '',
-    oldClass = '';
-
-function openModalUpdate(id,idclassold, r) {
+    oldClass = '',
+    sttold = '';
+function openModalUpdate(id,idclassold,r,stt){
     oldClass = idclassold;
+    sttold = stt;
     $('#update-modal').modal('show')
     loadtable(id)
     realtotal = r.parents('tr').find('td:eq(2)').text()
@@ -47,48 +48,53 @@ function loadtable(id) {
 function update() {
     let soluongcualop = $('input[type=radio]:checked').data('soluong'),
         id = $('input[type=radio]:checked').data('id'),
-        checktontai = '';
-        let title='Cảnh báo',
-            text = 'Lịch dạy của lớp sẽ xóa giáo viên.Hãy thêm giáo viên vào lịch dạy sau khi thực hiện thao tác';
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: 'btn btn-primary btn-sweet-alert',
-                cancelButton: 'btn btn-default btn-sweet-alert'
-            },
-            buttonsStyling: false
-        });
-        swalWithBootstrapButtons.fire({
-            title: title,
-            text:text,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Đồng ý',
-            cancelButtonText: 'Hủy',
-            reverseButtons: true,
-            focusConfirm: true,
-        }).then((result) => {
-            if (result.value) {
-                $.ajax({
-                    type: 'post',
-                    url: '/lenlop.update',
-                    data: {id: id, oldClass: oldClass}
-                }).then(function (res) {
-                    if (res = 1) {
+        checktontai = '',
+        stt = $('input[type=radio]:checked').data('stt');
+    console.log(stt,sttold)
+    if (parseFloat(stt - sttold) >= 2) {
+        ErrorNotify('Hiện lớp này chưa đủ điều kiện để lên lớp bạn chọn')
+        return false;
+    }
+    let title = 'Cảnh báo',
+        text = 'Lịch dạy của lớp sẽ xóa giáo viên.Hãy thêm giáo viên vào lịch dạy sau khi thực hiện thao tác';
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-primary btn-sweet-alert',
+            cancelButton: 'btn btn-default btn-sweet-alert'
+        },
+        buttonsStyling: false
+    });
+    swalWithBootstrapButtons.fire({
+        title: title,
+        text: text,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Đồng ý',
+        cancelButtonText: 'Hủy',
+        reverseButtons: true,
+        focusConfirm: true,
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type: 'post',
+                url: '/lenlop.update',
+                data: {id: id, oldClass: oldClass}
+            }).then(function (res) {
+                if (res = 1) {
 
-                        text = 'Đã lên lớp thành công';
-                        Success(text)
-                        closeModalUpdate()
-                        reloadtable()
-                    } else {
-                        text = 'Có lỗi trong quá trình thực hiền';
-                        ErrorNotify(text)
-                    }
-                })
-            } else {
-                return false;
-            }
-        })
-
+                    text = 'Đã lên lớp thành công';
+                    Success(text)
+                    closeModalUpdate()
+                    reloadtable()
+                } else {
+                    text = 'Có lỗi trong quá trình thực hiền';
+                    ErrorNotify(text)
+                }
+            })
+        } else {
+            return false;
+        }
+    })
 
 
 }

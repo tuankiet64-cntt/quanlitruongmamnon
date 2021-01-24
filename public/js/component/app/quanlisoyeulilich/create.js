@@ -6,23 +6,25 @@ $('#create-modal').on('shown.bs.modal', function () {
         }
     })
 })
-$('#create-modal').on('hide.bs.modal', function () {
-    $.each($(this).find('input'), function () {
+$('#create-modal').on('hidden.bs.modal', function () {
+    $.each($(this).find('.need'), function () {
         $(this).removeClass('errorclass')
-
     })
 })
 var status = 0;
 $('#add_ph').on('click', function () {
-    console.log(status)
-    if(status == 1){
+    if (status == 1) {
         $('.ph-add').addClass("d-none");
         $(this).text("Thêm người thân")
-        status=0;
+        $(this).toggleClass("btn-primary")
+        $(this).toggleClass("btn-danger")
+        status = 0;
         return
     }
     $('.ph-add').removeClass("d-none");
     $(this).text("Xóa người thân")
+    $(this).toggleClass("btn-primary")
+    $(this).toggleClass("btn-danger")
     status = 1;
 })
 $('.datetimepicker').on('change', function () {
@@ -75,34 +77,8 @@ function createhs() {
         checkhokhau = checkRequire('Hộ khẩu thường trú', hokhauthuongtru),
         checkdantoc = checkRequire('Dân tộc', dantoc),
         checkngayvao = checkDate('Ngày vào trường', ngayvaotruong);
-    if (status == 1) {
-        let checktenph_add = checkRequire('Họ tên phụ huynh', hotenph_add),
-            checkngaysinhph_add = checkDate('Ngày sinh của phụ huynh', ngaysinh_ph_add),
-            checktenph = checkRequire('Họ tên phụ huynh', hotenph),
-            checkngaysinhph = checkDate('Ngày sinh của phụ huynh', ngaysinh_ph),
-            checksdtph = checkPhone('Số điện thoại phụ huynh', sdt_ph),
-            checkemailph = checkEmail('Email phụ huynh', email_ph),
-            checknghenghiepph = checkRequire('Nghề nghiệp của phụ huynh', nghenghiep_ph);
-        if (checktenhs ==false||checkngaysinh==false||checkdiachi==false||checkhokhau==false||checkdantoc==false||checkngayvao==false||
-        checktenph_add==false||checkngaysinhph_add==false||checktenph==false||checkngaysinhph==false||checksdtph==false||checkemailph==false||checknghenghiepph)
+    var data =
         {
-            return false;
-        }
-    } else {
-        let checktenph = checkRequire('Họ tên phụ huynh', hotenph),
-            checkngaysinhph = checkDate('Ngày sinh của phụ huynh', ngaysinh_ph),
-            checksdtph = checkPhone('Số điện thoại phụ huynh', sdt_ph),
-            checkemailph = checkEmail('Email phụ huynh', email_ph);
-        if (checktenhs ==false||checkngaysinh==false||checkdiachi==false||checkhokhau==false||checkdantoc==false||checkngayvao==false
-           ||checktenph==false||checkngaysinhph==false||checksdtph==false||checkemailph==false)
-        {
-            return false;
-        }
-    }
-    $.ajax({
-        type: 'post',
-        url: '/qlsyll.create',
-        data: {
             tenhs: tenhs,
             tenthuonggoi: tenthuonggoi,
             ngaysinh_hs: ngaysinh_hs,
@@ -132,6 +108,39 @@ function createhs() {
             quanhe: quanhe,
             quanhe_ph: quanhe_ph
         }
+    if (status == 1) {
+        let checktenph_add = checkRequire('Họ tên phụ huynh 2', hotenph_add),
+            checkngaysinhph_add = checkDate('Ngày sinh của phụ huynh 2', ngaysinh_ph_add),
+            checktenph = checkRequire('Họ tên phụ huynh', hotenph),
+            checkngaysinhph = checkDate('Ngày sinh của phụ huynh 1 ', ngaysinh_ph),
+            checksdtph = checkPhone('Số điện thoại phụ huynh 1', sdt_ph),
+            checkemailph = checkEmail('Email phụ huynh 1', email_ph),
+            checknghenghiepph = checkRequire('Nghề nghiệp của phụ huynh 1', nghenghiep_ph);
+        if (checktenhs == false || checkngaysinh == false || checkdiachi == false || checkhokhau == false || checkdantoc == false || checkngayvao == false ||
+            checktenph_add == false || checkngaysinhph_add == false || checktenph == false || checkngaysinhph == false || checksdtph == false || checkemailph == false || checknghenghiepph==false) {
+            return false;
+        }
+        loadajax(data)
+
+    } else {
+        let checktenph = checkRequire('Họ tên phụ huynh', hotenph),
+            checkngaysinhph = checkDate('Ngày sinh của phụ huynh', ngaysinh_ph),
+            checksdtph = checkPhone('Số điện thoại phụ huynh', sdt_ph),
+            checkemailph = checkEmail('Email phụ huynh', email_ph);
+        if (checktenhs == false || checkngaysinh == false || checkdiachi == false || checkhokhau == false || checkdantoc == false || checkngayvao == false
+            || checktenph == false || checkngaysinhph == false || checksdtph == false || checkemailph == false) {
+            return false;
+        }
+        loadajax(data)
+
+    }
+}
+
+function loadajax(data) {
+    $.ajax({
+        type: 'post',
+        url: '/qlsyll.create',
+        data: data
     }).then(function (res) {
         if (res == 1) {
             reloadTable();
@@ -144,5 +153,4 @@ function createhs() {
             return false;
         }
     })
-
 }

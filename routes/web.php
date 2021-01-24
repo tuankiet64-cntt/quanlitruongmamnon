@@ -69,7 +69,9 @@ Route::group(
         Route::get('qlsyll.getdatahocsinh', 'QuanliSYLLController@getDatahs');
         Route::post('qlsyll.create', 'QuanliSYLLController@create');
         Route::get('qlsyll.getdatahocsinhupdate', 'QuanliSYLLController@getDatahsUpdate');
+        Route::get('qlsyll.getdataphbyid', 'QuanliSYLLController@getdataphbyid');
         Route::post('qlsyll.update', 'QuanliSYLLController@update');
+        Route::post('qlsyll.updateph', 'QuanliSYLLController@updateph');
     }
 );
 /**

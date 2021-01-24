@@ -205,6 +205,15 @@ class QuanliSYLLController extends Controller
 //                    return '<label class="text-primary">Nữ</label>';
 //                }
 //            })
+            ->addColumn('quanhe', function ($row) {
+                if ($row['quanhe'] == 1) {
+                    return '<label class="text-primary">Cha</label>';
+                } else if ($row['quanhe'] == 2) {
+                    return '<label class="text-primary">Me</label>';
+                }else{
+                    return '<label class="text-primary">Người thân</label>';
+                }
+            })
             ->addColumn('ngaysinh', function ($row) {
                 return '<label class="text-center">' . date("d-m-Y", strtotime($row['ngaysinh'])) . '</label>';
             })
@@ -222,12 +231,12 @@ class QuanliSYLLController extends Controller
 //            })
             ->addColumn('action', function ($row) {
                 return '<div class="btn-group btn-group-sm">
-                            <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="UpdateSYLL(' . $row['id'] . ')" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="icofont icofont-ui-edit"></span></button>
+                            <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="getdataphid(' . $row['id'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="icofont icofont-ui-edit"></span></button>
                         </div>';
 
             })
             ->addIndexColumn()
-            ->rawColumns(['gioitinh', 'action', 'ngaysinh','lop'])
+            ->rawColumns(['gioitinh', 'action', 'ngaysinh','lop','quanhe'])
             ->make();
         $data['ngaysinh'] = date("d-m-Y", strtotime($data['ngaysinh']));
         $data['ngayvaotruong'] = date("d-m-Y", strtotime($data['ngaysinh']));
@@ -266,6 +275,35 @@ class QuanliSYLLController extends Controller
         $hs->tongiao = $tongiao;
         $hs->malophoc=$lophoc;
         if($hs->save()){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+    function getdataphbyid(Request $request){
+        $id=$request->get('id');
+        $data=phuhuynh::where('id',"=",$id)->first();
+        $data['ngaysinh'] = date("d-m-Y", strtotime($data['ngaysinh']));
+        return $data;
+    }
+    function updateph(Request $request){
+        $id=$request->get('id');
+        $hotenph = $request->get('hotenph');
+        $ngaysinh_ph = $request->get('ngaysinh_ph');
+        $sdt_ph = $request->get('sdt_ph');
+        $email_ph = $request->get('email_ph');
+        $nghenghiep_ph = $request->get('nghenghiep_ph');
+        $tencongty_ph = $request->get('tencongty_ph');
+        $quanhe=$request->get('quanhe');
+        $ph=phuhuynh::where('id','=',$id)->first();
+        $ph->hovaten = $hotenph;
+        $ph->sdt = $sdt_ph;
+        $ph->email = $email_ph;
+        $ph->quanhe = $quanhe;
+        $ph->ngaysinh = date("Y-m-d", strtotime($ngaysinh_ph));
+        $ph->nghenghiep = $nghenghiep_ph;
+        $ph->tendonvi = $tencongty_ph;
+        if($ph->save()){
             return 1;
         }else{
             return 0;

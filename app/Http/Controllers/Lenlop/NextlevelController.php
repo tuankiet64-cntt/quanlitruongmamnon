@@ -30,13 +30,13 @@ class NextlevelController extends Controller
         $data = hocsinh::where('malophoc', '<>', 1)
             ->join('lophoc as lh', 'lh.id', 'malophoc')
             ->join('danhmuclop as dm','dm.id','lh.madanhmuclop')
-            ->select('lh.tenlop','dm.loptuoi','dm.id', DB::raw('COUNT(hocsinh.id) as soluong'), 'malophoc')
-            ->groupBy('lh.tenlop', 'malophoc','dm.loptuoi','dm.id')
+            ->select('lh.tenlop','dm.loptuoi','dm.id', DB::raw('COUNT(hocsinh.id) as soluong'), 'malophoc','dm.stt')
+            ->groupBy('lh.tenlop', 'malophoc','dm.loptuoi','dm.id','dm.stt')
             ->get()->toArray();
         return DataTables::of($data)
             ->addColumn('action', function ($row) {
                 return '<div class="btn-group btn-group-sm">
-                            <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="openModalUpdate(' . $row['id'] . ',' . $row['malophoc'] . ',$(this))" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-chevron-up"></span></button>
+                            <button type="button" class="tabledit-edit-button btn btn-warning waves-effect waves-light modal-ajax-edit" id="modal-ajax-edit" onclick="openModalUpdate(' . $row['id'] . ',' . $row['malophoc'] . ',$(this),' . $row['stt'] . ')" data-toggle="modal" data-target="#area_update" title="Chỉnh sửa"><span class="fa fa-chevron-up"></span></button>
                         </div>';
 
             })
@@ -54,7 +54,7 @@ class NextlevelController extends Controller
             ->addColumn('action', function ($row) {
                 return '<div class="form-radio"><div class="radio radio-inline">
                                                                             <label>
-                                                                                <input type="radio" name="check" data-id="' . $row['id'] . '" id="status" value="1">
+                                                                                <input type="radio" name="check" data-id="' . $row['id'] . '" data-stt="' . $row['stt'] . '" id="status" value="1">
                                                                                 <i class="helper"></i>
                                                                             </label>
                                                                         </div></div>';
